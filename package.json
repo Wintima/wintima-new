@@ -1,18 +1,27 @@
 {
-  "name": "yeremallu-foundation",
+  "name": "wintima-foundation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck",
+    "test:e2e": "playwright test",
+    "test:e2e:legacy": "playwright test --project=legacy-smoke",
+    "test:e2e:rebrand": "playwright test --project=rebrand",
+    "security:audit": "npm audit --audit-level=high",
+    "ci:check": "npm run validate && npm run build && npm run security:audit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.3.3",
+    "@next/third-parties": "15.5.18",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-navigation-menu": "^1.2.13",
@@ -24,7 +33,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.16.0",
     "lucide-react": "^0.513.0",
-    "next": "15.3.3",
+    "next": "15.5.18",
     "next-themes": "^0.4.6",
     "postcss": "^8.5.4",
     "react": "^19.0.0",
@@ -36,14 +45,22 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.3.3",
+    "eslint-config-next": "15.5.18",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
     "tailwindcss": "^4.1.8",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0"
+    ]
   }
 }

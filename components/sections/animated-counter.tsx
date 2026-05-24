@@ -59,11 +59,11 @@ export function AnimatedCounter({
       className="text-center p-6"
     >
       <div className="mb-4">
-        <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-earthy-green">
+        <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-wintima-maroon">
           {prefix}{count.toLocaleString()}{suffix}
         </span>
       </div>
-      <h3 className="text-xl md:text-2xl font-semibold text-deep-charcoal mb-2">
+      <h3 className="text-xl md:text-2xl font-semibold text-wintima-charcoal mb-2">
         {label}
       </h3>
       {description && (

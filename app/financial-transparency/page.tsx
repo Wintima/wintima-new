@@ -38,28 +38,28 @@ export default function FinancialTransparencyPage() {
       label: "Program Efficiency", 
       description: "Percentage of funds directly supporting our programs",
       icon: <TrendingUp className="h-6 w-6" />,
-      color: "text-earthy-green"
+      color: "text-wintima-maroon"
     },
     { 
       number: "5%", 
       label: "Administrative Costs", 
       description: "Minimal overhead to maximize impact",
       icon: <PieChart className="h-6 w-6" />,
-      color: "text-sunset-orange"
+      color: "text-wintima-maroon"
     },
     { 
       number: "100%", 
       label: "Transparency", 
       description: "Complete financial disclosure and accountability",
       icon: <Shield className="h-6 w-6" />,
-      color: "text-deep-charcoal"
+      color: "text-wintima-charcoal"
     },
     { 
       number: "4.9/5", 
       label: "Donor Trust Rating", 
       description: "Based on transparency and impact metrics",
       icon: <Award className="h-6 w-6" />,
-      color: "text-earthy-green"
+      color: "text-wintima-maroon"
     }
   ];
 
@@ -88,9 +88,9 @@ export default function FinancialTransparencyPage() {
   ];
 
   const expenseBreakdown = [
-    { category: "Program Services", percentage: 75, amount: "$1.875M", color: "bg-earthy-green" },
-    { category: "Community Outreach", percentage: 15, amount: "$375K", color: "bg-sunset-orange" },
-    { category: "Administrative", percentage: 5, amount: "$125K", color: "bg-deep-charcoal" },
+    { category: "Program Services", percentage: 75, amount: "$1.875M", color: "bg-wintima-maroon" },
+    { category: "Community Outreach", percentage: 15, amount: "$375K", color: "bg-wintima-maroon" },
+    { category: "Administrative", percentage: 5, amount: "$125K", color: "bg-wintima-charcoal" },
     { category: "Fundraising", percentage: 5, amount: "$125K", color: "bg-medium-gray" }
   ];
 
@@ -118,10 +118,10 @@ export default function FinancialTransparencyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-white to-light-gray">
+    <div className="min-h-screen bg-gradient-to-br from-wintima-light via-white to-wintima-light">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-earthy-green/10 to-sunset-orange/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-wintima-maroon/10 to-wintima-maroon/10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -129,11 +129,11 @@ export default function FinancialTransparencyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge className="mb-6 bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+            <Badge className="mb-6 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
               <Shield className="h-4 w-4 mr-2" />
               Financial Accountability
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-deep-charcoal mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-wintima-charcoal mb-6">
               Financial Transparency
             </h1>
             <p className="text-xl md:text-2xl text-medium-gray mb-8 leading-relaxed">
@@ -142,7 +142,7 @@ export default function FinancialTransparencyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 View Annual Reports
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -150,7 +150,7 @@ export default function FinancialTransparencyPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-sunset-orange text-sunset-orange hover:bg-sunset-orange hover:!text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:!text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Download Financials
               </Button>
@@ -169,7 +169,7 @@ export default function FinancialTransparencyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Financial Commitment
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -194,10 +194,10 @@ export default function FinancialTransparencyPage() {
                     <div className={`${metric.color} mb-4 flex justify-center`}>
                       {metric.icon}
                     </div>
-                    <CardTitle className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-2">
+                    <CardTitle className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-2">
                       {metric.number}
                     </CardTitle>
-                    <CardTitle className="text-deep-charcoal">{metric.label}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{metric.label}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray text-center text-sm">{metric.description}</p>
@@ -210,7 +210,7 @@ export default function FinancialTransparencyPage() {
       </section>
 
       {/* Expense Breakdown */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-earthy-green/5 to-sunset-orange/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon/5 to-wintima-maroon/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid lg:grid-cols-2 gap-12 items-center"
@@ -220,14 +220,14 @@ export default function FinancialTransparencyPage() {
             viewport={{ once: true }}
           >
             <div>
-              <Badge className="mb-4 bg-sunset-orange/10 text-sunset-orange border-sunset-orange/20">
+              <Badge className="mb-4 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                 Fund Allocation
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-6">
                 How We Use Your Donations
               </h2>
               <p className="text-lg text-medium-gray mb-8 leading-relaxed">
-                Every dollar donated to the Yeremallu Foundation is carefully allocated to maximize 
+                Every dollar donated to the Wintima Foundation is carefully allocated to maximize 
                 community impact while maintaining the highest standards of transparency and accountability.
               </p>
               
@@ -236,10 +236,10 @@ export default function FinancialTransparencyPage() {
                   <div key={index} className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className={`w-4 h-4 rounded-full ${item.color}`}></div>
-                      <span className="font-medium text-deep-charcoal">{item.category}</span>
+                      <span className="font-medium text-wintima-charcoal">{item.category}</span>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-deep-charcoal">{item.percentage}%</div>
+                      <div className="font-bold text-wintima-charcoal">{item.percentage}%</div>
                       <div className="text-sm text-medium-gray">{item.amount}</div>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default function FinancialTransparencyPage() {
             
             <div className="relative">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-xl font-semibold text-deep-charcoal mb-6 text-center">
+                <h3 className="text-xl font-semibold text-wintima-charcoal mb-6 text-center">
                   Total Budget: $2.5M
                 </h3>
                 <div className="relative w-64 h-64 mx-auto">
@@ -298,7 +298,7 @@ export default function FinancialTransparencyPage() {
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-deep-charcoal">95%</div>
+                      <div className="text-2xl font-bold text-wintima-charcoal">95%</div>
                       <div className="text-sm text-medium-gray">Programs</div>
                     </div>
                   </div>
@@ -319,7 +319,7 @@ export default function FinancialTransparencyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Annual Reports & Financial Statements
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -342,25 +342,25 @@ export default function FinancialTransparencyPage() {
                 <Card className="h-full hover:shadow-xl transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
-                      <Badge className="bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+                      <Badge className="bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                         {report.year}
                       </Badge>
                       <FileText className="h-6 w-6 text-medium-gray" />
                     </div>
-                    <CardTitle className="text-deep-charcoal">{report.title}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{report.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray mb-6">{report.description}</p>
                     <div className="space-y-2 mb-6">
                       {report.highlights.map((highlight, i) => (
                         <div key={i} className="flex items-center">
-                          <CheckCircle className="h-4 w-4 text-earthy-green mr-2" />
-                          <span className="text-sm text-deep-charcoal">{highlight}</span>
+                          <CheckCircle className="h-4 w-4 text-wintima-maroon mr-2" />
+                          <span className="text-sm text-wintima-charcoal">{highlight}</span>
                         </div>
                       ))}
                     </div>
                     <Button 
-                      className="w-full bg-earthy-green hover:bg-earthy-green/90 text-white"
+                      className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download Report
@@ -374,7 +374,7 @@ export default function FinancialTransparencyPage() {
       </section>
 
       {/* Transparency Commitments */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-light-gray to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-light to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -383,7 +383,7 @@ export default function FinancialTransparencyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Transparency Commitments
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -405,10 +405,10 @@ export default function FinancialTransparencyPage() {
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   <CardHeader className="text-center">
-                    <div className="text-earthy-green mb-4 flex justify-center">
+                    <div className="text-wintima-maroon mb-4 flex justify-center">
                       {commitment.icon}
                     </div>
-                    <CardTitle className="text-deep-charcoal">{commitment.title}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{commitment.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray text-center">{commitment.description}</p>
@@ -421,7 +421,7 @@ export default function FinancialTransparencyPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-earthy-green to-sunset-orange">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon to-wintima-maroon">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center text-white"
@@ -439,7 +439,7 @@ export default function FinancialTransparencyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-earthy-green hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-wintima-maroon hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Contact Finance Team
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -447,7 +447,7 @@ export default function FinancialTransparencyPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:!text-earthy-green px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:!text-wintima-maroon px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Request Information
                 <FileText className="ml-2 h-5 w-5" />

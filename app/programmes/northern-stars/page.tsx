@@ -94,21 +94,21 @@ const successStories = [
     author: "Amina S.",
     role: "Medical Student",
     program: "Northern Stars Graduate",
-    image: "/images/yeremallu-1.JPG"
+    image: "/images/wintima-1.jpg"
   },
   {
     quote: "The program taught me more than academics. I learned confidence, leadership, and how to think globally while staying rooted in my community values.",
     author: "Ibrahim K.",
     role: "Engineering Student",
     program: "Northern Stars Graduate",
-    image: "/images/yeremallu-2.JPG"
+    image: "/images/wintima-2.jpg"
   },
   {
     quote: "Through Northern Stars, I discovered my passion for education. I&apos;m now studying to become a teacher so I can give back to rural schools like mine.",
     author: "Fatima A.",
     role: "Education Student",
     program: "Current Mentee",
-    image: "/images/yeremallu-3.JPG"
+    image: "/images/wintima-3.jpg"
   }
 ];
 
@@ -140,11 +140,11 @@ export default function NorthernStarsPage() {
         description="Connecting rural students in Northern Ghana with global mentors to unlock their potential and pursue higher education"
         height="medium"
         textAlign="center"
-        backgroundImage="/images/yeremallu-9.JPG"
+        backgroundImage="/images/wintima-9.jpg"
       />
 
       {/* Program Statistics */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -153,7 +153,7 @@ export default function NorthernStarsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Program Impact
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -192,7 +192,7 @@ export default function NorthernStarsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               How It Works
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -213,15 +213,15 @@ export default function NorthernStarsPage() {
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-earthy-green text-white rounded-full flex items-center justify-center font-bold text-lg">
+                        <div className="w-12 h-12 bg-wintima-maroon text-white rounded-full flex items-center justify-center font-bold text-lg">
                           {step.step}
                         </div>
                       </div>
-                      <div className="p-3 bg-earthy-green/10 rounded-full text-earthy-green">
+                      <div className="p-3 bg-wintima-maroon/10 rounded-full text-wintima-maroon">
                         {step.icon}
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-3">
+                    <h3 className="text-xl font-bold text-wintima-charcoal mb-3">
                       {step.title}
                     </h3>
                     <p className="text-medium-gray leading-relaxed">
@@ -236,7 +236,7 @@ export default function NorthernStarsPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 lg:py-24 bg-warm-sand">
+      <section className="py-16 lg:py-24 bg-wintima-warm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -245,7 +245,7 @@ export default function NorthernStarsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Success Stories
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -279,7 +279,7 @@ export default function NorthernStarsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
                 Apply as a Student
               </h2>
               <p className="text-lg text-medium-gray mb-8 leading-relaxed">
@@ -289,21 +289,21 @@ export default function NorthernStarsPage() {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">
                     Eligibility Criteria
                   </h3>
                   <ul className="space-y-3">
                     {eligibilityCriteria.map((criteria, index) => (
                       <li key={index} className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-earthy-green mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-wintima-maroon mt-0.5 flex-shrink-0" />
                         <span className="text-medium-gray">{criteria}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-light-gray p-6 rounded-lg">
-                  <h4 className="font-semibold text-deep-charcoal mb-2">Application Timeline</h4>
+                <div className="bg-wintima-light p-6 rounded-lg">
+                  <h4 className="font-semibold text-wintima-charcoal mb-2">Application Timeline</h4>
                   <div className="flex items-center space-x-2 text-medium-gray">
                     <Clock className="h-4 w-4" />
                     <span>Applications open: January & September</span>
@@ -321,8 +321,8 @@ export default function NorthernStarsPage() {
               <Card className="border-0 shadow-xl">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <GraduationCap className="h-12 w-12 text-earthy-green mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-deep-charcoal mb-2">
+                    <GraduationCap className="h-12 w-12 text-wintima-maroon mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold text-wintima-charcoal mb-2">
                       Start Your Journey
                     </h3>
                     <p className="text-medium-gray">
@@ -334,7 +334,7 @@ export default function NorthernStarsPage() {
                     <Button
                       asChild
                       size="lg"
-                      className="w-full bg-earthy-green hover:bg-earthy-green/90 text-white"
+                      className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
                     >
                       <Link href="/contact?program=northern-stars-student">
                         Apply Now
@@ -345,7 +345,7 @@ export default function NorthernStarsPage() {
                       asChild
                       variant="outline"
                       size="lg"
-                      className="w-full border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white"
+                      className="w-full border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:text-white"
                     >
                       <Link href="/contact">
                         Ask Questions
@@ -357,7 +357,7 @@ export default function NorthernStarsPage() {
 
                   <div className="text-center text-sm text-medium-gray">
                     <p>Need help with your application?</p>
-                    <p>Contact us at <span className="text-earthy-green font-medium">mentorship@yeremallufoundation.org</span></p>
+                    <p>Contact us at <span className="text-wintima-maroon font-medium">mentorship@wintima.org</span></p>
                   </div>
                 </CardContent>
               </Card>
@@ -367,7 +367,7 @@ export default function NorthernStarsPage() {
       </section>
 
       {/* Mentor Application Section */}
-      <section id="become-mentor" className="py-16 lg:py-24 bg-earthy-green text-white">
+      <section id="become-mentor" className="py-16 lg:py-24 bg-wintima-maroon text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -379,7 +379,7 @@ export default function NorthernStarsPage() {
               <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <Globe className="h-12 w-12 text-soft-gold mx-auto mb-4" />
+                    <Globe className="h-12 w-12 text-wintima-gold mx-auto mb-4" />
                     <h3 className="text-2xl font-bold mb-2">
                       Become a Mentor
                     </h3>
@@ -392,7 +392,7 @@ export default function NorthernStarsPage() {
                     <Button
                       asChild
                       size="lg"
-                      className="w-full bg-sunset-orange hover:bg-sunset-orange/90 text-white"
+                      className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
                     >
                       <Link href="/contact?program=northern-stars-mentor">
                         Join as Mentor
@@ -403,7 +403,7 @@ export default function NorthernStarsPage() {
                       asChild
                       variant="outline"
                       size="lg"
-                      className="w-full border-white text-white hover:bg-white hover:text-earthy-green"
+                      className="w-full border-white text-white hover:bg-white hover:text-wintima-maroon"
                     >
                       <Link href="/contact">
                         Learn More
@@ -415,7 +415,7 @@ export default function NorthernStarsPage() {
 
                   <div className="text-center text-sm text-white/80">
                     <p>Questions about mentoring?</p>
-                    <p>Email us at <span className="text-soft-gold font-medium">mentors@yeremallufoundation.org</span></p>
+                    <p>Email us at <span className="text-wintima-gold font-medium">mentors@wintima.org</span></p>
                   </div>
                 </CardContent>
               </Card>
@@ -443,7 +443,7 @@ export default function NorthernStarsPage() {
                   <ul className="space-y-3">
                     {mentorBenefits.map((benefit, index) => (
                       <li key={index} className="flex items-start space-x-3">
-                        <Star className="h-5 w-5 text-soft-gold mt-0.5 flex-shrink-0" />
+                        <Star className="h-5 w-5 text-wintima-gold mt-0.5 flex-shrink-0" />
                         <span className="text-white/90">{benefit}</span>
                       </li>
                     ))}
@@ -464,7 +464,7 @@ export default function NorthernStarsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -473,7 +473,7 @@ export default function NorthernStarsPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Ready to Get Started?
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto mb-8">
@@ -484,7 +484,7 @@ export default function NorthernStarsPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3"
               >
                 <Link href="/contact" className="flex items-center space-x-2">
                   <span>Contact Us</span>
@@ -495,7 +495,7 @@ export default function NorthernStarsPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white px-8 py-3"
+                className="border-2 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:text-white px-8 py-3"
               >
                 <Link href="/programmes">View All Programs</Link>
               </Button>

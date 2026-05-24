@@ -136,7 +136,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-earthy-green to-earthy-green/80 text-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-wintima-maroon to-wintima-maroon/80 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -169,7 +169,7 @@ export default function BlogPage() {
       </section>
 
       {/* Featured Posts */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -178,7 +178,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Featured Stories
             </h2>
             <p className="text-lg text-medium-gray max-w-2xl mx-auto">
@@ -203,12 +203,12 @@ export default function BlogPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-sunset-orange text-white">
+                      <Badge className="bg-wintima-maroon text-white">
                         Featured
                       </Badge>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <Badge variant="outline" className="bg-white/90 text-deep-charcoal border-0 mb-2">
+                      <Badge variant="outline" className="bg-white/90 text-wintima-charcoal border-0 mb-2">
                         {post.category}
                       </Badge>
                       <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
@@ -232,18 +232,18 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                          <User className="h-4 w-4 text-earthy-green" />
+                        <div className="w-8 h-8 bg-wintima-maroon/10 rounded-full flex items-center justify-center">
+                          <User className="h-4 w-4 text-wintima-maroon" />
                         </div>
                         <div>
-                          <p className="text-sm font-medium text-deep-charcoal">{post.author}</p>
+                          <p className="text-sm font-medium text-wintima-charcoal">{post.author}</p>
                           <p className="text-xs text-medium-gray">{post.authorRole}</p>
                         </div>
                       </div>
                       <Button
                         asChild
                         variant="ghost"
-                        className="text-earthy-green hover:!text-white hover:!bg-earthy-green"
+                        className="text-wintima-maroon hover:!text-white hover:!bg-wintima-maroon"
                       >
                         <Link href={`/blog/${post.slug}`} className="flex items-center space-x-1">
                           <span>Read More</span>
@@ -269,7 +269,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               All Stories
             </h2>
             <p className="text-lg text-medium-gray max-w-2xl mx-auto mb-8">
@@ -284,7 +284,7 @@ export default function BlogPage() {
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-3 border-2 border-gray-200 focus:border-earthy-green"
+                className="pl-10 pr-4 py-3 border-2 border-gray-200 focus:border-wintima-maroon"
               />
             </div>
 
@@ -297,8 +297,8 @@ export default function BlogPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`${
                     selectedCategory === category
-                      ? "bg-earthy-green text-white"
-                      : "border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+                      ? "bg-wintima-maroon text-white"
+                      : "border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
                   }`}
                 >
                   {category}
@@ -325,13 +325,13 @@ export default function BlogPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <Badge variant="outline" className="bg-white/90 text-deep-charcoal border-0">
+                      <Badge variant="outline" className="bg-white/90 text-wintima-charcoal border-0">
                         {post.category}
                       </Badge>
                     </div>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-3 line-clamp-2 group-hover:text-earthy-green transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-wintima-charcoal mb-3 line-clamp-2 group-hover:text-wintima-maroon transition-colors duration-300">
                       {post.title}
                     </h3>
                     <p className="text-medium-gray mb-4 line-clamp-3">
@@ -349,10 +349,10 @@ export default function BlogPage() {
                     </div>
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <div className="flex items-center space-x-2">
-                        <div className="w-6 h-6 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                          <User className="h-3 w-3 text-earthy-green" />
+                        <div className="w-6 h-6 bg-wintima-maroon/10 rounded-full flex items-center justify-center">
+                          <User className="h-3 w-3 text-wintima-maroon" />
                         </div>
-                        <span className="text-sm font-medium text-deep-charcoal">{post.author}</span>
+                        <span className="text-sm font-medium text-wintima-charcoal">{post.author}</span>
                       </div>
                       <div className="flex items-center space-x-3 text-sm text-medium-gray">
                         <span className="flex items-center space-x-1">
@@ -363,7 +363,7 @@ export default function BlogPage() {
                           asChild
                           variant="ghost"
                           size="sm"
-                          className="text-earthy-green hover:!text-white hover:!bg-earthy-green p-2"
+                          className="text-wintima-maroon hover:!text-white hover:!bg-wintima-maroon p-2"
                         >
                           <Link href={`/blog/${post.slug}`}>
                             <ArrowRight className="h-4 w-4" />
@@ -392,7 +392,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white">
+      <section className="py-16 lg:py-24 bg-wintima-maroon text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -414,7 +414,7 @@ export default function BlogPage() {
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-white"
               />
               <Button
-                className="bg-sunset-orange hover:!bg-sunset-orange/90 text-white px-8"
+                className="bg-wintima-maroon hover:!bg-wintima-maroon/90 text-white px-8"
               >
                 Subscribe
               </Button>

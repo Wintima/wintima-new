@@ -127,7 +127,7 @@ export default function CommunityGivingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-white to-light-gray">
+    <div className="min-h-screen bg-gradient-to-br from-wintima-light via-white to-wintima-light">
       {/* Hero Section */}
       <HeroSection
         title="Community Giving Program"
@@ -135,7 +135,7 @@ export default function CommunityGivingPage() {
         description="Annual distribution of essential items and support to families in need, strengthening community bonds and providing immediate relief"
         height="medium"
         textAlign="center"
-        backgroundImage="/images/yeremallu-16.JPG"
+        backgroundImage="/images/wintima-13.jpg"
       />
 
       {/* Story Section */}
@@ -149,10 +149,10 @@ export default function CommunityGivingPage() {
             viewport={{ once: true }}
           >
             <div>
-              <Badge className="mb-4 bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+              <Badge className="mb-4 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                 Our Mission
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-6">
                 Building Stronger Communities Together
               </h2>
               <div className="space-y-6 text-medium-gray leading-relaxed">
@@ -174,24 +174,24 @@ export default function CommunityGivingPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-sunset-orange/20 to-earthy-green/20 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-wintima-maroon/20 to-wintima-maroon/20 rounded-2xl p-8">
                 <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">Our Approach</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">Our Approach</h3>
                   <p className="text-medium-gray mb-4">
                     We believe in meeting people where they are and providing support that respects dignity and builds capacity.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Dignified assistance</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Dignified assistance</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Relationship building</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Relationship building</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Sustainable solutions</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Sustainable solutions</span>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function CommunityGivingPage() {
       </section>
 
       {/* Impact Statistics */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-sunset-orange/5 to-earthy-green/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon/5 to-wintima-maroon/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -211,7 +211,7 @@ export default function CommunityGivingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Community Impact
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -233,10 +233,10 @@ export default function CommunityGivingPage() {
                 className="text-center"
               >
                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-sunset-orange mb-3 flex justify-center">
+                  <div className="text-wintima-maroon mb-3 flex justify-center">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-2">
                     {stat.number}
                   </div>
                   <div className="text-medium-gray text-sm md:text-base">
@@ -259,7 +259,7 @@ export default function CommunityGivingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Community Initiatives
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -281,10 +281,10 @@ export default function CommunityGivingPage() {
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   <CardHeader className="text-center">
-                    <div className="text-sunset-orange mb-4 flex justify-center">
+                    <div className="text-wintima-maroon mb-4 flex justify-center">
                       {initiative.icon}
                     </div>
-                    <CardTitle className="text-deep-charcoal">{initiative.title}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{initiative.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray text-center">{initiative.description}</p>
@@ -297,7 +297,7 @@ export default function CommunityGivingPage() {
       </section>
 
       {/* Volunteer Opportunities */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-light-gray to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-light to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -306,7 +306,7 @@ export default function CommunityGivingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Volunteer Opportunities
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -329,8 +329,8 @@ export default function CommunityGivingPage() {
                 <Card className="h-full hover:shadow-xl transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <CardTitle className="text-deep-charcoal">{opportunity.title}</CardTitle>
-                      <Badge className="bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+                      <CardTitle className="text-wintima-charcoal">{opportunity.title}</CardTitle>
+                      <Badge className="bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                         {opportunity.time}
                       </Badge>
                     </div>
@@ -343,7 +343,7 @@ export default function CommunityGivingPage() {
                     <p className="text-medium-gray">{opportunity.description}</p>
                     <Button 
                       variant="outline"
-                      className="mt-4 border-earthy-green text-earthy-green hover:bg-earthy-green hover:!text-white"
+                      className="mt-4 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:!text-white"
                     >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -366,7 +366,7 @@ export default function CommunityGivingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               How to Get Help
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -403,11 +403,11 @@ export default function CommunityGivingPage() {
                 variants={fadeInUp}
                 className="text-center"
               >
-                <div className="bg-gradient-to-br from-sunset-orange/10 to-earthy-green/10 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-16 h-16 bg-sunset-orange text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
+                <div className="bg-gradient-to-br from-wintima-maroon/10 to-wintima-maroon/10 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-16 h-16 bg-wintima-maroon text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">{item.title}</h3>
                   <p className="text-medium-gray">{item.description}</p>
                 </div>
               </motion.div>
@@ -417,7 +417,7 @@ export default function CommunityGivingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-light-gray to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-light to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -426,7 +426,7 @@ export default function CommunityGivingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Community Voices
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -450,12 +450,12 @@ export default function CommunityGivingPage() {
                   <CardContent className="p-6">
                     <div className="flex mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-sunset-orange fill-current" />
+                        <Star key={i} className="h-5 w-5 text-wintima-maroon fill-current" />
                       ))}
                     </div>
                     <p className="text-medium-gray mb-4 italic">&quot;{testimonial.content}&quot;</p>
                     <div>
-                      <div className="font-semibold text-deep-charcoal">{testimonial.name}</div>
+                      <div className="font-semibold text-wintima-charcoal">{testimonial.name}</div>
                       <div className="text-sm text-medium-gray">{testimonial.role}</div>
                     </div>
                   </CardContent>
@@ -467,7 +467,7 @@ export default function CommunityGivingPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-sunset-orange to-earthy-green">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon to-wintima-maroon">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center text-white"
@@ -485,7 +485,7 @@ export default function CommunityGivingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-sunset-orange hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-wintima-maroon hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Request Support
                 <HandHeart className="ml-2 h-5 w-5" />
@@ -493,7 +493,7 @@ export default function CommunityGivingPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="bg-sunset-orange text-white hover:!bg-white hover:text-sunset-orange px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-wintima-maroon text-white hover:!bg-white hover:text-wintima-maroon px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Become a Volunteer
                 <Heart className="ml-2 h-5 w-5" />

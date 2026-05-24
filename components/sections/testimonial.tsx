@@ -34,11 +34,11 @@ export function Testimonial({
         <CardContent className="p-6 flex flex-col h-full">
           {/* Quote Icon */}
           <div className="mb-4">
-            <Quote className="h-8 w-8 text-earthy-green" />
+            <Quote className="h-8 w-8 text-wintima-maroon" />
           </div>
 
           {/* Quote Text */}
-          <blockquote className="text-deep-charcoal text-lg leading-relaxed mb-6 flex-grow italic">
+          <blockquote className="text-wintima-charcoal text-lg leading-relaxed mb-6 flex-grow italic">
             &quot;{quote}&quot;
           </blockquote>
 
@@ -46,18 +46,18 @@ export function Testimonial({
           <div className="flex items-center space-x-4 mt-auto">
             {image ? (
               <div
-                className="w-12 h-12 rounded-full bg-cover bg-center border-2 border-earthy-green/20"
+                className="w-12 h-12 rounded-full bg-cover bg-center border-2 border-wintima-maroon/20"
                 style={{ backgroundImage: `url(${image})` }}
               />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-earthy-green/10 flex items-center justify-center">
-                <span className="text-earthy-green font-semibold text-lg">
+              <div className="w-12 h-12 rounded-full bg-wintima-maroon/10 flex items-center justify-center">
+                <span className="text-wintima-maroon font-semibold text-lg">
                   {author.charAt(0)}
                 </span>
               </div>
             )}
             <div>
-              <div className="font-semibold text-deep-charcoal">
+              <div className="font-semibold text-wintima-charcoal">
                 {author}
               </div>
               {role && (
@@ -66,7 +66,7 @@ export function Testimonial({
                 </div>
               )}
               {program && (
-                <div className="text-xs text-earthy-green font-medium mt-1">
+                <div className="text-xs text-wintima-maroon font-medium mt-1">
                   {program}
                 </div>
               )}

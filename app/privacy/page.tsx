@@ -118,10 +118,10 @@ export default function PrivacyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-white to-light-gray">
+    <div className="min-h-screen bg-gradient-to-br from-wintima-light via-white to-wintima-light">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-sunset-orange/10 to-earthy-green/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-wintima-maroon/10 to-wintima-maroon/10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto"
@@ -129,11 +129,11 @@ export default function PrivacyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge className="mb-6 bg-sunset-orange/10 text-sunset-orange border-sunset-orange/20">
+            <Badge className="mb-6 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
               <Shield className="h-4 w-4 mr-2" />
               Data Protection
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-deep-charcoal mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-wintima-charcoal mb-6">
               Privacy Policy
             </h1>
             <p className="text-xl md:text-2xl text-medium-gray mb-8 leading-relaxed">
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-sunset-orange hover:bg-sunset-orange/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Download Policy
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -150,7 +150,7 @@ export default function PrivacyPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-earthy-green text-earthy-green hover:bg-earthy-green hover:!text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:!text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Contact Privacy Team
               </Button>
@@ -170,15 +170,15 @@ export default function PrivacyPage() {
             viewport={{ once: true }}
           >
             <div>
-              <Badge className="mb-4 bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+              <Badge className="mb-4 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                 Last Updated: January 2024
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-6">
                 Your Privacy Matters to Us
               </h2>
               <div className="space-y-6 text-medium-gray leading-relaxed">
                 <p>
-                  At the Yeremallu Foundation, we are committed to protecting your privacy and ensuring 
+                  At the Wintima Foundation, we are committed to protecting your privacy and ensuring 
                   the security of your personal information. This privacy policy explains how we collect, 
                   use, and safeguard your data.
                 </p>
@@ -194,25 +194,25 @@ export default function PrivacyPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-sunset-orange/20 to-earthy-green/20 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-wintima-maroon/20 to-wintima-maroon/20 rounded-2xl p-8">
                 <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">Our Commitment</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">Our Commitment</h3>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Never sell your personal data</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Never sell your personal data</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Use data only for stated purposes</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Use data only for stated purposes</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Implement strong security measures</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Implement strong security measures</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Respect your privacy rights</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Respect your privacy rights</span>
                     </div>
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* Privacy Principles */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-sunset-orange/5 to-earthy-green/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon/5 to-wintima-maroon/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -232,7 +232,7 @@ export default function PrivacyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Privacy Principles
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -254,10 +254,10 @@ export default function PrivacyPage() {
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   <CardHeader className="text-center">
-                    <div className="text-sunset-orange mb-4 flex justify-center">
+                    <div className="text-wintima-maroon mb-4 flex justify-center">
                       {principle.icon}
                     </div>
-                    <CardTitle className="text-deep-charcoal">{principle.title}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{principle.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray text-center">{principle.description}</p>
@@ -279,7 +279,7 @@ export default function PrivacyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               What Information We Collect
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -301,23 +301,23 @@ export default function PrivacyPage() {
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-deep-charcoal">{item.category}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{item.category}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold text-deep-charcoal mb-2">Examples:</h4>
+                        <h4 className="font-semibold text-wintima-charcoal mb-2">Examples:</h4>
                         <ul className="space-y-1 text-medium-gray text-sm">
                           {item.examples.map((example, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-earthy-green mr-2">•</span>
+                              <span className="text-wintima-maroon mr-2">•</span>
                               {example}
                             </li>
                           ))}
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-deep-charcoal mb-2">Purpose:</h4>
+                        <h4 className="font-semibold text-wintima-charcoal mb-2">Purpose:</h4>
                         <p className="text-medium-gray text-sm">{item.purpose}</p>
                       </div>
                     </div>
@@ -330,7 +330,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* User Rights */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-light-gray to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-light to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -339,7 +339,7 @@ export default function PrivacyPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Your Privacy Rights
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -362,10 +362,10 @@ export default function PrivacyPage() {
                 <Card className="h-full hover:shadow-xl transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-center space-x-3">
-                      <div className="text-earthy-green">
+                      <div className="text-wintima-maroon">
                         {right.icon}
                       </div>
-                      <CardTitle className="text-deep-charcoal">{right.title}</CardTitle>
+                      <CardTitle className="text-wintima-charcoal">{right.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -389,10 +389,10 @@ export default function PrivacyPage() {
             viewport={{ once: true }}
           >
             <div>
-              <Badge className="mb-4 bg-sunset-orange/10 text-sunset-orange border-sunset-orange/20">
+              <Badge className="mb-4 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                 Data Security
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-6">
                 How We Protect Your Data
               </h2>
               <p className="text-lg text-medium-gray mb-8 leading-relaxed">
@@ -403,32 +403,32 @@ export default function PrivacyPage() {
               <div className="space-y-4">
                 {securityMeasures.map((measure, index) => (
                   <div key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                    <span className="text-deep-charcoal">{measure}</span>
+                    <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                    <span className="text-wintima-charcoal">{measure}</span>
                   </div>
                 ))}
               </div>
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-sunset-orange/20 to-earthy-green/20 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-wintima-maroon/20 to-wintima-maroon/20 rounded-2xl p-8">
                 <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">Security Commitment</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">Security Commitment</h3>
                   <p className="text-medium-gray mb-4">
                     We continuously monitor and update our security practices to protect your data.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <Shield className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Regular security audits</span>
+                      <Shield className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Regular security audits</span>
                     </div>
                     <div className="flex items-center">
-                      <Lock className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Encrypted data transmission</span>
+                      <Lock className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Encrypted data transmission</span>
                     </div>
                     <div className="flex items-center">
-                      <Users className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Trained staff on privacy</span>
+                      <Users className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Trained staff on privacy</span>
                     </div>
                   </div>
                 </div>
@@ -439,7 +439,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-sunset-orange to-earthy-green">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon to-wintima-maroon">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center text-white"
@@ -457,7 +457,7 @@ export default function PrivacyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-sunset-orange hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-wintima-maroon hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Contact Privacy Team
                 <Mail className="ml-2 h-5 w-5" />
@@ -465,7 +465,7 @@ export default function PrivacyPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:!text-sunset-orange px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:!text-wintima-maroon px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Download Policy
                 <FileText className="ml-2 h-5 w-5" />

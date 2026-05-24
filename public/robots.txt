@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://yeremallufoundation.org/sitemap.xml
+Sitemap: https://wintima.org/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

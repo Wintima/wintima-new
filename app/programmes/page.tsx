@@ -26,7 +26,7 @@ const programsOverview = [
     description: "Our flagship program connecting rural students in Northern Ghana with global mentors to unlock their potential and pursue higher education through one-on-one guidance and support.",
     icon: <GraduationCap className="h-8 w-8" />,
     href: "/programmes/northern-stars",
-    image: "/images/yeremallu-5.JPG",
+    image: "/images/wintima-5.jpg",
     stats: [
       { label: "Active Mentees", value: "75" },
       { label: "Success Rate", value: "92%" },
@@ -49,7 +49,7 @@ const programsOverview = [
     description: "Honoring the memory of Charles and Juliet through comprehensive diabetes education, screening, and support services for communities across Northern Ghana.",
     icon: <HeartPulse className="h-8 w-8" />,
     href: "/programmes/diabetes-outreach",
-    image: "/images/yeremallu-12.JPG",
+    image: "/images/wintima-12.jpg",
     stats: [
       { label: "Screenings", value: "300+" },
       { label: "Lives Saved", value: "15" },
@@ -72,7 +72,7 @@ const programsOverview = [
     description: "Annual distribution of essential items and support to families in need, strengthening community bonds and providing immediate relief to vulnerable households.",
     icon: <HandHeart className="h-8 w-8" />,
     href: "/programmes/community-giving",
-    image: "/images/yeremallu-16.JPG",
+    image: "/images/wintima-13.jpg",
     stats: [
       { label: "Families Helped", value: "120" },
       { label: "Items Distributed", value: "500+" },
@@ -128,11 +128,11 @@ export default function ProgrammesPage() {
         description="Education, health awareness, and community support working together to create lasting change in Northern Ghana"
         height="medium"
         textAlign="center"
-        backgroundImage="/images/yeremallu-29.JPG"
+        backgroundImage="/images/wintima-14.jpg"
       />
 
       {/* Overall Impact Statistics */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -141,7 +141,7 @@ export default function ProgrammesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Our Collective Impact
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -181,7 +181,7 @@ export default function ProgrammesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Our Three Pillars
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -217,10 +217,10 @@ export default function ProgrammesPage() {
                       {/* Content Side */}
                       <div className={`p-8 lg:p-12 lg:col-span-2 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                         <div className="flex items-center space-x-4 mb-6">
-                          <div className="p-3 bg-earthy-green/10 rounded-full text-earthy-green">
+                          <div className="p-3 bg-wintima-maroon/10 rounded-full text-wintima-maroon">
                             {program.icon}
                           </div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-deep-charcoal">
+                          <h3 className="text-2xl md:text-3xl font-bold text-wintima-charcoal">
                             {program.title}
                           </h3>
                         </div>
@@ -230,13 +230,13 @@ export default function ProgrammesPage() {
                         </p>
 
                         <div className="mb-6">
-                          <h4 className="text-lg font-semibold text-deep-charcoal mb-4">
+                          <h4 className="text-lg font-semibold text-wintima-charcoal mb-4">
                             Key Features:
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             {program.features.map((feature, idx) => (
                               <div key={idx} className="flex items-center space-x-2">
-                                <CheckCircle className="h-4 w-4 text-earthy-green flex-shrink-0" />
+                                <CheckCircle className="h-4 w-4 text-wintima-maroon flex-shrink-0" />
                                 <span className="text-medium-gray text-sm">{feature}</span>
                               </div>
                             ))}
@@ -244,7 +244,7 @@ export default function ProgrammesPage() {
                         </div>
 
                         <div className="mb-8">
-                          <Badge className="bg-earthy-green/10 text-earthy-green border-earthy-green/20">
+                          <Badge className="bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                             {program.impact}
                           </Badge>
                         </div>
@@ -252,7 +252,7 @@ export default function ProgrammesPage() {
                         <Button
                           asChild
                           size="lg"
-                          className="bg-earthy-green hover:bg-earthy-green/90 text-white"
+                          className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
                         >
                           <Link href={program.href} className="flex items-center space-x-2">
                             <span>Learn More</span>
@@ -270,7 +270,7 @@ export default function ProgrammesPage() {
       </section>
 
       {/* Program Statistics */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -279,7 +279,7 @@ export default function ProgrammesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Program Impact at a Glance
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -299,10 +299,10 @@ export default function ProgrammesPage() {
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6 text-center">
                     <div className="mb-6">
-                      <div className="p-4 bg-earthy-green/10 rounded-full text-earthy-green inline-block mb-4">
+                      <div className="p-4 bg-wintima-maroon/10 rounded-full text-wintima-maroon inline-block mb-4">
                         {program.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-deep-charcoal mb-4">
+                      <h3 className="text-xl font-bold text-wintima-charcoal mb-4">
                         {program.title}
                       </h3>
                     </div>
@@ -310,10 +310,10 @@ export default function ProgrammesPage() {
                     <div className="grid grid-cols-2 gap-4">
                       {program.stats.map((stat, idx) => (
                         <div key={idx} className="text-center">
-                          <div className="text-2xl font-bold text-earthy-green mb-1">
+                          <div className="text-2xl font-bold text-wintima-maroon mb-1">
                             {stat.value}
                           </div>
-                          <div className="text-xs text-deep-charcoal font-medium">
+                          <div className="text-xs text-wintima-charcoal font-medium">
                             {stat.label}
                           </div>
                         </div>
@@ -328,7 +328,7 @@ export default function ProgrammesPage() {
       </section>
 
       {/* How Programs Work Together */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white">
+      <section className="py-16 lg:py-24 bg-wintima-maroon text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -411,7 +411,7 @@ export default function ProgrammesPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Ready to Make a Difference?
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto mb-8">
@@ -422,7 +422,7 @@ export default function ProgrammesPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3"
               >
                 <Link href="/get-involved" className="flex items-center space-x-2">
                   <span>Get Involved</span>
@@ -433,7 +433,7 @@ export default function ProgrammesPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white px-8 py-3"
+                className="border-2 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:text-white px-8 py-3"
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
