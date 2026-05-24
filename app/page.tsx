@@ -30,7 +30,7 @@ const impactStats = [
   {
     end: 8,
     label: "Communities Served",
-    description: "Rural communities in Northern Ghana"
+    description: "Rural communities in the Upper East Region"
   },
   {
     end: 300,
@@ -93,7 +93,7 @@ const testimonials = [
     program: "J&C Diabetes Outreach"
   },
   {
-    quote: "Being a mentor for Yeremallu Foundation has been one of the most rewarding experiences. These young people inspire me every day.",
+    quote: "Being a mentor for Wintima Foundation has been one of the most rewarding experiences. These young people inspire me every day.",
     author: "Dr. Sarah Wilson",
     role: "International Mentor",
     program: "Northern Stars Mentorship"
@@ -105,8 +105,8 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection
-        title="Empowering Northern Ghana Through Compassion & Action"
-        description="Creating lasting change through education, health awareness, and community service. Together, we build brighter futures for rural communities across Northern Ghana."
+        title="Restoring Smiles, Impacting Lives"
+        description="Wintima Foundation ensures children in rural and deprived communities across Ghana's Upper East Region have access to quality education through school supplies, uniforms, mentorship, and infrastructure support."
         ctaButtons={[
           {
             text: "Support Our Cause",
@@ -125,7 +125,7 @@ export default function HomePage() {
       />
 
       {/* Impact Statistics Section */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -134,11 +134,11 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Our Impact in Numbers
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Every number tells a story of transformation, hope, and lasting change in Northern Ghana&apos;s communities.
+              Every number tells a story of transformation, hope, and lasting change in the Upper East Region&apos;s communities.
             </p>
           </motion.div>
 
@@ -173,7 +173,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Our Programs
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -205,7 +205,7 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3 rounded-full font-medium"
+              className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3 rounded-full font-medium"
             >
               <Link href="/programmes" className="flex items-center space-x-2">
                 <span>Explore All Programs</span>
@@ -217,7 +217,7 @@ export default function HomePage() {
       </section>
 
       {/* Founder's Story Teaser */}
-      <section className="py-16 lg:py-24 bg-warm-sand">
+      <section className="py-16 lg:py-24 bg-wintima-warm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -228,8 +228,8 @@ export default function HomePage() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/images/yeremallu-34.JPG" 
-                  alt="Yeremallu Foundation Founder" 
+                  src="/images/founder.jpg" 
+                  alt="Janet Zeylisa Dauda, Founder of Wintima Foundation" 
                   className="w-full h-full object-cover"
                   width={500}
                   height={500}
@@ -243,24 +243,25 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
-                A Vision Born from Love
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
+                Founded on Education &amp; Hope
               </h2>
               <p className="text-lg text-medium-gray mb-6 leading-relaxed">
-                The Yeremallu Foundation was born from a deep love for community and a vision to create lasting change. 
-                Our founder&apos;s journey from Northern Ghana to international success sparked a mission to give back and 
-                empower the next generation.
+                Wintima Foundation was founded by Janet Zeylisa Dauda in 2015 with a simple conviction: every child
+                in rural Ghana deserves the tools to learn, grow, and dream without limits. What began as informal
+                community outreach in the Upper East Region has grown into a registered non-profit committed to
+                lasting change.
               </p>
               <p className="text-lg text-medium-gray mb-8 leading-relaxed">
-                Inspired by the values of compassion, service, and the belief that every young person deserves 
-                the opportunity to reach their full potential, we work tirelessly to bridge gaps in education, 
-                health awareness, and community support.
+                Today we provide educational materials, uniforms, mentorship, and school infrastructure support to
+                children in deprived communities — restoring smiles and opening doors to brighter futures across
+                the Upper East Region.
               </p>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-deep-charcoal text-deep-charcoal hover:!bg-deep-charcoal hover:!text-white"
+                className="border-2 border-wintima-charcoal text-wintima-charcoal hover:!bg-wintima-charcoal hover:!text-white"
               >
                 <Link href="/about" className="flex items-center space-x-2">
                   <span>Read Full Story</span>
@@ -282,7 +283,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Voices of Change
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -307,7 +308,7 @@ export default function HomePage() {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-wintima-maroon text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-48 -translate-y-48"></div>
@@ -342,7 +343,7 @@ export default function HomePage() {
               <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <Mail className="h-6 w-6 text-soft-gold" />
+                    <Mail className="h-6 w-6 text-wintima-gold" />
                     <h3 className="text-xl font-semibold">Stay Connected</h3>
                   </div>
                   <p className="text-white/80 mb-6">
@@ -356,7 +357,7 @@ export default function HomePage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-sunset-orange hover:bg-sunset-orange/90 text-white"
+                      className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
                     >
                       Subscribe
                     </Button>
@@ -375,7 +376,7 @@ export default function HomePage() {
               <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <Users className="h-6 w-6 text-soft-gold" />
+                    <Users className="h-6 w-6 text-wintima-gold" />
                     <h3 className="text-xl font-semibold">Get Involved</h3>
                   </div>
                   <p className="text-white/80 mb-6">
@@ -384,14 +385,14 @@ export default function HomePage() {
                   <div className="space-y-3">
                     <Button
                       asChild
-                      className="w-full bg-white text-earthy-green hover:bg-white/90"
+                      className="w-full bg-white text-wintima-maroon hover:bg-white/90"
                     >
                       <Link href="/get-involved">Volunteer With Us</Link>
                     </Button>
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full border-white bg-earthy-green text-white hover:!bg-white hover:!text-earthy-green"
+                      className="w-full border-white bg-wintima-maroon text-white hover:!bg-white hover:!text-wintima-maroon"
                     >
                       <Link href="/programmes/northern-stars">Become a Mentor</Link>
                     </Button>

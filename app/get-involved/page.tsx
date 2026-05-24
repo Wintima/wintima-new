@@ -168,7 +168,7 @@ export default function GetInvolvedPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Volunteer Opportunities
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -189,11 +189,11 @@ export default function GetInvolvedPage() {
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-3 mb-4">
-                      <div className="p-3 bg-earthy-green/10 rounded-full text-earthy-green group-hover:!bg-earthy-green group-hover:!text-white transition-colors duration-300">
+                      <div className="p-3 bg-wintima-maroon/10 rounded-full text-wintima-maroon group-hover:!bg-wintima-maroon group-hover:!text-white transition-colors duration-300">
                         {opportunity.icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-deep-charcoal group-hover:!text-earthy-green transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-wintima-charcoal group-hover:!text-wintima-maroon transition-colors duration-300">
                           {opportunity.title}
                         </h3>
                         <div className="flex items-center space-x-2 mt-1">
@@ -210,7 +210,7 @@ export default function GetInvolvedPage() {
                     </p>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-deep-charcoal mb-2">Skills Needed:</h4>
+                      <h4 className="text-sm font-semibold text-wintima-charcoal mb-2">Skills Needed:</h4>
                       <div className="flex flex-wrap gap-2">
                         {opportunity.skills.map((skill, idx) => (
                           <Badge key={idx} variant="outline" className="text-xs">
@@ -222,7 +222,7 @@ export default function GetInvolvedPage() {
 
                     <Button
                       asChild
-                      className="w-full bg-earthy-green hover:!bg-earthy-green/90 text-white"
+                      className="w-full bg-wintima-maroon hover:!bg-wintima-maroon/90 text-white"
                     >
                       <Link href={`/contact?program=volunteer-${opportunity.title.toLowerCase().replace(/\s+/g, '-')}`}>
                         Apply Now
@@ -248,7 +248,7 @@ export default function GetInvolvedPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+              className="border-2 border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
             >
               <Link href="/contact?type=volunteer">
                 Discuss Custom Opportunities
@@ -259,7 +259,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Donation Section */}
-      <section id="donate" className="py-16 lg:py-24 bg-light-gray">
+      <section id="donate" className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -268,7 +268,7 @@ export default function GetInvolvedPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Make a Donation
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -287,19 +287,19 @@ export default function GetInvolvedPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className={`h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group relative ${
-                  option.popular ? "ring-2 ring-sunset-orange" : ""
+                  option.popular ? "ring-2 ring-wintima-maroon" : ""
                 }`}>
                   {option.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-sunset-orange text-white px-3 py-1">
+                      <Badge className="bg-wintima-maroon text-white px-3 py-1">
                         Most Popular
                       </Badge>
                     </div>
                   )}
                   <CardContent className="p-6 text-center">
                     <div className="mb-4">
-                      <DollarSign className="h-8 w-8 text-earthy-green mx-auto mb-2" />
-                      <h3 className="text-2xl font-bold text-deep-charcoal mb-2">
+                      <DollarSign className="h-8 w-8 text-wintima-maroon mx-auto mb-2" />
+                      <h3 className="text-2xl font-bold text-wintima-charcoal mb-2">
                         {option.amount}
                       </h3>
                     </div>
@@ -310,8 +310,8 @@ export default function GetInvolvedPage() {
                       asChild
                       className={`w-full ${
                         option.popular 
-                          ? "bg-sunset-orange hover:!bg-sunset-orange/90" 
-                          : "bg-earthy-green hover:!bg-earthy-green/90"
+                          ? "bg-wintima-maroon hover:!bg-wintima-maroon/90" 
+                          : "bg-wintima-maroon hover:!bg-wintima-maroon/90"
                       } text-white`}
                     >
                       <Link href={`/contact?type=donation&amount=${option.amount}`}>
@@ -332,7 +332,7 @@ export default function GetInvolvedPage() {
             className="text-center mt-12"
           >
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-deep-charcoal mb-4">
+              <h3 className="text-xl font-bold text-wintima-charcoal mb-4">
                 Secure & Transparent Donations
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-medium-gray">
@@ -364,7 +364,7 @@ export default function GetInvolvedPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Other Ways to Help
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -385,11 +385,11 @@ export default function GetInvolvedPage() {
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-earthy-green/10 rounded-full text-earthy-green group-hover:!bg-earthy-green group-hover:!text-white transition-colors duration-300">
+                      <div className="p-4 bg-wintima-maroon/10 rounded-full text-wintima-maroon group-hover:!bg-wintima-maroon group-hover:!text-white transition-colors duration-300">
                         {way.icon}
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-3 group-hover:!text-earthy-green transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-wintima-charcoal mb-3 group-hover:!text-wintima-maroon transition-colors duration-300">
                       {way.title}
                     </h3>
                     <p className="text-medium-gray mb-6 leading-relaxed">
@@ -398,7 +398,7 @@ export default function GetInvolvedPage() {
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+                      className="w-full border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
                     >
                       <Link href="/contact">
                         {way.action}
@@ -413,7 +413,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Impact Statement */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white">
+      <section className="py-16 lg:py-24 bg-wintima-maroon text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -427,21 +427,21 @@ export default function GetInvolvedPage() {
             </h2>
             <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed">
               Every volunteer hour, every donation, and every share helps us build stronger communities 
-              in Northern Ghana. When you get involved with Yeremallu Foundation, you&apos;re not just supporting 
+              in Northern Ghana. When you get involved with Wintima Foundation, you&apos;re not just supporting 
               a cause – you&apos;re investing in the future of young people and the health of entire communities.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="text-4xl font-bold text-soft-gold mb-2">150+</div>
+                <div className="text-4xl font-bold text-wintima-gold mb-2">150+</div>
                 <div className="text-white/80">Lives Directly Impacted</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-soft-gold mb-2">8</div>
+                <div className="text-4xl font-bold text-wintima-gold mb-2">8</div>
                 <div className="text-white/80">Communities Served</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-soft-gold mb-2">92%</div>
+                <div className="text-4xl font-bold text-wintima-gold mb-2">92%</div>
                 <div className="text-white/80">Student Success Rate</div>
               </div>
             </div>
@@ -450,7 +450,7 @@ export default function GetInvolvedPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-sunset-orange hover:!bg-sunset-orange/90 text-white px-8 py-3"
+                className="bg-wintima-maroon hover:!bg-wintima-maroon/90 text-white px-8 py-3"
               >
                 <Link href="/contact" className="flex items-center space-x-2">
                   <span>Start Your Journey</span>
@@ -461,7 +461,7 @@ export default function GetInvolvedPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-earthy-green hover:!bg-earthy-green/90 hover:!text-white px-8 py-3"
+                className="border-2 border-white text-wintima-maroon hover:!bg-wintima-maroon/90 hover:!text-white px-8 py-3"
               >
                 <Link href="/about">Learn Our Story</Link>
               </Button>

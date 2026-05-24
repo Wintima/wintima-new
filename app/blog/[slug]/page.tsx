@@ -133,7 +133,7 @@ const blogPosts = [
     `,
     author: "John Doe",
     authorRole: "Chairman",
-    authorBio: "John founded the Yeremallu Foundation with a vision of connecting communities across the globe. His leadership experience spans both corporate and nonprofit sectors, focusing on sustainable development.",
+    authorBio: "John founded the Wintima Foundation with a vision of connecting communities across the globe. His leadership experience spans both corporate and nonprofit sectors, focusing on sustainable development.",
     date: "2023-12-28",
     readTime: "7 min read",
     category: "Culture",

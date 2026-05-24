@@ -5,11 +5,11 @@ import { Home, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-light-gray">
+    <div className="min-h-screen flex items-center justify-center bg-wintima-light">
       <div className="text-center max-w-md mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-9xl font-bold text-earthy-green mb-4">404</h1>
-          <h2 className="text-3xl font-bold text-deep-charcoal mb-4">
+          <h1 className="text-9xl font-bold text-wintima-maroon mb-4">404</h1>
+          <h2 className="text-3xl font-bold text-wintima-charcoal mb-4">
             Page Not Found
           </h2>
           <p className="text-medium-gray text-lg mb-8">
@@ -18,14 +18,14 @@ export default function NotFound() {
         </div>
         
         <div className="space-y-4">
-          <Button asChild className="w-full bg-earthy-green hover:bg-earthy-green/90">
+          <Button asChild className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90">
             <Link href="/" className="flex items-center justify-center space-x-2">
               <Home className="h-5 w-5" />
               <span>Go Home</span>
             </Link>
           </Button>
           
-          <Button asChild variant="outline" className="w-full border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white">
+          <Button asChild variant="outline" className="w-full border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:text-white">
             <Link href="/blog" className="flex items-center justify-center space-x-2">
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Blog</span>
@@ -35,7 +35,7 @@ export default function NotFound() {
         
         <div className="mt-12 text-sm text-medium-gray">
           <p>If you believe this is an error, please</p>
-          <Link href="/contact" className="text-earthy-green hover:underline">
+          <Link href="/contact" className="text-wintima-maroon hover:underline">
             contact us
           </Link>
         </div>

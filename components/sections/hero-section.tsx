@@ -66,7 +66,7 @@ export function HeroSection({
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         ) : (
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-earthy-green via-earthy-green/90 to-deep-charcoal" />
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-wintima-maroon via-wintima-maroon/90 to-wintima-charcoal" />
         )}
         
         {/* Overlay */}
@@ -89,7 +89,7 @@ export function HeroSection({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-sm md:text-base font-medium text-soft-gold uppercase tracking-wider mb-4"
+                className="text-sm md:text-base font-medium text-wintima-gold uppercase tracking-wider mb-4"
               >
                 {subtitle}
               </motion.p>
@@ -129,8 +129,8 @@ export function HeroSection({
                     size="lg"
                     className={`group px-8 py-3 text-base font-medium rounded-full transition-all duration-300 transform hover:scale-105 ${
                       button.variant === "primary"
-                        ? "bg-sunset-orange hover:bg-sunset-orange/90 text-white shadow-lg hover:shadow-xl"
-                        : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-deep-charcoal"
+                        ? "bg-wintima-maroon hover:bg-wintima-maroon/90 text-white shadow-lg hover:shadow-xl"
+                        : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-wintima-charcoal"
                     }`}
                   >
                     <Link href={button.href} className="flex items-center space-x-2">

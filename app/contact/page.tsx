@@ -36,7 +36,7 @@ const contactInfo = [
   {
     icon: <Mail className="h-6 w-6" />,
     title: "Email Us",
-    details: ["info@yeremallufoundation.org", "programs@yeremallufoundation.org"],
+    details: ["wintimafoundation@gmail.com", "programs@wintima.org"],
     description: "We respond within 24 hours"
   },
   {
@@ -48,7 +48,7 @@ const contactInfo = [
   {
     icon: <MapPin className="h-6 w-6" />,
     title: "Visit Us",
-    details: ["Northern Region", "Ghana, West Africa"],
+    details: ["Upper East Region", "Ghana, West Africa"],
     description: "By appointment only"
   },
   {
@@ -112,7 +112,7 @@ export default function ContactPage() {
       />
 
       {/* Contact Information */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -121,7 +121,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Contact Information
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -141,11 +141,11 @@ export default function ContactPage() {
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-earthy-green/10 rounded-full text-earthy-green">
+                      <div className="p-3 bg-wintima-maroon/10 rounded-full text-wintima-maroon">
                         {info.icon}
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-3">
+                    <h3 className="text-xl font-bold text-wintima-charcoal mb-3">
                       {info.title}
                     </h3>
                     <div className="space-y-1 mb-3">
@@ -176,7 +176,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
                 Send Us a Message
               </h2>
               <p className="text-lg text-medium-gray mb-8 leading-relaxed">
@@ -186,15 +186,15 @@ export default function ContactPage() {
               </p>
               
               <div className="space-y-6">
-                <div className="bg-warm-sand p-6 rounded-lg">
-                  <h3 className="font-semibold text-deep-charcoal mb-2">Quick Response</h3>
+                <div className="bg-wintima-warm p-6 rounded-lg">
+                  <h3 className="font-semibold text-wintima-charcoal mb-2">Quick Response</h3>
                   <p className="text-medium-gray text-sm">
                     We typically respond to all inquiries within 24 hours during business days.
                   </p>
                 </div>
                 
-                <div className="bg-earthy-green/10 p-6 rounded-lg">
-                  <h3 className="font-semibold text-deep-charcoal mb-2">Program-Specific Inquiries</h3>
+                <div className="bg-wintima-maroon/10 p-6 rounded-lg">
+                  <h3 className="font-semibold text-wintima-charcoal mb-2">Program-Specific Inquiries</h3>
                   <p className="text-medium-gray text-sm">
                     For faster responses about specific programs, please select the relevant 
                     inquiry type in the form.
@@ -242,7 +242,7 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-deep-charcoal mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium text-wintima-charcoal mb-2">
                           Full Name *
                         </label>
                         <Input
@@ -257,7 +257,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-deep-charcoal mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-wintima-charcoal mb-2">
                           Email Address *
                         </label>
                         <Input
@@ -275,7 +275,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-deep-charcoal mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium text-wintima-charcoal mb-2">
                           Phone Number
                         </label>
                         <Input
@@ -286,13 +286,13 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label htmlFor="type" className="block text-sm font-medium text-deep-charcoal mb-2">
+                        <label htmlFor="type" className="block text-sm font-medium text-wintima-charcoal mb-2">
                           Inquiry Type *
                         </label>
                         <select
                           id="type"
                           {...register("type")}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-earthy-green focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-wintima-maroon focus:border-transparent"
                         >
                           {inquiryTypes.map((type) => (
                             <option key={type.value} value={type.value}>
@@ -304,7 +304,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-deep-charcoal mb-2">
+                      <label htmlFor="subject" className="block text-sm font-medium text-wintima-charcoal mb-2">
                         Subject *
                       </label>
                       <Input
@@ -319,7 +319,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-deep-charcoal mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-wintima-charcoal mb-2">
                         Message *
                       </label>
                       <Textarea
@@ -336,7 +336,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-earthy-green hover:bg-earthy-green/90 text-white py-3 text-base font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white py-3 text-base font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center space-x-2">
@@ -359,7 +359,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -368,7 +368,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Frequently Asked Questions
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
@@ -385,7 +385,7 @@ export default function ContactPage() {
             >
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-deep-charcoal mb-3">
+                  <h3 className="text-lg font-bold text-wintima-charcoal mb-3">
                     How can I apply for the Northern Stars program?
                   </h3>
                   <p className="text-medium-gray">
@@ -404,7 +404,7 @@ export default function ContactPage() {
             >
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-deep-charcoal mb-3">
+                  <h3 className="text-lg font-bold text-wintima-charcoal mb-3">
                     What are the requirements to become a mentor?
                   </h3>
                   <p className="text-medium-gray">
@@ -423,7 +423,7 @@ export default function ContactPage() {
             >
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-deep-charcoal mb-3">
+                  <h3 className="text-lg font-bold text-wintima-charcoal mb-3">
                     How can I volunteer with the foundation?
                   </h3>
                   <p className="text-medium-gray">
@@ -442,7 +442,7 @@ export default function ContactPage() {
             >
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-deep-charcoal mb-3">
+                  <h3 className="text-lg font-bold text-wintima-charcoal mb-3">
                     Are there partnership opportunities?
                   </h3>
                   <p className="text-medium-gray">

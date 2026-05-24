@@ -73,15 +73,15 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-3 group cursor-pointer">
             <div className="relative">
               <Image 
-                src="/images/logo.JPG" 
-                alt="Yeremallu Foundation Logo" 
-                className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
-                width={500}
-                height={500}
+                src="/images/logo.png" 
+                alt="Wintima Foundation Logo" 
+                className="h-10 w-10 md:h-12 md:w-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                width={48}
+                height={48}
               />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-deep-charcoal">
-              Yeremallu Foundation
+            <span className="text-xl md:text-2xl font-bold text-wintima-charcoal">
+              Wintima Foundation
             </span>
           </Link>
 
@@ -96,12 +96,12 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 hover:text-earthy-green cursor-pointer p-2 ${
+                  className={`text-sm font-medium transition-colors duration-300 hover:text-wintima-maroon cursor-pointer p-2 ${
                     isActive(item.href)
-                      ? "text-earthy-green"
+                      ? "text-wintima-maroon"
                       : isScrolled
-                      ? "text-deep-charcoal"
-                      : "text-sunset-orange"
+                      ? "text-wintima-charcoal"
+                      : "text-wintima-maroon"
                   }`}
                 >
                   {item.name}
@@ -124,7 +124,7 @@ export function Header() {
                       <Link
                         key={subItem.name}
                         href={subItem.href}
-                        className="block px-4 py-2 text-sm text-deep-charcoal hover:bg-light-gray hover:text-earthy-green transition-colors duration-900 cursor-pointer"
+                        className="block px-4 py-2 text-sm text-wintima-charcoal hover:bg-wintima-light hover:text-wintima-maroon transition-colors duration-900 cursor-pointer"
                       >
                         {subItem.name}
                       </Link>
@@ -140,13 +140,13 @@ export function Header() {
             <Button
               asChild
               variant="outline"
-              className="border-2 border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white px-5 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white px-5 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
             >
               <Link href="/get-involved#donate">Donate</Link>
             </Button>
             <Button
               asChild
-              className="bg-sunset-orange hover:bg-sunset-orange/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
             >
               <Link href="/get-involved">Get Involved</Link>
             </Button>
@@ -168,14 +168,14 @@ export function Header() {
               <div className="flex flex-col space-y-4 mt-8">
                 <div className="flex items-center space-x-3 pb-4 border-b border-gray-200">
                   <Image 
-                    src="/images/logo.JPG" 
-                    alt="Yeremallu Foundation Logo" 
-                    className="h-8 w-8 rounded-full object-cover"
-                    width={500}
-                    height={500}
+                    src="/images/logo.png" 
+                    alt="Wintima Foundation Logo" 
+                    className="h-8 w-8 object-contain"
+                    width={48}
+                    height={48}
                   />
-                  <span className="text-lg font-bold text-deep-charcoal">
-                    Yeremallu Foundation
+                  <span className="text-lg font-bold text-wintima-charcoal">
+                    Wintima Foundation
                   </span>
                 </div>
                 
@@ -183,10 +183,10 @@ export function Header() {
                   <div key={item.name} className="space-y-2">
                     <Link
                       href={item.href}
-                      className={`block text-base font-medium transition-colors duration-300 hover:text-earthy-green ${
+                      className={`block text-base font-medium transition-colors duration-300 hover:text-wintima-maroon ${
                         isActive(item.href)
-                          ? "text-earthy-green"
-                          : "text-deep-charcoal"
+                          ? "text-wintima-maroon"
+                          : "text-wintima-charcoal"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -199,9 +199,9 @@ export function Header() {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className={`block text-sm transition-colors duration-300 hover:text-earthy-green ${
+                            className={`block text-sm transition-colors duration-300 hover:text-wintima-maroon ${
                               isActive(subItem.href)
-                                ? "text-earthy-green"
+                                ? "text-wintima-maroon"
                                 : "text-medium-gray"
                             }`}
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -218,7 +218,7 @@ export function Header() {
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full border-2 border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white py-3 rounded-full font-medium"
+                    className="w-full border-2 border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon hover:text-white py-3 rounded-full font-medium"
                   >
                     <Link href="/get-involved#donate" onClick={() => setIsMobileMenuOpen(false)}>
                       Donate
@@ -226,7 +226,7 @@ export function Header() {
                   </Button>
                   <Button
                     asChild
-                    className="w-full bg-sunset-orange hover:bg-sunset-orange/90 text-white py-3 rounded-full font-medium"
+                    className="w-full bg-wintima-maroon hover:bg-wintima-maroon/90 text-white py-3 rounded-full font-medium"
                   >
                     <Link href="/get-involved" onClick={() => setIsMobileMenuOpen(false)}>
                       Get Involved

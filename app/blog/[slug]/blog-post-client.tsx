@@ -65,7 +65,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="bg-sunset-orange text-white mb-4">
+              <Badge className="bg-wintima-maroon text-white mb-4">
                 {post.category}
               </Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl">
@@ -109,11 +109,11 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                   {/* Article Meta */}
                   <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-200">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                        <User className="h-6 w-6 text-earthy-green" />
+                      <div className="w-12 h-12 bg-wintima-maroon/10 rounded-full flex items-center justify-center">
+                        <User className="h-6 w-6 text-wintima-maroon" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-deep-charcoal">{post.author}</h3>
+                        <h3 className="font-semibold text-wintima-charcoal">{post.author}</h3>
                         <p className="text-sm text-medium-gray">{post.authorRole}</p>
                       </div>
                     </div>
@@ -121,7 +121,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-medium-gray hover:!text-earthy-green"
+                        className="text-medium-gray hover:!text-wintima-maroon"
                       >
                         <Heart className="h-4 w-4 mr-1" />
                         {post.likes}
@@ -129,7 +129,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-medium-gray hover:!text-earthy-green"
+                        className="text-medium-gray hover:!text-wintima-maroon"
                       >
                         <Share2 className="h-4 w-4 mr-1" />
                         Share
@@ -139,16 +139,16 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
 
                   {/* Article Content */}
                   <div 
-                    className="prose prose-lg max-w-none prose-headings:text-deep-charcoal prose-headings:font-bold prose-p:text-medium-gray prose-p:leading-relaxed prose-a:text-earthy-green prose-a:no-underline hover:prose-a:underline prose-strong:text-deep-charcoal"
+                    className="prose prose-lg max-w-none prose-headings:text-wintima-charcoal prose-headings:font-bold prose-p:text-medium-gray prose-p:leading-relaxed prose-a:text-wintima-maroon prose-a:no-underline hover:prose-a:underline prose-strong:text-wintima-charcoal"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
 
                   {/* Tags */}
                   <div className="mt-12 pt-8 border-t border-gray-200">
-                    <h4 className="text-sm font-semibold text-deep-charcoal mb-4">Tags:</h4>
+                    <h4 className="text-sm font-semibold text-wintima-charcoal mb-4">Tags:</h4>
                     <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag, index) => (
-                        <Badge key={index} variant="outline" className="text-earthy-green border-earthy-green">
+                        <Badge key={index} variant="outline" className="text-wintima-maroon border-wintima-maroon">
                           {tag}
                         </Badge>
                       ))}
@@ -168,13 +168,13 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                   {/* Author Bio */}
                   <Card className="border-0 shadow-lg">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-deep-charcoal mb-3">About the Author</h3>
+                      <h3 className="font-bold text-wintima-charcoal mb-3">About the Author</h3>
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className="w-10 h-10 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                          <User className="h-5 w-5 text-earthy-green" />
+                        <div className="w-10 h-10 bg-wintima-maroon/10 rounded-full flex items-center justify-center">
+                          <User className="h-5 w-5 text-wintima-maroon" />
                         </div>
                         <div>
-                          <p className="font-semibold text-deep-charcoal">{post.author}</p>
+                          <p className="font-semibold text-wintima-charcoal">{post.author}</p>
                           <p className="text-sm text-medium-gray">{post.authorRole}</p>
                         </div>
                       </div>
@@ -187,7 +187,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                   {/* Share Links */}
                   <Card className="border-0 shadow-lg">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-deep-charcoal mb-4">Share This Article</h3>
+                      <h3 className="font-bold text-wintima-charcoal mb-4">Share This Article</h3>
                       <div className="space-y-3">
                         <Button
                           asChild
@@ -254,19 +254,19 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                   {/* Quick Stats */}
                   <Card className="border-0 shadow-lg">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-deep-charcoal mb-4">Article Stats</h3>
+                      <h3 className="font-bold text-wintima-charcoal mb-4">Article Stats</h3>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-medium-gray">Views</span>
-                          <span className="font-semibold text-deep-charcoal">{post.views}</span>
+                          <span className="font-semibold text-wintima-charcoal">{post.views}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-medium-gray">Likes</span>
-                          <span className="font-semibold text-deep-charcoal">{post.likes}</span>
+                          <span className="font-semibold text-wintima-charcoal">{post.likes}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-medium-gray">Read Time</span>
-                          <span className="font-semibold text-deep-charcoal">{post.readTime}</span>
+                          <span className="font-semibold text-wintima-charcoal">{post.readTime}</span>
                         </div>
                       </div>
                     </CardContent>
@@ -280,7 +280,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 lg:py-24 bg-light-gray">
+        <section className="py-16 lg:py-24 bg-wintima-light">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -289,7 +289,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
                 Related Articles
               </h2>
               <p className="text-lg text-medium-gray">
@@ -314,13 +314,13 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="absolute top-4 left-4">
-                        <Badge variant="outline" className="bg-white/90 text-deep-charcoal border-0">
+                        <Badge variant="outline" className="bg-white/90 text-wintima-charcoal border-0">
                           {relatedPost.category}
                         </Badge>
                       </div>
                     </div>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-deep-charcoal mb-3 line-clamp-2 group-hover:text-earthy-green transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-wintima-charcoal mb-3 line-clamp-2 group-hover:text-wintima-maroon transition-colors duration-300">
                         {relatedPost.title}
                       </h3>
                       <p className="text-medium-gray mb-4 line-clamp-3">
@@ -332,7 +332,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                           asChild
                           variant="ghost"
                           size="sm"
-                          className="text-earthy-green hover:!text-white hover:!bg-earthy-green p-2"
+                          className="text-wintima-maroon hover:!text-white hover:!bg-wintima-maroon p-2"
                         >
                           <Link href={`/blog/${relatedPost.slug}`}>
                             <ArrowRight className="h-4 w-4" />
@@ -355,7 +355,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
             <Button
               asChild
               variant="outline"
-              className="border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+              className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
             >
               <Link href="/blog" className="flex items-center space-x-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -367,13 +367,13 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               <Button
                 asChild
                 variant="outline"
-                className="border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+                className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
               >
                 <Link href="/get-involved">Get Involved</Link>
               </Button>
               <Button
                 asChild
-                className="bg-sunset-orange hover:!bg-sunset-orange/90 text-white"
+                className="bg-wintima-maroon hover:!bg-wintima-maroon/90 text-white"
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>

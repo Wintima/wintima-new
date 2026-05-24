@@ -48,7 +48,7 @@ export function ProgramCard({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute top-4 left-4 p-3 bg-white/90 rounded-full backdrop-blur-sm">
-              <div className="text-earthy-green">
+              <div className="text-wintima-maroon">
                 {icon}
               </div>
             </div>
@@ -59,12 +59,12 @@ export function ProgramCard({
           {/* Icon and Title for cards without images */}
           {!image && (
             <div className="flex items-center space-x-4 mb-4">
-              <div className="p-3 bg-earthy-green/10 rounded-full">
-                <div className="text-earthy-green">
+              <div className="p-3 bg-wintima-maroon/10 rounded-full">
+                <div className="text-wintima-maroon">
                   {icon}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-deep-charcoal group-hover:text-earthy-green transition-colors duration-300">
+              <h3 className="text-xl font-bold text-wintima-charcoal group-hover:text-wintima-maroon transition-colors duration-300">
                 {title}
               </h3>
             </div>
@@ -72,7 +72,7 @@ export function ProgramCard({
 
           {/* Title for cards with images */}
           {image && (
-            <h3 className="text-xl font-bold text-deep-charcoal mb-4 group-hover:text-earthy-green transition-colors duration-300">
+            <h3 className="text-xl font-bold text-wintima-charcoal mb-4 group-hover:text-wintima-maroon transition-colors duration-300">
               {title}
             </h3>
           )}
@@ -87,7 +87,7 @@ export function ProgramCard({
             <div className="grid grid-cols-2 gap-4 mb-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-2xl font-bold text-earthy-green mb-1">
+                  <div className="text-2xl font-bold text-wintima-maroon mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs text-medium-gray uppercase tracking-wide">
@@ -103,7 +103,7 @@ export function ProgramCard({
             <Button
               asChild
               variant="outline"
-              className="w-full justify-between text-earthy-green hover:!text-white hover:!bg-earthy-green transition-all duration-300 group-hover:!bg-earthy-green group-hover:!text-white border border-earthy-green hover:border-earthy-green"
+              className="w-full justify-between text-wintima-maroon hover:!text-white hover:!bg-wintima-maroon transition-all duration-300 group-hover:!bg-wintima-maroon group-hover:!text-white border border-wintima-maroon hover:border-wintima-maroon"
             >
               <Link href={href} className="flex items-center justify-between w-full">
                 <span>Learn More</span>

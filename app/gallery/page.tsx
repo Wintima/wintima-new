@@ -33,7 +33,7 @@ const galleryItems = [
     category: "mentorship",
     date: "2024-01-15",
     location: "Tamale, Northern Region",
-    image: "/images/yeremallu-5.JPG"
+    image: "/images/wintima-5.jpg"
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const galleryItems = [
     category: "health",
     date: "2024-02-20",
     location: "Yendi, Northern Region",
-    image: "/images/yeremallu-12.JPG"
+    image: "/images/wintima-12.jpg"
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const galleryItems = [
     category: "community",
     date: "2023-12-10",
     location: "Gushegu, Northern Region",
-    image: "/images/yeremallu-16.JPG"
+    image: "/images/wintima-13.jpg"
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ const galleryItems = [
     category: "events",
     date: "2024-03-05",
     location: "Tamale, Northern Region",
-    image: "/images/yeremallu-20.JPG"
+    image: "/images/wintima-10.jpg"
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ const galleryItems = [
     category: "health",
     date: "2024-01-28",
     location: "Savelugu, Northern Region",
-    image: "/images/yeremallu-21.JPG"
+    image: "/images/wintima-11.jpg"
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const galleryItems = [
     category: "mentorship",
     date: "2024-02-14",
     location: "Virtual Event",
-    image: "/images/yeremallu-22.JPG"
+    image: "/images/wintima-1.jpg"
   },
   {
     id: 7,
@@ -87,7 +87,7 @@ const galleryItems = [
     category: "events",
     date: "2024-01-10",
     location: "Dagbon Palace, Yendi",
-    image: "/images/yeremallu-23.JPG"
+    image: "/images/wintima-2.jpg"
   },
   {
     id: 8,
@@ -96,7 +96,7 @@ const galleryItems = [
     category: "community",
     date: "2024-02-01",
     location: "Kumbungu, Northern Region",
-    image: "/images/yeremallu-24.JPG"
+    image: "/images/wintima-3.jpg"
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const galleryItems = [
     category: "mentorship",
     date: "2024-03-12",
     location: "University of Ghana, Legon",
-    image: "/images/yeremallu-25.JPG"
+    image: "/images/wintima-4.jpg"
   }
 ];
 
@@ -145,8 +145,8 @@ export default function GalleryPage() {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center space-x-2 ${
                   activeCategory === category.id
-                    ? "bg-earthy-green hover:bg-earthy-green/90 text-white"
-                    : "border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
+                    ? "bg-wintima-maroon hover:bg-wintima-maroon/90 text-white"
+                    : "border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
                 }`}
               >
                 {category.icon}
@@ -179,7 +179,7 @@ export default function GalleryPage() {
                     
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-white/90 text-earthy-green">
+                      <Badge className="bg-white/90 text-wintima-maroon">
                         {galleryCategories.find(cat => cat.id === item.category)?.label}
                       </Badge>
                     </div>
@@ -188,7 +188,7 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Button
                         variant="outline"
-                        className="border-white text-white bg-earthy-green hover:!bg-white hover:!text-earthy-green"
+                        className="border-white text-white bg-wintima-maroon hover:!bg-white hover:!text-wintima-maroon"
                       >
                         View Details
                       </Button>
@@ -196,7 +196,7 @@ export default function GalleryPage() {
                   </div>
 
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-2 group-hover:text-earthy-green transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-wintima-charcoal mb-2 group-hover:text-wintima-maroon transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-medium-gray mb-4 leading-relaxed">
@@ -231,7 +231,7 @@ export default function GalleryPage() {
               className="text-center py-16"
             >
               <Camera className="h-16 w-16 text-medium-gray mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-deep-charcoal mb-2">
+              <h3 className="text-xl font-semibold text-wintima-charcoal mb-2">
                 No photos in this category yet
               </h3>
               <p className="text-medium-gray">
@@ -243,7 +243,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24 bg-wintima-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -252,7 +252,7 @@ export default function GalleryPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
               Be Part of Our Story
             </h2>
             <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto mb-8">
@@ -263,7 +263,7 @@ export default function GalleryPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3"
               >
                 <a href="/get-involved">Get Involved</a>
               </Button>
@@ -271,7 +271,7 @@ export default function GalleryPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white px-8 py-3"
+                className="border-2 border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white px-8 py-3"
               >
                 <a href="/programmes">Our Programs</a>
               </Button>

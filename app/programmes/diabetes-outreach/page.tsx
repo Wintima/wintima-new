@@ -86,7 +86,7 @@ export default function DiabetesOutreachPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-gray via-white to-light-gray">
+    <div className="min-h-screen bg-gradient-to-br from-wintima-light via-white to-wintima-light">
       {/* Hero Section */}
       <HeroSection
         title="J&C Diabetes Outreach Program"
@@ -94,7 +94,7 @@ export default function DiabetesOutreachPage() {
         description="Comprehensive diabetes education, screening, and support services for communities across Northern Ghana"
         height="medium"
         textAlign="center"
-        backgroundImage="/images/yeremallu-12.JPG"
+        backgroundImage="/images/wintima-12.jpg"
       />
 
       {/* Story Section */}
@@ -108,10 +108,10 @@ export default function DiabetesOutreachPage() {
             viewport={{ once: true }}
           >
             <div>
-              <Badge className="mb-4 bg-sunset-orange/10 text-sunset-orange border-sunset-orange/20">
+              <Badge className="mb-4 bg-wintima-maroon/10 text-wintima-maroon border-wintima-maroon/20">
                 Our Story
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-6">
                 The Heart Behind J&C Diabetes Outreach
               </h2>
               <div className="space-y-6 text-medium-gray leading-relaxed">
@@ -134,25 +134,25 @@ export default function DiabetesOutreachPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-earthy-green/20 to-sunset-orange/20 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-wintima-maroon/20 to-wintima-maroon/20 rounded-2xl p-8">
                 <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">Our Mission</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">Our Mission</h3>
                   <p className="text-medium-gray mb-4">
                     To reduce the impact of diabetes in our community through education, 
                     prevention, early detection, and ongoing support.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Free community screenings</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Free community screenings</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Educational workshops</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Educational workshops</span>
                     </div>
                     <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-earthy-green mr-3" />
-                      <span className="text-deep-charcoal">Support networks</span>
+                      <CheckCircle className="h-5 w-5 text-wintima-maroon mr-3" />
+                      <span className="text-wintima-charcoal">Support networks</span>
                     </div>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default function DiabetesOutreachPage() {
       </section>
 
       {/* Impact Statistics */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-earthy-green/5 to-sunset-orange/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon/5 to-wintima-maroon/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -172,7 +172,7 @@ export default function DiabetesOutreachPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Impact in Numbers
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -194,10 +194,10 @@ export default function DiabetesOutreachPage() {
                 className="text-center"
               >
                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-earthy-green mb-3 flex justify-center">
+                  <div className="text-wintima-maroon mb-3 flex justify-center">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-2">
                     {stat.number}
                   </div>
                   <div className="text-medium-gray text-sm md:text-base">
@@ -220,7 +220,7 @@ export default function DiabetesOutreachPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               Our Services
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -242,10 +242,10 @@ export default function DiabetesOutreachPage() {
               >
                 <Card className="h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   <CardHeader className="text-center">
-                    <div className="text-earthy-green mb-4 flex justify-center">
+                    <div className="text-wintima-maroon mb-4 flex justify-center">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-deep-charcoal">{service.title}</CardTitle>
+                    <CardTitle className="text-wintima-charcoal">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-medium-gray text-center">{service.description}</p>
@@ -258,7 +258,7 @@ export default function DiabetesOutreachPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-light-gray to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-light to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -267,7 +267,7 @@ export default function DiabetesOutreachPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               How Our Program Works
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -305,10 +305,10 @@ export default function DiabetesOutreachPage() {
                 className="text-center"
               >
                 <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-16 h-16 bg-earthy-green text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
+                  <div className="w-16 h-16 bg-wintima-maroon text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-deep-charcoal mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-semibold text-wintima-charcoal mb-4">{item.title}</h3>
                   <p className="text-medium-gray">{item.description}</p>
                 </div>
               </motion.div>
@@ -327,7 +327,7 @@ export default function DiabetesOutreachPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-wintima-charcoal mb-4">
               What Our Community Says
             </h2>
             <p className="text-xl text-medium-gray max-w-2xl mx-auto">
@@ -351,12 +351,12 @@ export default function DiabetesOutreachPage() {
                   <CardContent className="p-6">
                     <div className="flex mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-sunset-orange fill-current" />
+                        <Star key={i} className="h-5 w-5 text-wintima-maroon fill-current" />
                       ))}
                     </div>
                     <p className="text-medium-gray mb-4 italic">&quot;{testimonial.content}&quot;</p>
                     <div>
-                      <div className="font-semibold text-deep-charcoal">{testimonial.name}</div>
+                      <div className="font-semibold text-wintima-charcoal">{testimonial.name}</div>
                       <div className="text-sm text-medium-gray">{testimonial.role}</div>
                     </div>
                   </CardContent>
@@ -368,7 +368,7 @@ export default function DiabetesOutreachPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-earthy-green to-sunset-orange">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-wintima-maroon to-wintima-maroon">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center text-white"
@@ -386,7 +386,7 @@ export default function DiabetesOutreachPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-earthy-green hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-wintima-maroon hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Schedule Screening
                 <Calendar className="ml-2 h-5 w-5" />
@@ -394,7 +394,7 @@ export default function DiabetesOutreachPage() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="bg-sunset-orange text-white hover:!bg-white hover:text-earthy-green px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+                className="bg-wintima-maroon text-white hover:!bg-white hover:text-wintima-maroon px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Contact Us
                 <Phone className="ml-2 h-5 w-5" />
