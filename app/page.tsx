@@ -128,7 +128,7 @@ export default function HomePage() {
                   alt={featuredProject.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 44vw, 100vw"
-                  className="object-cover"
+                  className="pointer-events-none object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 animate-pulse bg-wintima-light -z-10" />

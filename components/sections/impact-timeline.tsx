@@ -52,7 +52,7 @@ export function ImpactTimeline() {
                 alt={`${milestone.school} milestone in ${milestone.location}`}
                 fill
                 sizes="(min-width: 1024px) 128px, (min-width: 640px) 128px, 100vw"
-                className="object-cover"
+                className="pointer-events-none object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 animate-pulse bg-wintima-light -z-10" />

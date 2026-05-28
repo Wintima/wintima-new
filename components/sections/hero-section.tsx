@@ -74,7 +74,7 @@ export function HeroSection({
             fill
             priority={priorityImage}
             sizes={imageSizes}
-            className="object-cover"
+            className="pointer-events-none object-cover"
           />
         ) : (
           <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-wintima-maroon via-wintima-maroon/90 to-wintima-charcoal" />
@@ -140,13 +140,16 @@ export function HeroSection({
                     key={index}
                     asChild
                     size="lg"
-                    className={`group px-8 py-3 text-base font-medium rounded-full transition-all duration-300 transform hover:scale-105 ${
+                    className={`group min-h-12 px-8 py-3 text-base font-medium rounded-full transition-all duration-300 transform hover:scale-105 ${
                       button.variant === "primary"
                         ? "bg-wintima-maroon hover:bg-wintima-maroon/90 text-white shadow-lg hover:shadow-xl"
                         : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-wintima-charcoal"
                     }`}
                   >
-                    <Link href={button.href} className="flex items-center space-x-2">
+                    <Link
+                      href={button.href}
+                      className="flex min-h-12 items-center space-x-2"
+                    >
                       <span>{button.text}</span>
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
