@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -11,6 +12,7 @@ interface HeroSectionProps {
   subtitle?: string;
   description?: string;
   backgroundImage?: string;
+  backgroundImageAlt?: string;
   backgroundVideo?: string;
   ctaButtons?: Array<{
     text: string;
@@ -20,6 +22,8 @@ interface HeroSectionProps {
   height?: "full" | "large" | "medium";
   overlay?: boolean;
   textAlign?: "left" | "center";
+  priorityImage?: boolean;
+  imageSizes?: string;
 }
 
 export function HeroSection({
@@ -27,14 +31,17 @@ export function HeroSection({
   subtitle,
   description,
   backgroundImage,
+  backgroundImageAlt = "",
   backgroundVideo,
   ctaButtons = [],
   height = "full",
   overlay = true,
   textAlign = "left",
+  priorityImage = false,
+  imageSizes = "100vw",
 }: HeroSectionProps) {
   const heightClasses = {
-    full: "min-h-screen",
+    full: "min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)]",
     large: "min-h-[80vh]",
     medium: "min-h-[60vh]",
   };
@@ -61,9 +68,13 @@ export function HeroSection({
             <source src={backgroundVideo} type="video/mp4" />
           </video>
         ) : backgroundImage ? (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+          <Image
+            src={backgroundImage}
+            alt={backgroundImageAlt}
+            fill
+            priority={priorityImage}
+            sizes={imageSizes}
+            className="object-cover"
           />
         ) : (
           <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-wintima-maroon via-wintima-maroon/90 to-wintima-charcoal" />
@@ -109,7 +120,9 @@ export function HeroSection({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl text-balance"
+                className={`text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl text-balance ${
+                  textAlign === "center" ? "mx-auto" : ""
+                }`}
               >
                 {description}
               </motion.p>
