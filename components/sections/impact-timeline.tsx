@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CalendarDays, MapPin } from "lucide-react";
 import { impactTimeline } from "@/lib/homepage-content";
@@ -9,6 +9,7 @@ import { impactTimeline } from "@/lib/homepage-content";
 const reduceMotionTransition = { duration: 0.45, ease: "easeOut" as const };
 
 export function ImpactTimeline() {
+  const shouldReduceMotion = useReducedMotion();
   const { ref, inView } = useInView({
     rootMargin: "-80px 0px",
     threshold: 0.12,
@@ -28,14 +29,14 @@ export function ImpactTimeline() {
       {impactTimeline.map((milestone, index) => (
         <motion.li
           key={`${milestone.year}-${milestone.school}`}
-          tabIndex={0}
-          initial={{ opacity: 0, y: 24 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{
-            ...reduceMotionTransition,
-            delay: Math.min(index * 0.05, 0.3),
+            duration: shouldReduceMotion ? 0 : reduceMotionTransition.duration,
+            ease: reduceMotionTransition.ease,
+            delay: shouldReduceMotion ? 0 : Math.min(index * 0.05, 0.3),
           }}
-          className={`relative rounded-lg border border-wintima-maroon/10 bg-white p-4 shadow-sm outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-wintima-maroon focus-visible:ring-offset-2 md:p-5 ${
+          className={`relative rounded-lg border border-wintima-maroon/10 bg-white p-4 shadow-sm md:p-5 ${
             index % 2 === 0 ? "lg:mr-8" : "lg:ml-8 lg:translate-y-10"
           }`}
         >

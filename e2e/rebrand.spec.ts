@@ -24,7 +24,7 @@ test.describe("wintima rebrand @rebrand", () => {
     await expect(main.getByRole("heading", { level: 1 })).toHaveCount(1);
     await expect(main.getByRole("heading", { name: "Yizidug School Refurbishment" })).toBeVisible();
     await expect(main.getByRole("heading", { name: "Education in the Heart of Ghana" })).toBeVisible();
-    await expect(main.getByRole("heading", { name: "A Decade of Impact" })).toBeVisible();
+    await expect(main.getByRole("heading", { name: "2015-2025 Milestones" })).toBeVisible();
     await expect(main.getByRole("heading", { name: "Every Contribution Keeps a Child in School" })).toBeVisible();
     await expect(main.getByRole("heading", { name: "Connect With Wintima" })).toBeVisible();
 
@@ -49,10 +49,7 @@ test.describe("wintima rebrand @rebrand", () => {
     await expect(timeline.locator("li")).toHaveCount(9);
     await expect(timeline).toContainText("2015");
     await expect(timeline).toContainText("2025");
-
-    const firstMilestone = timeline.locator("li").first();
-    await firstMilestone.focus();
-    await expect(firstMilestone).toBeFocused();
+    await expect(timeline.locator("li[tabindex]")).toHaveCount(0);
 
     await expect(page.locator('main a[href="https://www.linkedin.com/company/wintima-foundation/"]')).toBeVisible();
     await expect(page.locator('main a[href="https://www.instagram.com/wintima.foundation/"]')).toBeVisible();
@@ -67,6 +64,13 @@ test.describe("wintima rebrand @rebrand", () => {
     const projectsResponse = await page.request.get("/projects");
     expect(projectsResponse.status()).toBeLessThan(400);
     expect(projectsResponse.url()).toMatch(/\/programmes$/);
+  });
+
+  test("volunteer CTA preselects volunteer inquiry type", async ({ page }) => {
+    await goto(page, "/");
+    await page.locator("main").getByRole("link", { name: "Volunteer With Us" }).click();
+    await expect(page).toHaveURL(/\/contact\?type=volunteer$/);
+    await expect(page.locator("#type")).toHaveValue("volunteer");
   });
 
   for (const viewport of [

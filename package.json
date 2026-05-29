@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test:unit": "vitest run --exclude \"e2e/**\"",
+    "test:unit": "vitest run",
     "validate": "npm run lint && npm run typecheck && npm run test:unit",
     "test:e2e": "playwright test",
     "test:e2e:legacy": "playwright test --project=legacy-smoke",

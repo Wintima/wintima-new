@@ -1,5 +1,4 @@
 import {
-  BookOpen,
   BriefcaseBusiness,
   Building2,
   GraduationCap,
@@ -100,7 +99,7 @@ export const impactTimeline = [
   },
   {
     year: "2016",
-    location: "Frafra Catholic School",
+    location: "Bolgatanga",
     school: "ChangeMakers Girl Club",
     description: "Girls' club launched to encourage confidence and peer support.",
     image: "/images/wintima-2.jpg",
@@ -186,7 +185,3 @@ export const homepageSectionLinks = {
   projects: { text: "See all projects", href: "/projects" },
 };
 
-export const sourceNote = {
-  icon: BookOpen,
-  text: "Content reflects the Wintima Foundation homepage brief and available site copy.",
-};

@@ -213,7 +213,7 @@ export default function HomePage() {
               id="timeline-heading"
               className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
             >
-              A Decade of Impact
+              2015-2025 Milestones
             </h2>
             <p className="text-lg leading-8 text-medium-gray">
               From a first school donation in 2015 to the current Yizidug

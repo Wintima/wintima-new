@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -20,6 +21,8 @@ import {
   AlertCircle
 } from "lucide-react";
 
+const inquiryTypeSchema = z.enum(["general", "volunteer", "mentor", "student", "partnership", "media"]);
+
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
@@ -27,7 +30,7 @@ const contactFormSchema = z.object({
   subject: z.string().min(5, "Subject must be at least 5 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   program: z.string().optional(),
-  type: z.enum(["general", "volunteer", "mentor", "student", "partnership", "media"]),
+  type: inquiryTypeSchema,
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -69,8 +72,19 @@ const inquiryTypes = [
 ];
 
 export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <ContactPageContent />
+    </Suspense>
+  );
+}
+
+function ContactPageContent() {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const parsedType = inquiryTypeSchema.safeParse(searchParams.get("type"));
+  const defaultInquiryType = parsedType.success ? parsedType.data : "general";
 
   const {
     register,
@@ -79,6 +93,9 @@ export default function ContactPage() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      type: defaultInquiryType,
+    },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -91,7 +108,7 @@ export default function ContactPage() {
       
       console.log("Form submitted:", data);
       setSubmitStatus("success");
-      reset();
+      reset({ type: defaultInquiryType });
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
