@@ -14,14 +14,15 @@ import {
 import { HeroSection } from "@/components/sections/hero-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import founderImage from "../../public/images/founder.jpg";
-import outreachImage from "../../public/images/wintima-3.jpg";
 
 export const metadata: Metadata = {
   title: "About Us | Wintima Foundation",
   description:
     "Learn about Wintima Foundation's mission to provide quality education for children in rural Ghana through school supplies, mentorship, and community support.",
 };
+
+const imageBlurDataUrl =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==";
 
 const outreachFocus = [
   {
@@ -121,12 +122,13 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-lg bg-wintima-light shadow-sm">
               <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <Image
-                  src={founderImage}
+                  src="/images/founder.jpg"
                   alt="Janet Zeylisa Dauda, founder of Wintima Foundation"
                   fill
                   sizes="(min-width: 1024px) 42vw, 100vw"
                   className="object-cover"
                   placeholder="blur"
+                  blurDataURL={imageBlurDataUrl}
                 />
               </div>
             </div>
@@ -251,12 +253,13 @@ export default function AboutPage() {
               <div className="mt-8 overflow-hidden rounded-lg bg-wintima-light shadow-sm">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={outreachImage}
+                    src="/images/wintima-3.jpg"
                     alt="Wintima Foundation team distributing educational supplies to students"
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-cover"
                     placeholder="blur"
+                    blurDataURL={imageBlurDataUrl}
                     loading="lazy"
                   />
                 </div>
