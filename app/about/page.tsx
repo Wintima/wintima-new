@@ -14,8 +14,8 @@ import {
 import { HeroSection } from "@/components/sections/hero-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import founderImage from "@/public/images/founder.jpg";
-import outreachImage from "@/public/images/wintima-3.jpg";
+import founderImage from "../../public/images/founder.jpg";
+import outreachImage from "../../public/images/wintima-3.jpg";
 
 export const metadata: Metadata = {
   title: "About Us | Wintima Foundation",
