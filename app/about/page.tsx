@@ -1,314 +1,407 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { HeroSection } from "@/components/sections/hero-section";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Heart, 
-  Eye, 
-  Target, 
-  Users, 
-} from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  BookOpen,
+  Footprints,
+  GraduationCap,
+  HandHeart,
+  HeartHandshake,
+  Shirt,
+  Sparkles,
+  Users,
+} from "lucide-react";
+import { HeroSection } from "@/components/sections/hero-section";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-const missionVisionValues = [
+export const metadata: Metadata = {
+  title: "About Us | Wintima Foundation",
+  description:
+    "Learn about Wintima Foundation's mission to provide quality education for children in rural Ghana through school supplies, mentorship, and community support.",
+};
+
+const imageBlurDataUrl =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==";
+
+const outreachFocus = [
   {
-    key: "mission",
-    title: "Our Mission",
-    icon: <Target className="h-8 w-8" />,
-    content: "To ensure children in rural and deprived communities across Ghana's Upper East Region have access to quality education through school supplies, uniforms, mentorship, and infrastructure support."
+    title: "Uniforms & Footwear",
+    description: "Providing school uniforms and footwear so students can attend school with dignity.",
+    icon: Shirt,
   },
   {
-    key: "vision",
-    title: "Our Vision",
-    icon: <Eye className="h-8 w-8" />,
-    content: "An Upper East Region where every child has the materials, mentorship, and safe school environments needed to learn and thrive — and where communities grow stronger through education, health awareness, and mutual support."
+    title: "Sanitary Pads",
+    description: "Providing sanitary pads for female students so period poverty does not interrupt learning.",
+    icon: HeartHandshake,
   },
   {
-    key: "values",
-    title: "Our Values",
-    icon: <Heart className="h-8 w-8" />,
-    content: "Compassion drives our service. Integrity guides our actions. Excellence defines our programs. Community remains at our center. We believe in the power of mentorship, the importance of health education, and the strength that comes from neighbors helping neighbors."
-  }
+    title: "Mentorship",
+    description: "Providing mentorship that helps students feel supported, safe, and motivated in school.",
+    icon: Users,
+  },
+  {
+    title: "Reading Spaces",
+    description: "Constructing community reading spaces and box libraries with storybooks, novels, and poetry.",
+    icon: BookOpen,
+  },
+  {
+    title: "Vocational Skills",
+    description: "Supporting vocational skills training for community members.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Non-Academic Support",
+    description: "Meeting practical needs outside the classroom that directly affect a child's education.",
+    icon: HandHeart,
+  },
 ];
 
-const boardMembers = [
+const strategySteps = [
   {
-    name: "John Doe",
-    role: "Chairman",
-    bio: "Experienced development professional with 15+ years in NGO management across West Africa. John brings strategic leadership and deep understanding of community development challenges and opportunities.",
-    image: "/images/wintima-2.jpg"
+    title: "Educational Wellbeing",
+    description:
+      "Renew donations of expendable educational items so students consistently have the materials they need.",
   },
   {
-    name: "Jane Smith",
-    role: "Secretary",
-    bio: "Healthcare advocate and former nurse with deep expertise in community health programs. Jane leads our health initiatives and ensures our diabetes outreach program maintains the highest standards of care.",
-    image: "/images/wintima-3.jpg"
+    title: "Extracurricular Activities",
+    description:
+      "Build box libraries that give children access to storybooks, novels, poetry, and broader reading experiences.",
   },
   {
-    name: "Michael Johnson",
-    role: "Treasurer",
-    bio: "Financial analyst specializing in non-profit accounting and donor fund management. Michael ensures transparent financial stewardship and sustainable program funding across all our initiatives.",
-    image: "/images/wintima-4.jpg"
+    title: "Mentorship Program",
+    description:
+      "Train teachers as mentors while liaising with Ghana Education Service and the National Service Scheme.",
   },
   {
-    name: "Dr. Amina Hassan",
-    role: "Programs Director",
-    bio: "Education specialist with PhD in Development Studies and extensive experience in youth mentorship programs. Dr. Hassan oversees our Northern Stars program and educational partnerships.",
-    image: "/images/wintima-6.jpg"
+    title: "Domestic & Community Wellbeing",
+    description:
+      "Address non-educational threats such as potable water, unemployment, and poverty through practical community solutions.",
+  },
+];
+
+const goals = [
+  "Improve student grades and cognitive abilities.",
+  "Help 90-95% of students in focus schools progress to senior high school.",
+  "Use lessons from Yizidug Basic School to support replication in other schools.",
+];
+
+const progressSteps = [
+  {
+    title: "Monthly Tutor Calls",
+    description: "Call tutors monthly to ascertain student status and understand what support is needed.",
   },
   {
-    name: "Samuel Osei",
-    role: "Community Liaison",
-    bio: "Native of the Upper East Region with strong community connections and cultural insights. Samuel ensures our programs remain culturally appropriate and community-led.",
-    image: "/images/wintima-7.jpg"
+    title: "Bi-Annual Visits",
+    description: "Carry out week-long visits from the Wintima Team twice a year.",
   },
   {
-    name: "Sarah Williams",
-    role: "International Relations",
-    bio: "Former diplomat with expertise in international development and cross-cultural partnerships. Sarah manages our global mentor network and international collaborations.",
-    image: "/images/wintima-8.jpg"
-  }
+    title: "Student Tracking",
+    description: "Collect and track student information as children progress through school.",
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-white">
       <HeroSection
-        title="Our Story"
-        subtitle="About Us"
-        description="Founded by Janet Zeylisa Dauda to restore smiles and impact lives through education in Ghana's Upper East Region"
-        height="medium"
+        title="Education in the Heart of Ghana"
+        subtitle="About Wintima Foundation"
+        description="Wintima Foundation is an education-focused non-profit organisation supporting children in rural and deprived communities in Ghana."
+        height="large"
         textAlign="center"
+        backgroundImage="/images/wintima-14.jpg"
+        backgroundImageAlt="Wintima Foundation outreach visit with students in Ghana"
+        priorityImage
+        imageSizes="100vw"
       />
 
-      {/* Mission, Vision, Values */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24" aria-labelledby="who-we-are-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
-              Foundation Pillars
-            </h2>
-            <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Our mission, vision, and values guide every decision and shape every program we implement.
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <Tabs defaultValue="mission" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8 bg-wintima-light">
-                {missionVisionValues.map((item) => (
-                  <TabsTrigger
-                    key={item.key}
-                    value={item.key}
-                    className="data-[state=active]:bg-wintima-maroon data-[state=active]:text-white"
-                  >
-                    {item.title}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-              {missionVisionValues.map((item) => (
-                <TabsContent key={item.key} value={item.key}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Card className="border-0 shadow-lg">
-                      <CardContent className="p-8 text-center">
-                        <div className="flex justify-center mb-6">
-                          <div className="p-4 bg-wintima-maroon/10 rounded-full text-wintima-maroon">
-                            {item.icon}
-                          </div>
-                        </div>
-                        <h3 className="text-2xl font-bold text-wintima-charcoal mb-6">
-                          {item.title}
-                        </h3>
-                        <p className="text-lg text-medium-gray leading-relaxed">
-                          {item.content}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </TabsContent>
-              ))}
-            </Tabs>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder's Full Story */}
-      <section className="py-16 lg:py-24 bg-wintima-light">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/images/founder.jpg" 
-                  alt="Janet Zeylisa Dauda, Founder of Wintima Foundation" 
-                  className="w-full h-full object-cover"
-                  width={500}
-                  height={500}
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div className="relative overflow-hidden rounded-lg bg-wintima-light shadow-sm">
+              <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+                <Image
+                  src="/images/founder.jpg"
+                  alt="Janet Zeylisa Dauda, founder of Wintima Foundation"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={imageBlurDataUrl}
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
-                From Vision to Reality
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+                Introduction & Background
+              </p>
+              <h2
+                id="who-we-are-heading"
+                className="mb-6 text-3xl font-bold leading-tight text-wintima-charcoal md:text-4xl lg:text-5xl"
+              >
+                Who We Are
               </h2>
-              <div className="space-y-6 text-lg text-medium-gray leading-relaxed">
+              <div className="space-y-5 text-base leading-8 text-medium-gray md:text-lg">
                 <p>
-                  Janet Zeylisa Dauda founded Wintima Foundation in 2015 after witnessing how children in
-                  rural and deprived communities across Ghana&apos;s Upper East Region struggled without basic
-                  school supplies, uniforms, or supportive mentorship. She saw pupils sitting on floors,
-                  sharing worn textbooks, and losing hope long before they could discover their potential.
+                  Wintima Foundation is an education-focused non-profit organisation in Ghana,
+                  registered in 2021 as a Company Limited by Guarantee. The Foundation has
+                  been in existence for the past ten years, having been founded by Janet
+                  Zeylisa Dauda in 2015.
                 </p>
-
                 <p>
-                  What started as grassroots support for local schools evolved into a sustained mission:
-                  ensuring every child has the materials, guidance, and dignity needed to stay in school
-                  and succeed. Wintima was formally registered as a Company Limited by Guarantee in 2021,
-                  strengthening its capacity to partner with communities, donors, and volunteers.
+                  In its earliest days, a small team of volunteers gathered and distributed
+                  donations comprising textbooks, exercise books, pencils and pens. Over the
+                  years, this small group of volunteers has grown into a community of
+                  fully-fledged members.
                 </p>
-
                 <p>
-                  Our work spans educational materials, school uniforms, mentorship programmes, and
-                  infrastructure projects — including school refurbishments that repair classrooms, desks,
-                  windows, and roofs so learning can happen in safe, dignified spaces.
+                  The Foundation recognizes that there are challenges that permeate Ghana&apos;s
+                  pre-senior high school education system. Though access to education has
+                  improved dramatically, poverty, child early and forced marriages, and teenage
+                  pregnancies are all drivers that limit the utility of education to affected
+                  children.
                 </p>
-
                 <p>
-                  Beyond education, Wintima Foundation continues community health and giving initiatives
-                  such as the J&amp;C Diabetes Outreach and Northern Stars mentorship programme — honouring
-                  lives lost while expanding opportunities for the next generation.
+                  Moreover, general systemic issues of development inequality between Northern
+                  Ghana and Southern Ghana, as well as the disproportionate effect of poverty
+                  on Ghana&apos;s rural population exacerbates already existing problems.
                 </p>
-
                 <p>
-                  Today, Wintima Foundation stands as a testament to what is possible when compassion meets
-                  action. Every desk supplied, every uniform delivered, and every mentor paired with a
-                  student reflects Janet&apos;s founding vision: that geography should never determine destiny.
+                  We also recognize that many young girls are disproportionately affected by
+                  many of these factors that drive children out of school.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Board of Directors */}
-      <section className="py-16 lg:py-24">
+      <section
+        className="bg-wintima-warm py-16 lg:py-24"
+        aria-labelledby="outreach-focus-heading"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wintima-charcoal mb-6">
-              Board of Directors
-            </h2>
-            <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Our board brings together diverse expertise in development, healthcare, education, and community leadership.
+          <div className="mb-12 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+              What We Do
             </p>
-          </motion.div>
+            <h2
+              id="outreach-focus-heading"
+              className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+            >
+              Our Outreach Focus
+            </h2>
+            <p className="text-base leading-8 text-medium-gray md:text-lg">
+              Wintima&apos;s outreach focuses on practical needs that help children stay in
+              school, enjoy learning, and feel supported by their community.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {boardMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-6">
-                      {member.image ? (
-                        <div
-                          className="w-24 h-24 mx-auto rounded-full bg-cover bg-center border-4 border-wintima-maroon/20"
-                          style={{ backgroundImage: `url(${member.image})` }}
-                        />
-                      ) : (
-                        <div className="w-24 h-24 mx-auto rounded-full bg-wintima-maroon/10 flex items-center justify-center border-4 border-wintima-maroon/20">
-                          <Users className="h-10 w-10 text-wintima-maroon" />
-                        </div>
-                      )}
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {outreachFocus.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <Card
+                  key={item.title}
+                  className="h-full rounded-lg border-wintima-maroon/10 bg-white shadow-sm"
+                >
+                  <CardContent className="p-6">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-wintima-maroon/10 text-wintima-maroon">
+                      <Icon className="h-6 w-6" aria-hidden="true" />
                     </div>
-                    <h3 className="text-xl font-bold text-wintima-charcoal mb-2">
-                      {member.name}
+                    <h3 className="mb-3 text-xl font-bold text-wintima-charcoal">
+                      {item.title}
                     </h3>
-                    <p className="text-wintima-maroon font-medium mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-medium-gray text-sm leading-relaxed">
-                      {member.bio}
-                    </p>
+                    <p className="text-sm leading-6 text-medium-gray">{item.description}</p>
                   </CardContent>
                 </Card>
-              </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-24" aria-labelledby="approach-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+                Long-Term Strategy
+              </p>
+              <h2
+                id="approach-heading"
+                className="mb-5 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+              >
+                Our Approach
+              </h2>
+              <div className="space-y-5 text-base leading-8 text-medium-gray md:text-lg">
+                <p>
+                  Starting in 2022, the Foundation&apos;s long-term strategy has been to
+                  reorient itself so that sustainability and progress are at the centre of
+                  its projects.
+                </p>
+                <p>
+                  The medium-term strategy is to focus on one particular school in order to
+                  obtain deeper perspectives about pre-high school education in Ghana&apos;s
+                  deprived communities.
+                </p>
+              </div>
+
+              <div className="mt-8 overflow-hidden rounded-lg bg-wintima-light shadow-sm">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src="/images/wintima-3.jpg"
+                    alt="Wintima Foundation team distributing educational supplies to students"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                    placeholder="blur"
+                    blurDataURL={imageBlurDataUrl}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <ol className="grid gap-5">
+              {strategySteps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="rounded-lg border border-wintima-maroon/10 bg-white p-6 shadow-sm"
+                >
+                  <div className="mb-4 flex items-center gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-wintima-maroon text-sm font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <h3 className="text-xl font-bold text-wintima-charcoal">{step.title}</h3>
+                  </div>
+                  <p className="text-sm leading-6 text-medium-gray">{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-wintima-light py-16 lg:py-24" aria-labelledby="goals-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+              Expected Impact
+            </p>
+            <h2
+              id="goals-heading"
+              className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+            >
+              Our Goals
+            </h2>
+            <p className="text-base leading-8 text-medium-gray md:text-lg">
+              The Foundation&apos;s goals are tied to measurable educational progress and
+              learning that can guide future work.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {goals.map((goal, index) => (
+              <Card
+                key={goal}
+                className="rounded-lg border-wintima-maroon/10 bg-white text-center shadow-sm"
+              >
+                <CardContent className="p-6">
+                  <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-wintima-maroon/10 text-wintima-maroon">
+                    {index === 1 ? (
+                      <span className="text-sm font-bold">90-95%</span>
+                    ) : (
+                      <Sparkles className="h-6 w-6" aria-hidden="true" />
+                    )}
+                  </div>
+                  <h3 className="sr-only">Goal {index + 1}</h3>
+                  <p className="text-base font-semibold leading-7 text-wintima-charcoal">
+                    {goal}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 lg:py-24 bg-wintima-maroon text-white">
+      <section className="py-16 lg:py-24" aria-labelledby="progress-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Join Our Story
-            </h2>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              Every chapter of our story is written by people like you who believe in the power of community and the potential of every young person.
+          <div className="mb-12 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+              Monitoring & Evaluation
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="/get-involved"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-wintima-maroon hover:bg-wintima-maroon/90 text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 inline-flex items-center justify-center"
+            <h2
+              id="progress-heading"
+              className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+            >
+              How We Track Progress
+            </h2>
+            <p className="text-base leading-8 text-medium-gray md:text-lg">
+              Wintima tracks student progress through regular communication, school visits,
+              and long-term student information gathering.
+            </p>
+          </div>
+
+          <ol className="grid gap-5 md:grid-cols-3">
+            {progressSteps.map((step, index) => (
+              <li
+                key={step.title}
+                className="rounded-lg border border-wintima-maroon/10 bg-white p-6 shadow-sm"
               >
-                Get Involved
-              </motion.a>
-              <motion.a
-                href="/programmes"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-wintima-maroon px-8 py-3 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center"
-              >
-                Our Programs
-              </motion.a>
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-wintima-maroon text-sm font-bold text-white">
+                    {index + 1}
+                  </span>
+                  <Footprints className="h-5 w-5 text-wintima-maroon" aria-hidden="true" />
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-wintima-charcoal">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-6 text-medium-gray">{step.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="bg-wintima-maroon py-16 text-white lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/10">
+              <HandHeart className="h-7 w-7 text-wintima-gold" aria-hidden="true" />
             </div>
-          </motion.div>
+            <h2 className="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">
+              Every Contribution Keeps a Child in School
+            </h2>
+            <p className="mx-auto mb-8 max-w-3xl text-base leading-8 text-white/90 md:text-lg">
+              Your support helps provide the materials, mentorship, and practical care that
+              make it possible for children to keep learning.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="min-h-11 rounded-full bg-white px-7 text-wintima-maroon hover:bg-white/90"
+              >
+                <Link href="/donate">Support Us</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="min-h-11 rounded-full border-2 border-white bg-transparent px-7 text-white hover:!bg-white hover:!text-wintima-maroon"
+              >
+                <Link href="/team">Meet the Team</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   );
-} 
+}
