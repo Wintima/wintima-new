@@ -273,7 +273,7 @@ export default function GalleryPage() {
                 size="lg"
                 className="border-2 border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white px-8 py-3"
               >
-                <a href="/programmes">Our Programs</a>
+                <a href="/projects">Our Projects</a>
               </Button>
             </div>
           </motion.div>

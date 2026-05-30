@@ -14,7 +14,7 @@ Disallow: /api/
 
 # Allow important pages
 Allow: /about/
-Allow: /programmes/
+Allow: /projects/
 Allow: /gallery/
 Allow: /blog/
 Allow: /contact/

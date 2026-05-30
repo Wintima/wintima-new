@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 const coreRoutes = [
   { path: "/", heading: /Restoring Smiles|Empowering|Wintima/i },
   { path: "/about", heading: /Our Story|About|Mission/i },
-  { path: "/programmes", heading: /Program/i },
+  { path: "/projects", heading: /Projects|Impact/i },
   { path: "/gallery", heading: /Gallery/i },
   { path: "/blog", heading: /Blog|Stories|News/i },
   { path: "/contact", heading: /Contact|Get in Touch/i },
@@ -21,7 +21,7 @@ test.describe("legacy smoke @legacy", () => {
     });
   }
 
-  test("programme subpages load", async ({ page }) => {
+  test("old programme subpages redirect to projects", async ({ page }) => {
     const subpages = [
       "/programmes/northern-stars",
       "/programmes/diabetes-outreach",
@@ -31,6 +31,7 @@ test.describe("legacy smoke @legacy", () => {
     for (const path of subpages) {
       const response = await page.goto(path);
       expect(response?.status()).toBeLessThan(400);
+      await expect(page).toHaveURL(/\/projects$/);
       await expect(page.locator("main")).toBeVisible();
     }
   });

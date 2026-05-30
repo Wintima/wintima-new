@@ -134,27 +134,27 @@ const structuredData = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Programs",
+    name: "Projects",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Northern Stars Mentorship Program",
+          name: "School Supplies and Mentorship Support",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "J&C Diabetes Outreach Program",
+          name: "Student Health and Sanitary Pad Support",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Community Giving Program",
+          name: "School Infrastructure Projects",
         },
       },
     ],
