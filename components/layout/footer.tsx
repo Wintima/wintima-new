@@ -9,10 +9,7 @@ import { IMAGES } from "@/lib/image-assets";
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
-  { name: "Our Programs", href: "/programmes" },
-  { name: "Northern Stars", href: "/programmes/northern-stars" },
-  { name: "Diabetes Outreach", href: "/programmes/diabetes-outreach" },
-  { name: "Community Giving", href: "/programmes/community-giving" },
+  { name: "Our Projects", href: "/projects" },
   { name: "Gallery", href: "/gallery" },
   { name: "Blog", href: "/blog" },
   { name: "Get Involved", href: "/get-involved" },
@@ -112,7 +109,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <h3 className="text-lg font-semibold mb-6 text-wintima-gold font-serif">Stay Connected</h3>
             <p className="text-gray-300 text-sm mb-4">
-              Subscribe to our newsletter for updates on our programs and impact stories.
+              Subscribe to our newsletter for updates on our projects and impact stories.
             </p>
             <form className="space-y-3">
               <Input

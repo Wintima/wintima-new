@@ -12,15 +12,7 @@ import Image from "next/image";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { 
-    name: "Programs", 
-    href: "/programmes",
-    subItems: [
-      { name: "Northern Stars Mentorship", href: "/programmes/northern-stars" },
-      { name: "J & C Diabetes Outreach", href: "/programmes/diabetes-outreach" },
-      { name: "Community Giving", href: "/programmes/community-giving" },
-    ]
-  },
+  { name: "Projects", href: "/projects" },
   { name: "Gallery", href: "/gallery" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
@@ -29,8 +21,6 @@ const navigation = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [isDropdownHovered, setIsDropdownHovered] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -45,15 +35,6 @@ export function Header() {
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
-  };
-
-  const handleMouseLeave = () => {
-    // Add a small delay to prevent the dropdown from disappearing immediately
-    setTimeout(() => {
-      if (!isDropdownHovered) {
-        setHoveredItem(null);
-      }
-    }, 100);
   };
 
   return (
@@ -91,8 +72,6 @@ export function Header() {
               <div
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => setHoveredItem(item.name)}
-                onMouseLeave={handleMouseLeave}
               >
                 <Link
                   href={item.href}
@@ -106,31 +85,6 @@ export function Header() {
                 >
                   {item.name}
                 </Link>
-                
-                {/* Dropdown for Programmes */}
-                {item.subItems && (hoveredItem === item.name || isDropdownHovered) && (
-                  <motion.div
-                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 duration-900"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
-                    onMouseEnter={() => setIsDropdownHovered(true)}
-                    onMouseLeave={() => {
-                      setIsDropdownHovered(false);
-                      setHoveredItem(null);
-                    }}
-                  >
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        href={subItem.href}
-                        className="block px-4 py-2 text-sm text-wintima-charcoal hover:bg-wintima-light hover:text-wintima-maroon transition-colors duration-900 cursor-pointer"
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
               </div>
             ))}
           </nav>
@@ -192,25 +146,6 @@ export function Header() {
                     >
                       {item.name}
                     </Link>
-                    
-                    {item.subItems && (
-                      <div className="pl-4 space-y-2">
-                        {item.subItems.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className={`block text-sm transition-colors duration-300 hover:text-wintima-maroon ${
-                              isActive(subItem.href)
-                                ? "text-wintima-maroon"
-                                : "text-medium-gray"
-                            }`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ))}
                 

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const brandedPages = ["/", "/about", "/contact", "/programmes"];
+const brandedPages = ["/", "/about", "/contact", "/projects"];
 const goto = (page: Page, path: string) =>
   page.goto(path, { waitUntil: "domcontentloaded" });
 
@@ -63,7 +63,11 @@ test.describe("wintima rebrand @rebrand", () => {
 
     const projectsResponse = await page.request.get("/projects");
     expect(projectsResponse.status()).toBeLessThan(400);
-    expect(projectsResponse.url()).toMatch(/\/programmes$/);
+    expect(projectsResponse.url()).toMatch(/\/projects$/);
+
+    const programmesResponse = await page.request.get("/programmes");
+    expect(programmesResponse.status()).toBeLessThan(400);
+    expect(programmesResponse.url()).toMatch(/\/projects$/);
   });
 
   test("volunteer CTA preselects volunteer inquiry type", async ({ page }) => {
