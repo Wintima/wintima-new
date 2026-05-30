@@ -171,7 +171,7 @@ const formatGhs = (amount: number) =>
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <section className="relative flex min-h-[520px] items-end overflow-hidden bg-wintima-charcoal pt-28 text-white">
         <Image
           src="/images/wintima-15.jpg"
@@ -458,6 +458,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
