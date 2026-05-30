@@ -406,10 +406,6 @@ export default function ProjectsPage() {
             >
               Impact Summary
             </h2>
-            <p className="text-lg leading-8 text-medium-gray">
-              These figures stay intentionally broad where exact records are not
-              available.
-            </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {impactStats.map((stat) => (
