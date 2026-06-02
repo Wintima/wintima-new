@@ -99,6 +99,7 @@ jobs:
           path: |
             .next
             public
+          include-hidden-files: true
           retention-days: 1
 
   e2e:
@@ -112,9 +113,29 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
       - run: npm ci
-      - uses: actions/download-artifact@v4
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
         with:
           name: next-build
+          path: .
+      - name: Restore build output to workspace root
+        run: |
+          if [ -d next-build/.next ]; then
+            rm -rf .next
+            mv next-build/.next .next
+          fi
+          if [ -d next-build/public ]; then
+            rm -rf public
+            mv next-build/public public
+          fi
+          rm -rf next-build
+          if [ ! -f .next/BUILD_ID ]; then
+            echo "Missing .next/BUILD_ID after artifact download"
+            ls -la
+            ls -la next-build 2>/dev/null || true
+            exit 1
+          fi
+          echo "Production build ready"
       - uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
