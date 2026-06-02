@@ -1,22 +1,24 @@
 "use client";
 
-import React from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+interface ProgramCardStat {
+  label: string;
+  value: string;
+}
+
 interface ProgramCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   href: string;
   image?: string;
-  stats?: Array<{
-    label: string;
-    value: string;
-  }>;
+  stats?: ProgramCardStat[];
   className?: string;
 }
 

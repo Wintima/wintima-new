@@ -1,11 +1,16 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+
+interface HeroCtaButton {
+  text: string;
+  href: string;
+  variant: "primary" | "secondary";
+}
 
 interface HeroSectionProps {
   title: string;
@@ -14,11 +19,7 @@ interface HeroSectionProps {
   backgroundImage?: string;
   backgroundImageAlt?: string;
   backgroundVideo?: string;
-  ctaButtons?: Array<{
-    text: string;
-    href: string;
-    variant: "primary" | "secondary";
-  }>;
+  ctaButtons?: HeroCtaButton[];
   height?: "full" | "large" | "medium";
   overlay?: boolean;
   textAlign?: "left" | "center";
@@ -172,9 +173,13 @@ export function HeroSection({
       >
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
           <motion.div
-            animate={shouldReduceMotion ? undefined : { y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-3 bg-white/70 rounded-full mt-2"
+            {...(shouldReduceMotion
+              ? { className: "w-1 h-3 bg-white/70 rounded-full mt-2" }
+              : {
+                  animate: { y: [0, 12, 0] },
+                  transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+                  className: "w-1 h-3 bg-white/70 rounded-full mt-2",
+                })}
           />
         </div>
       </motion.div>

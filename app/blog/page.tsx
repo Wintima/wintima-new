@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,121 +17,19 @@ import {
   BookOpen,
   Users
 } from "lucide-react";
-
-// Sample blog data
-const blogPosts = [
-  {
-    id: 1,
-    slug: "transforming-lives-through-mentorship",
-    title: "Transforming Lives Through Mentorship: The Northern Stars Success Story",
-    excerpt: "Discover how our flagship mentorship program is creating lasting change in the lives of students across Northern Ghana, connecting them with global mentors who believe in their potential.",
-    author: "Dr. Amina Hassan",
-    authorRole: "Programs Director",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    category: "Mentorship",
-    tags: ["Northern Stars", "Education", "Mentorship", "Success Stories"],
-    image: "/api/placeholder/800/400",
-    featured: true,
-    views: 1420,
-    likes: 89
-  },
-  {
-    id: 2,
-    slug: "diabetes-awareness-rural-communities",
-    title: "Breaking Barriers: Diabetes Awareness in Rural Communities",
-    excerpt: "How the J&C Diabetes Outreach program is revolutionizing health education and screening in underserved areas, honoring the memory of Charles and Juliet while saving lives.",
-    author: "Samuel Osei",
-    authorRole: "Community Liaison",
-    date: "2024-01-10",
-    readTime: "4 min read",
-    category: "Health",
-    tags: ["Diabetes", "Health Screening", "Community Outreach", "Prevention"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 892,
-    likes: 67
-  },
-  {
-    id: 3,
-    slug: "power-of-community-giving",
-    title: "The Power of Community Giving: Building Stronger Bonds",
-    excerpt: "Explore how our annual community giving initiatives strengthen relationships, provide essential support, and create lasting positive change in Northern Ghana.",
-    author: "Sarah Williams",
-    authorRole: "International Relations",
-    date: "2024-01-05",
-    readTime: "6 min read",
-    category: "Community",
-    tags: ["Community Giving", "Sustainability", "Partnerships", "Impact"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 756,
-    likes: 45
-  },
-  {
-    id: 4,
-    slug: "cultural-bridge-building-through-education",
-    title: "Cultural Bridge Building Through Education",
-    excerpt: "How our programs create meaningful connections between cultures, fostering understanding and collaboration across continents while preserving local traditions.",
-    author: "John Doe",
-    authorRole: "Chairman",
-    date: "2023-12-28",
-    readTime: "7 min read",
-    category: "Culture",
-    tags: ["Cultural Exchange", "Global Citizenship", "Traditions", "Understanding"],
-    image: "/api/placeholder/800/400",
-    featured: true,
-    views: 1156,
-    likes: 78
-  },
-  {
-    id: 5,
-    slug: "volunteer-spotlight-making-difference",
-    title: "Volunteer Spotlight: Making a Difference from Afar",
-    excerpt: "Meet our incredible volunteers who are making a real impact in Northern Ghana from around the world, and learn how you can join this amazing community of changemakers.",
-    author: "Jane Smith",
-    authorRole: "Secretary",
-    date: "2023-12-20",
-    readTime: "5 min read",
-    category: "Volunteering",
-    tags: ["Volunteers", "Remote Work", "Community", "Skills"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 634,
-    likes: 52
-  },
-  {
-    id: 6,
-    slug: "sustainable-development-goals-alignment",
-    title: "Aligning with Sustainable Development Goals",
-    excerpt: "Discover how our programs directly contribute to the UN Sustainable Development Goals and our commitment to creating measurable, sustainable impact in Northern Ghana.",
-    author: "Michael Johnson",
-    authorRole: "Treasurer",
-    date: "2023-12-15",
-    readTime: "8 min read",
-    category: "Impact",
-    tags: ["SDGs", "Sustainability", "Impact Measurement", "Global Goals"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 445,
-    likes: 34
-  }
-];
-
-const categories = ["All", "Mentorship", "Health", "Community", "Culture", "Volunteering", "Impact"];
+import {
+  blogPosts,
+  categories,
+  getFeaturedPosts,
+  getFilteredPosts,
+} from "@/lib/blog-data";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const featuredPosts = blogPosts.filter(post => post.featured);
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
-  });
+  const featuredPosts = getFeaturedPosts();
+  const filteredPosts = getFilteredPosts(selectedCategory, searchQuery);
 
   return (
     <div className="min-h-screen pt-20">

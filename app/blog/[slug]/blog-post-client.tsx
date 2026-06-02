@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,25 +19,7 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
-
-interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  authorRole: string;
-  authorBio: string;
-  date: string;
-  readTime: string;
-  category: string;
-  tags: string[];
-  image: string;
-  featured: boolean;
-  views: number;
-  likes: number;
-}
+import type { BlogPost } from "@/lib/blog-data";
 
 interface BlogPostClientProps {
   post: BlogPost;

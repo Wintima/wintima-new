@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { Mail, MapPin, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
