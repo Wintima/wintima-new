@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
-import { BlogPostClient } from "./blog-post-client";
-import { getBlogPostBySlug, getRelatedPosts } from "@/lib/blog-data";
+import { notFound } from 'next/navigation';
+import { getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
+import { BlogPostClient } from './blog-post-client';
 
 interface BlogPostPageProps {
   params: Promise<{

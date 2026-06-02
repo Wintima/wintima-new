@@ -20,9 +20,10 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    slug: "transforming-lives-through-mentorship",
-    title: "Transforming Lives Through Mentorship: The Northern Stars Success Story",
-    excerpt: "Discover how our flagship mentorship program is creating lasting change in the lives of students across Northern Ghana, connecting them with global mentors who believe in their potential.",
+    slug: 'transforming-lives-through-mentorship',
+    title: 'Transforming Lives Through Mentorship: The Northern Stars Success Story',
+    excerpt:
+      'Discover how our flagship mentorship program is creating lasting change in the lives of students across Northern Ghana, connecting them with global mentors who believe in their potential.',
     content: `
       <p>The Northern Stars Mentorship Program has been at the heart of our mission since day one. What started as a simple idea to connect rural students with mentors has evolved into a comprehensive support system that's transforming lives across Northern Ghana.</p>
       
@@ -49,23 +50,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>We're also developing an alumni network where former mentees can stay connected with each other and their mentors, and eventually become mentors themselves. This creates a sustainable ecosystem of support that can last for generations.</p>
     `,
-    author: "Dr. Amina Hassan",
-    authorRole: "Programs Director",
-    authorBio: "Dr. Hassan leads our educational programs with over 15 years of experience in international development and education. She holds a PhD in Educational Psychology and is passionate about creating opportunities for underserved youth.",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    category: "Mentorship",
-    tags: ["Northern Stars", "Education", "Mentorship", "Success Stories"],
-    image: "/api/placeholder/1200/600",
+    author: 'Dr. Amina Hassan',
+    authorRole: 'Programs Director',
+    authorBio:
+      'Dr. Hassan leads our educational programs with over 15 years of experience in international development and education. She holds a PhD in Educational Psychology and is passionate about creating opportunities for underserved youth.',
+    date: '2024-01-15',
+    readTime: '5 min read',
+    category: 'Mentorship',
+    tags: ['Northern Stars', 'Education', 'Mentorship', 'Success Stories'],
+    image: '/api/placeholder/1200/600',
     featured: true,
     views: 1420,
-    likes: 89
+    likes: 89,
   },
   {
     id: 2,
-    slug: "diabetes-awareness-rural-communities",
-    title: "Breaking Barriers: Diabetes Awareness in Rural Communities",
-    excerpt: "How the J&C Diabetes Outreach program is revolutionizing health education and screening in underserved areas, honoring the memory of Charles and Juliet while saving lives.",
+    slug: 'diabetes-awareness-rural-communities',
+    title: 'Breaking Barriers: Diabetes Awareness in Rural Communities',
+    excerpt:
+      'How the J&C Diabetes Outreach program is revolutionizing health education and screening in underserved areas, honoring the memory of Charles and Juliet while saving lives.',
     content: `
       <p>The J&C Diabetes Outreach program holds a special place in our hearts and work. Named in honor of Charles and Juliet, this initiative has become a beacon of hope for communities struggling with diabetes awareness and care.</p>
       
@@ -89,23 +92,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>We've also established referral pathways to ensure that people with diabetes receive ongoing care, and we're working with local health facilities to improve diabetes management capabilities.</p>
     `,
-    author: "Samuel Osei",
-    authorRole: "Community Liaison",
-    authorBio: "Samuel serves as our bridge between the foundation and local communities. Born and raised in Northern Ghana, he brings deep cultural understanding and community connections to our work.",
-    date: "2024-01-10",
-    readTime: "4 min read",
-    category: "Health",
-    tags: ["Diabetes", "Health Screening", "Community Outreach", "Prevention"],
-    image: "/api/placeholder/1200/600",
+    author: 'Samuel Osei',
+    authorRole: 'Community Liaison',
+    authorBio:
+      'Samuel serves as our bridge between the foundation and local communities. Born and raised in Northern Ghana, he brings deep cultural understanding and community connections to our work.',
+    date: '2024-01-10',
+    readTime: '4 min read',
+    category: 'Health',
+    tags: ['Diabetes', 'Health Screening', 'Community Outreach', 'Prevention'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 892,
-    likes: 67
+    likes: 67,
   },
   {
     id: 3,
-    slug: "power-of-community-giving",
-    title: "The Power of Community Giving: Building Stronger Bonds",
-    excerpt: "Explore how our annual community giving initiatives strengthen relationships, provide essential support, and create lasting positive change in Northern Ghana.",
+    slug: 'power-of-community-giving',
+    title: 'The Power of Community Giving: Building Stronger Bonds',
+    excerpt:
+      'Explore how our annual community giving initiatives strengthen relationships, provide essential support, and create lasting positive change in Northern Ghana.',
     content: `
       <p>Community giving is more than just distributing items – it's about building relationships, understanding needs, and creating a foundation for sustainable development. Our annual giving program has become a cornerstone of community engagement.</p>
       
@@ -129,23 +134,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>Local communities now take active roles in organizing distributions, identifying beneficiaries, and even contributing their own resources to support neighbors in need.</p>
     `,
-    author: "Sarah Williams",
-    authorRole: "International Relations",
-    authorBio: "Sarah coordinates our international partnerships and volunteer programs. With a background in international relations and nonprofit management, she ensures our global connections strengthen local impact.",
-    date: "2024-01-05",
-    readTime: "6 min read",
-    category: "Community",
-    tags: ["Community Giving", "Sustainability", "Partnerships", "Impact"],
-    image: "/api/placeholder/1200/600",
+    author: 'Sarah Williams',
+    authorRole: 'International Relations',
+    authorBio:
+      'Sarah coordinates our international partnerships and volunteer programs. With a background in international relations and nonprofit management, she ensures our global connections strengthen local impact.',
+    date: '2024-01-05',
+    readTime: '6 min read',
+    category: 'Community',
+    tags: ['Community Giving', 'Sustainability', 'Partnerships', 'Impact'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 756,
-    likes: 45
+    likes: 45,
   },
   {
     id: 4,
-    slug: "cultural-bridge-building-through-education",
-    title: "Cultural Bridge Building Through Education",
-    excerpt: "How our programs create meaningful connections between cultures, fostering understanding and collaboration across continents while preserving local traditions.",
+    slug: 'cultural-bridge-building-through-education',
+    title: 'Cultural Bridge Building Through Education',
+    excerpt:
+      'How our programs create meaningful connections between cultures, fostering understanding and collaboration across continents while preserving local traditions.',
     content: `
       <p>One of the most beautiful aspects of our work is how it brings together people from different cultures and backgrounds. Our programs create bridges that span continents and create lasting friendships.</p>
       
@@ -169,23 +176,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>These connections often extend beyond the formal program period, with mentors and students maintaining lifelong friendships and many mentors becoming advocates for Ghana and African development in their home countries.</p>
     `,
-    author: "John Doe",
-    authorRole: "Chairman",
-    authorBio: "John founded the Wintima Foundation with a vision of connecting communities across the globe. His leadership experience spans both corporate and nonprofit sectors, focusing on sustainable development.",
-    date: "2023-12-28",
-    readTime: "7 min read",
-    category: "Culture",
-    tags: ["Cultural Exchange", "Global Citizenship", "Traditions", "Understanding"],
-    image: "/api/placeholder/1200/600",
+    author: 'John Doe',
+    authorRole: 'Chairman',
+    authorBio:
+      'John founded the Wintima Foundation with a vision of connecting communities across the globe. His leadership experience spans both corporate and nonprofit sectors, focusing on sustainable development.',
+    date: '2023-12-28',
+    readTime: '7 min read',
+    category: 'Culture',
+    tags: ['Cultural Exchange', 'Global Citizenship', 'Traditions', 'Understanding'],
+    image: '/api/placeholder/1200/600',
     featured: true,
     views: 1156,
-    likes: 78
+    likes: 78,
   },
   {
     id: 5,
-    slug: "volunteer-spotlight-making-difference",
-    title: "Volunteer Spotlight: Making a Difference from Afar",
-    excerpt: "Meet our incredible volunteers who are making a real impact in Northern Ghana from around the world, and learn how you can join this amazing community of changemakers.",
+    slug: 'volunteer-spotlight-making-difference',
+    title: 'Volunteer Spotlight: Making a Difference from Afar',
+    excerpt:
+      'Meet our incredible volunteers who are making a real impact in Northern Ghana from around the world, and learn how you can join this amazing community of changemakers.',
     content: `
       <p>Our volunteers are the backbone of everything we do. From mentors who spend hours each week guiding students to content creators who help us share our story, each volunteer makes a unique and valuable contribution.</p>
       
@@ -211,23 +220,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>We host quarterly virtual meetups, an annual in-person conference, and maintain active online communities where volunteers can share experiences, seek advice, and collaborate on projects.</p>
     `,
-    author: "Jane Smith",
-    authorRole: "Secretary",
-    authorBio: "Jane manages our volunteer coordination and administrative functions. Her organizational skills and passion for community building help create meaningful connections between volunteers and our mission.",
-    date: "2023-12-20",
-    readTime: "5 min read",
-    category: "Volunteering",
-    tags: ["Volunteers", "Remote Work", "Community", "Skills"],
-    image: "/api/placeholder/1200/600",
+    author: 'Jane Smith',
+    authorRole: 'Secretary',
+    authorBio:
+      'Jane manages our volunteer coordination and administrative functions. Her organizational skills and passion for community building help create meaningful connections between volunteers and our mission.',
+    date: '2023-12-20',
+    readTime: '5 min read',
+    category: 'Volunteering',
+    tags: ['Volunteers', 'Remote Work', 'Community', 'Skills'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 634,
-    likes: 52
+    likes: 52,
   },
   {
     id: 6,
-    slug: "sustainable-development-goals-alignment",
-    title: "Aligning with Sustainable Development Goals",
-    excerpt: "Discover how our programs directly contribute to the UN Sustainable Development Goals and our commitment to creating measurable, sustainable impact in Northern Ghana.",
+    slug: 'sustainable-development-goals-alignment',
+    title: 'Aligning with Sustainable Development Goals',
+    excerpt:
+      'Discover how our programs directly contribute to the UN Sustainable Development Goals and our commitment to creating measurable, sustainable impact in Northern Ghana.',
     content: `
       <p>Our work is deeply aligned with the United Nations Sustainable Development Goals (SDGs). This alignment ensures that our efforts contribute to global development priorities while addressing local needs.</p>
       
@@ -256,23 +267,25 @@ export const blogPosts: BlogPost[] = [
       
       <p>Our annual impact reports include detailed metrics aligned with SDG frameworks, and we participate in global development networks to share lessons learned and best practices.</p>
     `,
-    author: "Michael Johnson",
-    authorRole: "Treasurer",
-    authorBio: "Michael oversees our financial operations and impact measurement. With a background in finance and development economics, he ensures our resources are used effectively and transparently.",
-    date: "2023-12-15",
-    readTime: "8 min read",
-    category: "Impact",
-    tags: ["SDGs", "Sustainability", "Impact Measurement", "Global Goals"],
-    image: "/api/placeholder/1200/600",
+    author: 'Michael Johnson',
+    authorRole: 'Treasurer',
+    authorBio:
+      'Michael oversees our financial operations and impact measurement. With a background in finance and development economics, he ensures our resources are used effectively and transparently.',
+    date: '2023-12-15',
+    readTime: '8 min read',
+    category: 'Impact',
+    tags: ['SDGs', 'Sustainability', 'Impact Measurement', 'Global Goals'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 445,
-    likes: 34
+    likes: 34,
   },
   {
     id: 7,
-    slug: "youth-leadership-northern-ghana",
-    title: "Empowering Youth Leadership in Northern Ghana",
-    excerpt: "How we're developing the next generation of leaders through mentorship, skills training, and community engagement opportunities that create lasting change.",
+    slug: 'youth-leadership-northern-ghana',
+    title: 'Empowering Youth Leadership in Northern Ghana',
+    excerpt:
+      "How we're developing the next generation of leaders through mentorship, skills training, and community engagement opportunities that create lasting change.",
     content: `
       <p>Youth leadership development is at the core of everything we do. We believe that sustainable change comes from within communities, and young people are the catalysts for that transformation.</p>
       
@@ -299,23 +312,25 @@ export const blogPosts: BlogPost[] = [
       <h2>Long-term Vision</h2>
       <p>Our goal is to develop a network of young leaders who will drive positive change in Northern Ghana for generations to come. Many of our program alumni are now community leaders, teachers, healthcare workers, and entrepreneurs.</p>
     `,
-    author: "Dr. Amina Hassan",
-    authorRole: "Programs Director",
-    authorBio: "Dr. Hassan leads our educational programs with over 15 years of experience in international development and education. She holds a PhD in Educational Psychology and is passionate about creating opportunities for underserved youth.",
-    date: "2023-12-10",
-    readTime: "6 min read",
-    category: "Leadership",
-    tags: ["Youth Leadership", "Community Development", "Skills Training", "Mentorship"],
-    image: "/api/placeholder/1200/600",
+    author: 'Dr. Amina Hassan',
+    authorRole: 'Programs Director',
+    authorBio:
+      'Dr. Hassan leads our educational programs with over 15 years of experience in international development and education. She holds a PhD in Educational Psychology and is passionate about creating opportunities for underserved youth.',
+    date: '2023-12-10',
+    readTime: '6 min read',
+    category: 'Leadership',
+    tags: ['Youth Leadership', 'Community Development', 'Skills Training', 'Mentorship'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 523,
-    likes: 41
+    likes: 41,
   },
   {
     id: 8,
-    slug: "technology-bridging-education-gap",
-    title: "Technology: Bridging the Education Gap in Rural Ghana",
-    excerpt: "Exploring how digital tools and innovative technology solutions are revolutionizing access to quality education in remote communities across Northern Ghana.",
+    slug: 'technology-bridging-education-gap',
+    title: 'Technology: Bridging the Education Gap in Rural Ghana',
+    excerpt:
+      'Exploring how digital tools and innovative technology solutions are revolutionizing access to quality education in remote communities across Northern Ghana.',
     content: `
       <p>Technology has become a powerful equalizer in education, and we're leveraging digital tools to bring world-class learning opportunities to students in rural Northern Ghana.</p>
       
@@ -344,48 +359,60 @@ export const blogPosts: BlogPost[] = [
       
       <p>Our technology initiatives are designed to be sustainable and scalable, with local technical support and maintenance capabilities built into every deployment.</p>
     `,
-    author: "Sarah Williams",
-    authorRole: "International Relations",
-    authorBio: "Sarah coordinates our international partnerships and volunteer programs. With a background in international relations and nonprofit management, she ensures our global connections strengthen local impact.",
-    date: "2023-12-05",
-    readTime: "7 min read",
-    category: "Technology",
-    tags: ["Digital Learning", "Technology", "Innovation", "Educational Access"],
-    image: "/api/placeholder/1200/600",
+    author: 'Sarah Williams',
+    authorRole: 'International Relations',
+    authorBio:
+      'Sarah coordinates our international partnerships and volunteer programs. With a background in international relations and nonprofit management, she ensures our global connections strengthen local impact.',
+    date: '2023-12-05',
+    readTime: '7 min read',
+    category: 'Technology',
+    tags: ['Digital Learning', 'Technology', 'Innovation', 'Educational Access'],
+    image: '/api/placeholder/1200/600',
     featured: false,
     views: 387,
-    likes: 29
-  }
+    likes: 29,
+  },
 ];
 
-export const categories = ["All", "Mentorship", "Health", "Community", "Culture", "Volunteering", "Impact", "Leadership", "Technology"];
+export const categories = [
+  'All',
+  'Mentorship',
+  'Health',
+  'Community',
+  'Culture',
+  'Volunteering',
+  'Impact',
+  'Leadership',
+  'Technology',
+];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find(post => post.slug === slug);
+  return blogPosts.find((post) => post.slug === slug);
 }
 
 export function getRelatedPosts(currentPost: BlogPost, limit: number = 3): BlogPost[] {
   return blogPosts
-    .filter(post => 
-      post.id !== currentPost.id && (
-        post.category === currentPost.category || 
-        post.tags.some(tag => currentPost.tags.includes(tag))
-      )
+    .filter(
+      (post) =>
+        post.id !== currentPost.id &&
+        (post.category === currentPost.category ||
+          post.tags.some((tag) => currentPost.tags.includes(tag)))
     )
     .slice(0, limit);
 }
 
 export function getFeaturedPosts(): BlogPost[] {
-  return blogPosts.filter(post => post.featured);
+  return blogPosts.filter((post) => post.featured);
 }
 
 export function getFilteredPosts(category: string, searchQuery: string): BlogPost[] {
-  return blogPosts.filter(post => {
-    const matchesCategory = category === "All" || post.category === category;
-    const matchesSearch = searchQuery === "" || 
+  return blogPosts.filter((post) => {
+    const matchesCategory = category === 'All' || post.category === category;
+    const matchesSearch =
+      searchQuery === '' ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      post.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
-} 
+}

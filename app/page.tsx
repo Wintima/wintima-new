@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRight,
   CheckCircle2,
@@ -8,10 +8,10 @@ import {
   Linkedin,
   Mail,
   MapPin,
-} from "lucide-react";
-import { HeroSection } from "@/components/sections/hero-section";
-import { ImpactTimeline } from "@/components/sections/impact-timeline";
-import { Button } from "@/components/ui/button";
+} from 'lucide-react';
+import { HeroSection } from '@/components/sections/hero-section';
+import { ImpactTimeline } from '@/components/sections/impact-timeline';
+import { Button } from '@/components/ui/button';
 import {
   connectLinks,
   featuredProject,
@@ -20,13 +20,13 @@ import {
   homepageCta,
   homepageHero,
   homepageSectionLinks,
-} from "@/lib/homepage-content";
+} from '@/lib/homepage-content';
 
 const formatGhs = (amount: number) =>
-  new Intl.NumberFormat("en-GH", {
+  new Intl.NumberFormat('en-GH', {
     maximumFractionDigits: 0,
-    style: "currency",
-    currency: "GHS",
+    style: 'currency',
+    currency: 'GHS',
   }).format(amount);
 
 const socialIcons = {
@@ -40,7 +40,7 @@ export default function HomePage() {
     <div id="homepage-content" className="min-h-screen bg-white">
       <Link
         href="#current-initiative"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-24 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-wintima-maroon focus:shadow-lg focus:ring-2 focus:ring-wintima-maroon"
+        className="focus:text-wintima-maroon focus:ring-wintima-maroon sr-only focus:not-sr-only focus:fixed focus:top-24 focus:left-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:shadow-lg focus:ring-2"
       >
         Skip to content
       </Link>
@@ -61,17 +61,17 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <p className="mb-3 text-sm font-bold uppercase tracking-wide text-wintima-maroon">
+              <p className="text-wintima-maroon mb-3 text-sm font-bold tracking-wide uppercase">
                 {featuredProject.eyebrow}
               </p>
-              <h2 className="mb-4 text-3xl font-bold leading-tight text-wintima-charcoal md:text-4xl lg:text-5xl">
+              <h2 className="text-wintima-charcoal mb-4 text-3xl leading-tight font-bold md:text-4xl lg:text-5xl">
                 {featuredProject.title}
               </h2>
-              <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-wintima-charcoal shadow-sm">
-                <MapPin className="h-4 w-4 text-wintima-maroon" aria-hidden="true" />
+              <p className="text-wintima-charcoal mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm">
+                <MapPin className="text-wintima-maroon h-4 w-4" aria-hidden="true" />
                 {featuredProject.location}
               </p>
-              <p className="mb-8 max-w-2xl text-lg leading-8 text-medium-gray">
+              <p className="text-medium-gray mb-8 max-w-2xl text-lg leading-8">
                 {featuredProject.description}
               </p>
 
@@ -79,10 +79,10 @@ export default function HomePage() {
                 {featuredProject.deliverables.map((deliverable) => (
                   <div
                     key={deliverable}
-                    className="flex min-h-11 items-center gap-3 rounded-md border border-wintima-maroon/10 bg-white px-4 py-3 text-sm font-semibold text-wintima-charcoal shadow-sm"
+                    className="border-wintima-maroon/10 text-wintima-charcoal flex min-h-11 items-center gap-3 rounded-md border bg-white px-4 py-3 text-sm font-semibold shadow-sm"
                   >
                     <CheckCircle2
-                      className="h-5 w-5 shrink-0 text-wintima-maroon"
+                      className="text-wintima-maroon h-5 w-5 shrink-0"
                       aria-hidden="true"
                     />
                     {deliverable}
@@ -90,18 +90,18 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <details className="mb-8 rounded-lg border border-wintima-maroon/15 bg-white p-5 shadow-sm">
-                <summary className="cursor-pointer text-base font-bold text-wintima-charcoal marker:text-wintima-maroon">
+              <details className="border-wintima-maroon/15 mb-8 rounded-lg border bg-white p-5 shadow-sm">
+                <summary className="text-wintima-charcoal marker:text-wintima-maroon cursor-pointer text-base font-bold">
                   Project budget: {formatGhs(featuredProjectTotal)}
                 </summary>
-                <dl className="mt-5 space-y-3 text-sm text-medium-gray">
+                <dl className="text-medium-gray mt-5 space-y-3 text-sm">
                   {featuredProject.costs.map((cost) => (
                     <div
                       key={cost.label}
-                      className="flex items-center justify-between gap-4 border-b border-wintima-maroon/10 pb-3 last:border-b-0 last:pb-0"
+                      className="border-wintima-maroon/10 flex items-center justify-between gap-4 border-b pb-3 last:border-b-0 last:pb-0"
                     >
                       <dt>{cost.label}</dt>
-                      <dd className="font-semibold text-wintima-charcoal">
+                      <dd className="text-wintima-charcoal font-semibold">
                         {formatGhs(cost.amount)}
                       </dd>
                     </div>
@@ -112,7 +112,7 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="min-h-11 rounded-full bg-wintima-maroon px-7 text-white hover:bg-wintima-maroon/90"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 min-h-11 rounded-full px-7 text-white"
               >
                 <Link href={featuredProject.cta.href} className="inline-flex items-center gap-2">
                   {featuredProject.cta.text}
@@ -131,15 +131,15 @@ export default function HomePage() {
                   className="pointer-events-none object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 animate-pulse bg-wintima-light -z-10" />
+                <div className="bg-wintima-light absolute inset-0 -z-10 animate-pulse" />
               </div>
-              <div className="border-t border-wintima-maroon/10 p-5">
-                <p className="text-sm font-semibold uppercase tracking-wide text-wintima-maroon">
+              <div className="border-wintima-maroon/10 border-t p-5">
+                <p className="text-wintima-maroon text-sm font-semibold tracking-wide uppercase">
                   Refurbishment goal
                 </p>
-                <p className="mt-2 text-base leading-7 text-medium-gray">
-                  Safer classrooms, usable desks, repaired doors and windows, and a roof
-                  that keeps lessons going through the rainy season.
+                <p className="text-medium-gray mt-2 text-base leading-7">
+                  Safer classrooms, usable desks, repaired doors and windows, and a roof that keeps
+                  lessons going through the rainy season.
                 </p>
               </div>
             </div>
@@ -152,14 +152,13 @@ export default function HomePage() {
           <div className="mb-12 max-w-3xl">
             <h2
               id="mission-heading"
-              className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+              className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl lg:text-5xl"
             >
               Education in the Heart of Ghana
             </h2>
-            <p className="text-lg leading-8 text-medium-gray">
-              Wintima focuses on practical barriers that keep rural children from
-              learning, from the supplies in a school bag to the condition of the
-              classroom itself.
+            <p className="text-medium-gray text-lg leading-8">
+              Wintima focuses on practical barriers that keep rural children from learning, from the
+              supplies in a school bag to the condition of the classroom itself.
             </p>
           </div>
 
@@ -169,17 +168,13 @@ export default function HomePage() {
               return (
                 <article
                   key={area.title}
-                  className="rounded-lg border border-wintima-maroon/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                  className="border-wintima-maroon/10 rounded-lg border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md bg-wintima-maroon/10 text-wintima-maroon">
+                  <div className="bg-wintima-maroon/10 text-wintima-maroon mb-5 flex h-12 w-12 items-center justify-center rounded-md">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-wintima-charcoal">
-                    {area.title}
-                  </h3>
-                  <p className="text-sm leading-6 text-medium-gray">
-                    {area.description}
-                  </p>
+                  <h3 className="text-wintima-charcoal mb-3 text-xl font-bold">{area.title}</h3>
+                  <p className="text-medium-gray text-sm leading-6">{area.description}</p>
                 </article>
               );
             })}
@@ -189,7 +184,7 @@ export default function HomePage() {
             <Button
               asChild
               variant="outline"
-              className="min-h-11 rounded-full border-2 border-wintima-maroon px-6 text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
+              className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon min-h-11 rounded-full border-2 px-6 hover:!text-white"
             >
               <Link
                 href={homepageSectionLinks.about.href}
@@ -203,22 +198,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        className="bg-wintima-warm py-16 lg:py-24"
-        aria-labelledby="timeline-heading"
-      >
+      <section className="bg-wintima-warm py-16 lg:py-24" aria-labelledby="timeline-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2
               id="timeline-heading"
-              className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl lg:text-5xl"
+              className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl lg:text-5xl"
             >
               2015-2025 Milestones
             </h2>
-            <p className="text-lg leading-8 text-medium-gray">
-              From a first school donation in 2015 to the current Yizidug
-              refurbishment work, each milestone reflects a practical step toward
-              keeping children in school.
+            <p className="text-medium-gray text-lg leading-8">
+              From a first school donation in 2015 to the current Yizidug refurbishment work, each
+              milestone reflects a practical step toward keeping children in school.
             </p>
           </div>
 
@@ -228,7 +219,7 @@ export default function HomePage() {
             <Button
               asChild
               variant="outline"
-              className="min-h-11 rounded-full border-2 border-wintima-maroon px-6 text-wintima-maroon hover:!bg-wintima-maroon hover:!text-white"
+              className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon min-h-11 rounded-full border-2 px-6 hover:!text-white"
             >
               <Link
                 href={homepageSectionLinks.projects.href}
@@ -246,11 +237,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/10">
-              <HandCoins className="h-7 w-7 text-wintima-gold" aria-hidden="true" />
+              <HandCoins className="text-wintima-gold h-7 w-7" aria-hidden="true" />
             </div>
-            <h2 className="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">
-              {homepageCta.title}
-            </h2>
+            <h2 className="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">{homepageCta.title}</h2>
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-white/90">
               {homepageCta.description}
             </p>
@@ -260,11 +249,11 @@ export default function HomePage() {
                   key={cta.href}
                   asChild
                   size="lg"
-                  variant={index === 0 ? "default" : "outline"}
+                  variant={index === 0 ? 'default' : 'outline'}
                   className={
                     index === 0
-                      ? "min-h-11 rounded-full bg-white px-7 text-wintima-maroon hover:bg-white/90"
-                      : "min-h-11 rounded-full border-2 border-white bg-transparent px-7 text-white hover:!bg-white hover:!text-wintima-maroon"
+                      ? 'text-wintima-maroon min-h-11 rounded-full bg-white px-7 hover:bg-white/90'
+                      : 'hover:!text-wintima-maroon min-h-11 rounded-full border-2 border-white bg-transparent px-7 text-white hover:!bg-white'
                   }
                 >
                   <Link href={cta.href}>{cta.text}</Link>
@@ -281,13 +270,13 @@ export default function HomePage() {
             <div>
               <h2
                 id="connect-heading"
-                className="mb-4 text-3xl font-bold text-wintima-charcoal md:text-4xl"
+                className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl"
               >
                 Connect With Wintima
               </h2>
-              <p className="max-w-xl text-lg leading-8 text-medium-gray">
-                Follow the foundation, share the current initiative, or reach out
-                directly to learn how you can support children in rural communities.
+              <p className="text-medium-gray max-w-xl text-lg leading-8">
+                Follow the foundation, share the current initiative, or reach out directly to learn
+                how you can support children in rural communities.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
@@ -297,12 +286,12 @@ export default function HomePage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex min-h-24 items-center justify-between rounded-lg border border-wintima-maroon/10 bg-white p-5 text-wintima-charcoal shadow-sm transition hover:border-wintima-maroon/30 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wintima-maroon"
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="border-wintima-maroon/10 text-wintima-charcoal hover:border-wintima-maroon/30 focus-visible:outline-wintima-maroon flex min-h-24 items-center justify-between rounded-lg border bg-white p-5 shadow-sm transition hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
                     <span className="font-bold">{link.name}</span>
-                    <Icon className="h-6 w-6 text-wintima-maroon" aria-hidden="true" />
+                    <Icon className="text-wintima-maroon h-6 w-6" aria-hidden="true" />
                   </Link>
                 );
               })}

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 interface AnimatedCounterProps {
   end: number;
@@ -16,8 +16,8 @@ interface AnimatedCounterProps {
 export function AnimatedCounter({
   end,
   duration = 2,
-  suffix = "",
-  prefix = "",
+  suffix = '',
+  prefix = '',
   label,
   description,
 }: AnimatedCounterProps) {
@@ -56,21 +56,17 @@ export function AnimatedCounter({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6 }}
-      className="text-center p-6"
+      className="p-6 text-center"
     >
       <div className="mb-4">
-        <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-wintima-maroon">
-          {prefix}{count.toLocaleString()}{suffix}
+        <span className="text-wintima-maroon text-4xl font-bold md:text-5xl lg:text-6xl">
+          {prefix}
+          {count.toLocaleString()}
+          {suffix}
         </span>
       </div>
-      <h3 className="text-xl md:text-2xl font-semibold text-wintima-charcoal mb-2">
-        {label}
-      </h3>
-      {description && (
-        <p className="text-medium-gray text-sm md:text-base">
-          {description}
-        </p>
-      )}
+      <h3 className="text-wintima-charcoal mb-2 text-xl font-semibold md:text-2xl">{label}</h3>
+      {description && <p className="text-medium-gray text-sm md:text-base">{description}</p>}
     </motion.div>
   );
-} 
+}
