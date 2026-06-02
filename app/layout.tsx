@@ -1,74 +1,74 @@
-import type { Metadata } from "next";
-import { DM_Sans, Lora } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+import type { Metadata } from 'next';
+import { DM_Sans, Lora } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import './globals.css';
+import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
 
 const dmSans = DM_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-sans",
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
 });
 
 const lora = Lora({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-serif",
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-serif',
 });
 
 const siteDescription =
-  "Wintima Foundation is an education-focused non-profit in Ghana ensuring children in rural communities have access to quality education through school supplies, uniforms, mentorship, and infrastructure support.";
+  'Wintima Foundation is an education-focused non-profit in Ghana ensuring children in rural communities have access to quality education through school supplies, uniforms, mentorship, and infrastructure support.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wintima.org"),
+  metadataBase: new URL('https://wintima.org'),
   title: {
-    default: "Wintima Foundation",
-    template: "%s | Wintima Foundation",
+    default: 'Wintima Foundation',
+    template: '%s | Wintima Foundation',
   },
   description: siteDescription,
   keywords: [
-    "education",
-    "Ghana",
-    "Upper East Region",
-    "rural schools",
-    "mentorship",
-    "school supplies",
-    "uniforms",
-    "community development",
-    "non-profit",
-    "Wintima Foundation",
-    "school infrastructure",
-    "charity",
-    "NGO",
+    'education',
+    'Ghana',
+    'Upper East Region',
+    'rural schools',
+    'mentorship',
+    'school supplies',
+    'uniforms',
+    'community development',
+    'non-profit',
+    'Wintima Foundation',
+    'school infrastructure',
+    'charity',
+    'NGO',
   ],
-  authors: [{ name: "Wintima Foundation" }],
-  creator: "Wintima Foundation",
-  publisher: "Wintima Foundation",
-  category: "Nonprofit Organization",
-  classification: "Charity & Nonprofit",
+  authors: [{ name: 'Wintima Foundation' }],
+  creator: 'Wintima Foundation',
+  publisher: 'Wintima Foundation',
+  category: 'Nonprofit Organization',
+  classification: 'Charity & Nonprofit',
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://wintima.org",
-    siteName: "Wintima Foundation",
-    title: "Wintima Foundation",
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://wintima.org',
+    siteName: 'Wintima Foundation',
+    title: 'Wintima Foundation',
     description: siteDescription,
     images: [
       {
-        url: "/metadata-img.png",
+        url: '/metadata-img.png',
         width: 1200,
         height: 630,
-        alt: "Wintima Foundation — Restoring smiles, impacting lives through education in Ghana",
-        type: "image/png",
+        alt: 'Wintima Foundation — Restoring smiles, impacting lives through education in Ghana',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Wintima Foundation",
+    card: 'summary_large_image',
+    title: 'Wintima Foundation',
     description: siteDescription,
-    images: ["/metadata-img.png"],
+    images: ['/metadata-img.png'],
   },
   robots: {
     index: true,
@@ -76,85 +76,80 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   alternates: {
-    canonical: "https://wintima.org",
+    canonical: 'https://wintima.org',
   },
   other: {
-    "theme-color": "#8B1A1A",
-    "msapplication-TileColor": "#8B1A1A",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "apple-mobile-web-app-title": "Wintima Foundation",
-    "application-name": "Wintima Foundation",
-    "msapplication-TileImage": "/favicon-32x32.png",
+    'theme-color': '#8B1A1A',
+    'msapplication-TileColor': '#8B1A1A',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'Wintima Foundation',
+    'application-name': 'Wintima Foundation',
+    'msapplication-TileImage': '/favicon-32x32.png',
   },
 };
 
 const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "NonProfit",
-  name: "Wintima Foundation",
+  '@context': 'https://schema.org',
+  '@type': 'NonProfit',
+  name: 'Wintima Foundation',
   description: siteDescription,
-  url: "https://wintima.org",
-  logo: "https://wintima.org/images/logo.png",
-  image: "https://wintima.org/metadata-img.png",
-  foundingDate: "2015",
+  url: 'https://wintima.org',
+  logo: 'https://wintima.org/images/logo.png',
+  image: 'https://wintima.org/metadata-img.png',
+  foundingDate: '2015',
   founder: {
-    "@type": "Person",
-    name: "Janet Zeylisa Dauda",
+    '@type': 'Person',
+    name: 'Janet Zeylisa Dauda',
   },
   address: {
-    "@type": "PostalAddress",
-    addressRegion: "Upper East Region",
-    addressCountry: "GH",
+    '@type': 'PostalAddress',
+    addressRegion: 'Upper East Region',
+    addressCountry: 'GH',
   },
   contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: "wintimafoundation@gmail.com",
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    email: 'wintimafoundation@gmail.com',
   },
   sameAs: [
-    "https://www.linkedin.com/company/wintima-foundation/",
-    "https://www.instagram.com/wintima.foundation/",
+    'https://www.linkedin.com/company/wintima-foundation/',
+    'https://www.instagram.com/wintima.foundation/',
   ],
   areaServed: {
-    "@type": "Place",
-    name: "Upper East Region, Ghana",
+    '@type': 'Place',
+    name: 'Upper East Region, Ghana',
   },
-  serviceType: [
-    "Education",
-    "School Infrastructure",
-    "Mentorship",
-    "Community Support",
-  ],
+  serviceType: ['Education', 'School Infrastructure', 'Mentorship', 'Community Support'],
   hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Projects",
+    '@type': 'OfferCatalog',
+    name: 'Projects',
     itemListElement: [
       {
-        "@type": "Offer",
+        '@type': 'Offer',
         itemOffered: {
-          "@type": "Service",
-          name: "School Supplies and Mentorship Support",
+          '@type': 'Service',
+          name: 'School Supplies and Mentorship Support',
         },
       },
       {
-        "@type": "Offer",
+        '@type': 'Offer',
         itemOffered: {
-          "@type": "Service",
-          name: "Student Health and Sanitary Pad Support",
+          '@type': 'Service',
+          name: 'Student Health and Sanitary Pad Support',
         },
       },
       {
-        "@type": "Offer",
+        '@type': 'Offer',
         itemOffered: {
-          "@type": "Service",
-          name: "School Infrastructure Projects",
+          '@type': 'Service',
+          name: 'School Infrastructure Projects',
         },
       },
     ],
