@@ -8,6 +8,7 @@ import { IMAGES } from '@/lib/image-assets';
 
 const quickLinks = [
   { name: 'About Us', href: '/about' },
+  { name: 'Team', href: '/team' },
   { name: 'Our Projects', href: '/projects' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Blog', href: '/blog' },
