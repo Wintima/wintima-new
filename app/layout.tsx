@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import { DM_Sans, Lora } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://wintima.org';
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const isProduction = process.env.VERCEL_ENV === 'production';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -21,7 +27,7 @@ const siteDescription =
   'Wintima Foundation is an education-focused non-profit in Ghana ensuring children in rural communities have access to quality education through school supplies, uniforms, mentorship, and infrastructure support.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://wintima.org'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Wintima Foundation',
     template: '%s | Wintima Foundation',
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://wintima.org',
+    url: siteUrl,
     siteName: 'Wintima Foundation',
     title: 'Wintima Foundation',
     description: siteDescription,
@@ -82,7 +88,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://wintima.org',
+    canonical: siteUrl,
   },
   other: {
     'theme-color': '#8B1A1A',
@@ -100,9 +106,9 @@ const structuredData = {
   '@type': 'NonProfit',
   name: 'Wintima Foundation',
   description: siteDescription,
-  url: 'https://wintima.org',
-  logo: 'https://wintima.org/images/logo.png',
-  image: 'https://wintima.org/metadata-img.png',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo.png`,
+  image: `${siteUrl}/metadata-img.png`,
   foundingDate: '2015',
   founder: {
     '@type': 'Person',
@@ -187,7 +193,13 @@ export default function RootLayout({
         <Header />
         <main className="pt-16 md:pt-20">{children}</main>
         <Footer />
-        <GoogleAnalytics gaId="G-2256Y8WHBZ" />
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        {isProduction ? (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );
