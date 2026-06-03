@@ -48,6 +48,8 @@
     "zod": "^3.25.53"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@eslint/eslintrc": "^3",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@playwright/test": "^1.60.0",

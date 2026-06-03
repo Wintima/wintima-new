@@ -1,0 +1,5 @@
+# Default owner for everything
+* @Wintima/maintainers
+
+# CI/CD and GitHub configuration
+.github/ @Wintima/maintainers

@@ -158,3 +158,15 @@ jobs:
           name: test-screenshots
           path: test-results/
           retention-days: 7
+
+  release-target:
+    name: Release Target Policy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    steps:
+      - name: Only dev may merge to main
+        run: |
+          if [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "PRs into main must use head branch 'dev' (dev → main release flow)."
+            exit 1
+          fi
