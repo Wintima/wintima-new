@@ -43,7 +43,7 @@ export function HeroSection({
 }: HeroSectionProps) {
   const shouldReduceMotion = useReducedMotion();
   const heightClasses = {
-    full: 'min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)]',
+    full: 'min-h-[calc(100svh-3.5rem)] lg:min-h-[calc(100svh-4rem)]',
     large: 'min-h-[80vh]',
     medium: 'min-h-[60vh]',
   };

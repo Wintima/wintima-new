@@ -125,12 +125,17 @@ test.describe('wintima rebrand @rebrand', () => {
     });
   }
 
-  test('footer uses Wintima contact details', async ({ page }) => {
+  test('footer uses Wintima foundation content and connect links', async ({ page }) => {
     await goto(page, '/');
     const footer = page.locator('footer');
     await expect(footer.getByText('Wintima Foundation', { exact: true })).toBeVisible();
-    await expect(footer.getByRole('link', { name: /wintimafoundation@gmail.com/i })).toBeVisible();
-    await expect(footer.getByText('Upper East Region', { exact: true })).toBeVisible();
+    await expect(footer.getByText('Restoring smiles, impacting lives')).toBeVisible();
+    await expect(footer.getByRole('link', { name: /Email Wintima Foundation/i })).toBeVisible();
+    await expect(footer.getByText('wintimafoundation@gmail.com')).toBeVisible();
+    await expect(footer.getByRole('link', { name: 'Donate' })).toBeVisible();
+    await expect(footer.getByText('Upper East Region', { exact: true })).toHaveCount(0);
+    await expect(footer.getByText('Get Involved', { exact: true })).toHaveCount(0);
+    await expect(footer.getByText('Subscribe', { exact: true })).toHaveCount(0);
   });
 
   test('footer social links point to Wintima profiles', async ({ page }) => {
@@ -160,7 +165,11 @@ test.describe('wintima rebrand @rebrand', () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await goto(page, '/');
     await page.getByRole('button', { name: /open menu/i }).click();
-    await expect(page.getByText('Wintima Foundation').nth(1)).toBeVisible();
-    await expect(page.locator('[data-slot="sheet-content"] img[src*="logo.png"]')).toBeVisible();
+    await expect(page.locator('#mobile-nav')).toBeVisible();
+    await expect(page.locator('#mobile-nav img[src*="logo.png"]')).toBeVisible();
+    await expect(page.locator('#mobile-nav').getByRole('link', { name: 'Donate' })).toBeVisible();
+    await expect(
+      page.locator('#mobile-nav').getByRole('link', { name: 'Get Involved' })
+    ).toHaveCount(0);
   });
 });

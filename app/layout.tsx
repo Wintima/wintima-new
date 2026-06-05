@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { SkipToContent } from '@/components/layout/skip-to-content';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://wintima.org';
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -168,7 +169,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${lora.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${dmSans.variable} ${lora.variable}`}>
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -190,8 +191,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${dmSans.className} antialiased`}>
+        <SkipToContent />
         <Header />
-        <main className="pt-16 md:pt-20">{children}</main>
+        <main id="main-content" className="pt-14 lg:pt-16">
+          {children}
+        </main>
         <Footer />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {isProduction ? (
