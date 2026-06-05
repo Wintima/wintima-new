@@ -38,7 +38,10 @@ test.describe('legacy smoke @legacy', () => {
 
   test('footer quick links navigate', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('link', { name: 'About Us', exact: true }).click();
+    await page
+      .getByRole('navigation', { name: 'Footer navigation' })
+      .getByRole('link', { name: 'About', exact: true })
+      .click();
     await expect(page).toHaveURL(/\/about/);
   });
 
