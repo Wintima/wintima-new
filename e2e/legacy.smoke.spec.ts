@@ -7,7 +7,7 @@ const coreRoutes = [
   { path: '/gallery', heading: /Gallery/i },
   { path: '/blog', heading: /Blog|Stories|News/i },
   { path: '/contact', heading: /Contact|Get in Touch/i },
-  { path: '/get-involved', heading: /Involved|Volunteer|Donate|Support/i },
+  { path: '/get-involved', heading: /Support/i, finalUrl: /\/donate$/ },
 ];
 
 test.describe('legacy smoke @legacy', () => {
@@ -15,6 +15,9 @@ test.describe('legacy smoke @legacy', () => {
     test(`loads ${route.path}`, async ({ page }) => {
       const response = await page.goto(route.path);
       expect(response?.status()).toBeLessThan(400);
+      if ('finalUrl' in route) {
+        await expect(page).toHaveURL(route.finalUrl);
+      }
       await expect(page.locator('header')).toBeVisible();
       await expect(page.locator('footer')).toBeVisible();
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();

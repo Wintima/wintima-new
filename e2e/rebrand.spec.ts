@@ -74,7 +74,11 @@ test.describe('wintima rebrand @rebrand', () => {
   test('route aliases for homepage CTAs resolve', async ({ page }) => {
     const donateResponse = await page.request.get('/donate');
     expect(donateResponse.status()).toBeLessThan(400);
-    expect(donateResponse.url()).toMatch(/\/get-involved(#donate)?$/);
+    expect(donateResponse.url()).toMatch(/\/donate$/);
+
+    const getInvolvedResponse = await page.request.get('/get-involved');
+    expect(getInvolvedResponse.status()).toBeLessThan(400);
+    expect(getInvolvedResponse.url()).toMatch(/\/donate$/);
 
     const projectsResponse = await page.request.get('/projects');
     expect(projectsResponse.status()).toBeLessThan(400);

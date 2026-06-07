@@ -5,11 +5,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/donate',
-        destination: '/get-involved#donate',
-        permanent: true,
-      },
-      {
         source: '/programmes',
         destination: '/projects',
         permanent: true,
