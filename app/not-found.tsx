@@ -27,9 +27,9 @@ export default function NotFound() {
             variant="outline"
             className="border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon w-full hover:text-white"
           >
-            <Link href="/blog" className="flex items-center justify-center space-x-2">
+            <Link href="/projects" className="flex items-center justify-center space-x-2">
               <ArrowLeft className="h-5 w-5" />
-              <span>Back to Blog</span>
+              <span>View Projects</span>
             </Link>
           </Button>
         </div>

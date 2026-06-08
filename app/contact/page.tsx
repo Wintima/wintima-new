@@ -2,6 +2,7 @@
 
 import { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
@@ -404,7 +405,8 @@ function ContactPageContent() {
               Frequently Asked Questions
             </h2>
             <p className="text-medium-gray mx-auto max-w-3xl text-lg md:text-xl">
-              Quick answers to common questions about our programs and how to get involved.
+              Quick answers to common questions about our education projects and how you can support
+              rural schools in Ghana.
             </p>
           </motion.div>
 
@@ -418,11 +420,18 @@ function ContactPageContent() {
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
                   <h3 className="text-wintima-charcoal mb-3 text-lg font-bold">
-                    How can I apply for the Northern Stars program?
+                    How can I donate to Wintima Foundation?
                   </h3>
                   <p className="text-medium-gray">
-                    Students can apply through their schools or directly through our website.
-                    Applications are reviewed twice yearly in January and September.
+                    Visit our{' '}
+                    <Link
+                      href="/donate"
+                      className="text-wintima-maroon font-medium hover:underline"
+                    >
+                      donate page
+                    </Link>{' '}
+                    for Mobile Money and bank transfer details. Every contribution goes directly to
+                    school supplies, uniforms, and infrastructure in rural Ghana.
                   </p>
                 </CardContent>
               </Card>
@@ -437,11 +446,18 @@ function ContactPageContent() {
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
                   <h3 className="text-wintima-charcoal mb-3 text-lg font-bold">
-                    What are the requirements to become a mentor?
+                    How can I volunteer with the foundation?
                   </h3>
                   <p className="text-medium-gray">
-                    Mentors should have a bachelor&apos;s degree, professional experience, and
-                    commitment to 2-3 hours monthly for 1-2 years. We provide full training.
+                    Wintima is volunteer-run. Use our{' '}
+                    <Link
+                      href="/contact?type=volunteer"
+                      className="text-wintima-maroon font-medium hover:underline"
+                    >
+                      volunteer inquiry form
+                    </Link>{' '}
+                    to share your skills and availability. We welcome help with outreach, logistics,
+                    and field support.
                   </p>
                 </CardContent>
               </Card>
@@ -456,11 +472,18 @@ function ContactPageContent() {
               <Card className="h-full border-0 shadow-lg">
                 <CardContent className="p-6">
                   <h3 className="text-wintima-charcoal mb-3 text-lg font-bold">
-                    How can I volunteer with the foundation?
+                    What projects does Wintima support?
                   </h3>
                   <p className="text-medium-gray">
-                    We offer various volunteer opportunities from event support to program
-                    assistance. Contact us to discuss how your skills can make an impact.
+                    We focus on education in rural Ghana — school supplies, uniforms, desks, and
+                    infrastructure. See our{' '}
+                    <Link
+                      href="/projects"
+                      className="text-wintima-maroon font-medium hover:underline"
+                    >
+                      projects page
+                    </Link>{' '}
+                    for initiatives in communities like Yizidug, Kpatua, and Nisbuliga.
                   </p>
                 </CardContent>
               </Card>
@@ -478,8 +501,15 @@ function ContactPageContent() {
                     Are there partnership opportunities?
                   </h3>
                   <p className="text-medium-gray">
-                    Yes! We welcome partnerships with organizations, schools, and businesses that
-                    share our mission. Reach out to explore collaboration opportunities.
+                    Yes! We welcome partnerships with schools, NGOs, and businesses that share our
+                    education mission.{' '}
+                    <Link
+                      href="/contact?type=partnership"
+                      className="text-wintima-maroon font-medium hover:underline"
+                    >
+                      Contact us
+                    </Link>{' '}
+                    to explore collaboration opportunities.
                   </p>
                 </CardContent>
               </Card>

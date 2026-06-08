@@ -466,19 +466,14 @@ export default function PrivacyPage() {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
+                asChild
                 size="lg"
                 className="text-wintima-maroon transform rounded-full bg-white px-8 py-3 font-medium transition-all duration-300 hover:scale-105 hover:bg-gray-100"
               >
-                Contact Privacy Team
-                <Mail className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="hover:!text-wintima-maroon transform rounded-full border-2 border-white px-8 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-white"
-              >
-                Download Policy
-                <FileText className="ml-2 h-5 w-5" />
+                <a href="mailto:wintimafoundation@gmail.com">
+                  Contact Privacy Team
+                  <Mail className="ml-2 h-5 w-5" />
+                </a>
               </Button>
             </div>
           </motion.div>

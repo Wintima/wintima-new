@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: '/projects',
         permanent: true,
       },
+      {
+        source: '/get-involved',
+        destination: '/donate',
+        permanent: true,
+      },
     ];
   },
 };
