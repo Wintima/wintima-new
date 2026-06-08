@@ -49,38 +49,47 @@ async function ensureServer() {
   console.log(`Starting production server for Lighthouse at ${baseUrl}`);
 
   serverProcess = spawn('npm', ['run', 'start'], {
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: 'ignore',
+    detached: true,
     env: process.env,
   });
 
   startedServer = true;
-
-  serverProcess.stdout?.on('data', (chunk) => process.stdout.write(chunk));
-  serverProcess.stderr?.on('data', (chunk) => process.stderr.write(chunk));
+  serverProcess.unref();
 
   await waitForServer(baseUrl);
 }
 
 function stopServer() {
-  if (!serverProcess || serverProcess.killed) {
+  if (!serverProcess?.pid || serverProcess.killed) {
     return;
   }
 
-  serverProcess.kill('SIGTERM');
+  try {
+    process.kill(-serverProcess.pid, 'SIGKILL');
+  } catch {
+    try {
+      serverProcess.kill('SIGKILL');
+    } catch {
+      // Process already exited.
+    }
+  }
+
+  serverProcess.killed = true;
 }
 
 async function warmUp(urls) {
   console.log('Warming up routes before Lighthouse audits...');
 
-  for (const url of urls) {
-    for (let attempt = 0; attempt < 3; attempt += 1) {
+  await Promise.all(
+    urls.map(async (url) => {
       try {
         await fetch(url, { redirect: 'follow' });
       } catch (error) {
         console.warn(`Warm-up request failed for ${url}:`, error);
       }
-    }
-  }
+    })
+  );
 }
 
 function runLighthouse(url, outputPath) {
@@ -93,28 +102,12 @@ function runLighthouse(url, outputPath) {
       '--only-categories=performance,accessibility,best-practices,seo',
       '--output=json',
       `--output-path=${outputPath}`,
-      '--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage',
+      '--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-gpu',
     ],
-    { stdio: 'inherit' }
+    { stdio: 'inherit', timeout: 180_000 }
   );
 
   return JSON.parse(readFileSync(outputPath, 'utf8'));
-}
-
-function mergeReports(reports) {
-  const merged = structuredClone(reports[0]);
-
-  for (const category of Object.keys(thresholds)) {
-    const scores = reports
-      .map((report) => report.categories[category]?.score)
-      .filter((score) => typeof score === 'number');
-
-    if (scores.length > 0) {
-      merged.categories[category].score = Math.max(...scores);
-    }
-  }
-
-  return merged;
 }
 
 let hasFailure = false;
@@ -128,15 +121,11 @@ try {
   for (const path of paths) {
     const url = `${baseUrl}${path}`;
     const slug = path === '/' ? 'home' : path.slice(1);
+    const outputPath = join(outputDir, `${slug}.json`);
 
     console.log(`Running Lighthouse for ${url}`);
 
-    const reports = [
-      runLighthouse(url, join(outputDir, `${slug}-1.json`)),
-      runLighthouse(url, join(outputDir, `${slug}-2.json`)),
-    ];
-
-    const report = mergeReports(reports);
+    const report = runLighthouse(url, outputPath);
 
     for (const [category, minimum] of Object.entries(thresholds)) {
       const score = report.categories[category]?.score;
@@ -159,6 +148,4 @@ try {
   }
 }
 
-if (hasFailure) {
-  process.exit(1);
-}
+process.exit(hasFailure ? 1 : 0);
