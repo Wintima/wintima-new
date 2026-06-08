@@ -124,7 +124,8 @@ export default function AboutPage() {
           alt="Wintima Foundation outreach visit with students in Ghana"
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, 1280px"
+          quality={75}
           placeholder="blur"
           blurDataURL={imageBlurDataUrl}
           className="object-cover"
