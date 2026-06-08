@@ -19,27 +19,3 @@ export const IMAGES = {
     14: '/images/wintima-14.jpg',
   },
 } as const;
-
-/** Legacy yeremallu filename → wintima placeholder mapping */
-export const LEGACY_IMAGE_MAP: Record<string, string> = {
-  'yeremallu-1.JPG': IMAGES.wintima[1],
-  'yeremallu-2.JPG': IMAGES.wintima[2],
-  'yeremallu-3.JPG': IMAGES.wintima[3],
-  'yeremallu-4.JPG': IMAGES.wintima[4],
-  'yeremallu-5.JPG': IMAGES.wintima[5],
-  'yeremallu-6.JPG': IMAGES.wintima[6],
-  'yeremallu-7.JPG': IMAGES.wintima[7],
-  'yeremallu-8.JPG': IMAGES.wintima[8],
-  'yeremallu-9.JPG': IMAGES.wintima[9],
-  'yeremallu-12.JPG': IMAGES.wintima[12],
-  'yeremallu-16.JPG': IMAGES.wintima[13],
-  'yeremallu-20.JPG': IMAGES.wintima[10],
-  'yeremallu-21.JPG': IMAGES.wintima[11],
-  'yeremallu-22.JPG': IMAGES.wintima[1],
-  'yeremallu-23.JPG': IMAGES.wintima[2],
-  'yeremallu-24.JPG': IMAGES.wintima[3],
-  'yeremallu-25.JPG': IMAGES.wintima[4],
-  'yeremallu-28.JPG': IMAGES.founder,
-  'yeremallu-29.JPG': IMAGES.wintima[14],
-  'yeremallu-34.JPG': IMAGES.founder,
-};
