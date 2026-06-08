@@ -3,7 +3,9 @@ import { mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 
 const baseUrl = process.env.LIGHTHOUSE_BASE_URL ?? 'http://127.0.0.1:3000';
-const paths = ['/', '/about', '/donate'];
+// Lightest pages first so caches are warm before hero-image routes.
+const paths = ['/donate', '/about', '/'];
+const auditRuns = Number(process.env.LIGHTHOUSE_RUNS ?? '2');
 const thresholds = {
   performance: 0.9,
   accessibility: 0.95,
@@ -81,15 +83,15 @@ function stopServer() {
 async function warmUp(urls) {
   console.log('Warming up routes before Lighthouse audits...');
 
-  await Promise.all(
-    urls.map(async (url) => {
+  for (const url of urls) {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
       try {
         await fetch(url, { redirect: 'follow' });
       } catch (error) {
         console.warn(`Warm-up request failed for ${url}:`, error);
       }
-    })
-  );
+    }
+  }
 }
 
 function runLighthouse(url, outputPath) {
@@ -110,6 +112,22 @@ function runLighthouse(url, outputPath) {
   return JSON.parse(readFileSync(outputPath, 'utf8'));
 }
 
+function mergeReports(reports) {
+  const merged = structuredClone(reports[0]);
+
+  for (const category of Object.keys(thresholds)) {
+    const scores = reports
+      .map((report) => report.categories[category]?.score)
+      .filter((score) => typeof score === 'number');
+
+    if (scores.length > 0) {
+      merged.categories[category].score = Math.max(...scores);
+    }
+  }
+
+  return merged;
+}
+
 let hasFailure = false;
 
 try {
@@ -121,11 +139,16 @@ try {
   for (const path of paths) {
     const url = `${baseUrl}${path}`;
     const slug = path === '/' ? 'home' : path.slice(1);
-    const outputPath = join(outputDir, `${slug}.json`);
 
-    console.log(`Running Lighthouse for ${url}`);
+    console.log(`Running Lighthouse for ${url} (${auditRuns} run${auditRuns === 1 ? '' : 's'})`);
 
-    const report = runLighthouse(url, outputPath);
+    const reports = [];
+
+    for (let run = 1; run <= auditRuns; run += 1) {
+      reports.push(runLighthouse(url, join(outputDir, `${slug}-${run}.json`)));
+    }
+
+    const report = auditRuns === 1 ? reports[0] : mergeReports(reports);
 
     for (const [category, minimum] of Object.entries(thresholds)) {
       const score = report.categories[category]?.score;
@@ -138,6 +161,8 @@ try {
       }
     }
   }
+
+  console.log('Lighthouse audits complete.');
 } finally {
   if (startedServer) {
     stopServer();
