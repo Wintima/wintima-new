@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { AlertCircle, CheckCircle, Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
 import * as z from 'zod';
 import { HeroSection } from '@/components/sections/hero-section';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -119,6 +120,12 @@ function ContactPageContent() {
 
   return (
     <div className="min-h-screen">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact Us', path: '/contact' },
+        ]}
+      />
       {/* Hero Section */}
       <HeroSection
         title="Get in Touch"
@@ -228,6 +235,8 @@ function ContactPageContent() {
                 <CardContent className="p-8">
                   {submitStatus === 'success' && (
                     <motion.div
+                      role="status"
+                      aria-live="polite"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       className="mb-6 flex items-center space-x-3 rounded-lg border border-green-200 bg-green-50 p-4"
@@ -244,6 +253,8 @@ function ContactPageContent() {
 
                   {submitStatus === 'error' && (
                     <motion.div
+                      role="status"
+                      aria-live="polite"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       className="mb-6 flex items-center space-x-3 rounded-lg border border-red-200 bg-red-50 p-4"
@@ -269,12 +280,17 @@ function ContactPageContent() {
                         </label>
                         <Input
                           id="name"
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.name)}
+                          aria-describedby={errors.name ? 'name-error' : undefined}
                           {...register('name')}
                           className={`${errors.name ? 'border-red-500' : ''}`}
                           placeholder="Your full name"
                         />
                         {errors.name && (
-                          <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
+                          <p id="name-error" className="mt-1 text-sm text-red-500">
+                            {errors.name.message}
+                          </p>
                         )}
                       </div>
 
@@ -288,12 +304,17 @@ function ContactPageContent() {
                         <Input
                           id="email"
                           type="email"
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.email)}
+                          aria-describedby={errors.email ? 'email-error' : undefined}
                           {...register('email')}
                           className={`${errors.email ? 'border-red-500' : ''}`}
                           placeholder="your.email@example.com"
                         />
                         {errors.email && (
-                          <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                          <p id="email-error" className="mt-1 text-sm text-red-500">
+                            {errors.email.message}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -318,6 +339,7 @@ function ContactPageContent() {
                         </label>
                         <select
                           id="type"
+                          aria-required="true"
                           {...register('type')}
                           className="focus:ring-wintima-maroon w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:outline-none"
                         >
@@ -339,12 +361,17 @@ function ContactPageContent() {
                       </label>
                       <Input
                         id="subject"
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.subject)}
+                        aria-describedby={errors.subject ? 'subject-error' : undefined}
                         {...register('subject')}
                         className={`${errors.subject ? 'border-red-500' : ''}`}
                         placeholder="Brief description of your inquiry"
                       />
                       {errors.subject && (
-                        <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
+                        <p id="subject-error" className="mt-1 text-sm text-red-500">
+                          {errors.subject.message}
+                        </p>
                       )}
                     </div>
 
@@ -357,12 +384,17 @@ function ContactPageContent() {
                       </label>
                       <Textarea
                         id="message"
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.message)}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
                         {...register('message')}
                         className={`min-h-[120px] ${errors.message ? 'border-red-500' : ''}`}
                         placeholder="Please provide details about your inquiry..."
                       />
                       {errors.message && (
-                        <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
+                        <p id="message-error" className="mt-1 text-sm text-red-500">
+                          {errors.message.message}
+                        </p>
                       )}
                     </div>
 

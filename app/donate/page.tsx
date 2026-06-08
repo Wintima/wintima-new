@@ -1,16 +1,18 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CreditCard, Globe2, Mail, Phone } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 import { CopyNumberButton } from './copy-number-button';
 
-export const metadata: Metadata = {
-  title: 'Donate | Wintima Foundation',
-  description:
-    "Support Wintima Foundation's mission to provide quality education for children in rural Ghana. Donate via GoFundMe or Mobile Money.",
-};
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.donate.title,
+  description: PAGE_SEO.donate.description,
+  path: '/donate',
+});
 
 const mobileMoneyNumber = '+233 54 976 4925';
 const mobileMoneyTel = '+233549764925';
@@ -20,6 +22,13 @@ const goFundMeUrl = 'https://gofund.me/eef22009e';
 export default function DonatePage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Donate', path: '/donate' },
+        ]}
+      />
+
       <section className="bg-wintima-charcoal flex min-h-[440px] items-center text-white">
         <div className="container mx-auto px-4 py-20 text-center sm:px-6 lg:px-8">
           <p className="text-wintima-gold mb-4 text-sm font-bold tracking-wide uppercase">

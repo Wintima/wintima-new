@@ -3,9 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, CalendarDays, MapPin } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getAllBlogPosts, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
+import { buildBlogPostMetadata } from '@/lib/seo/metadata';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -34,32 +36,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   const canonical = `/blog/${post.slug}`;
 
-  return {
-    title: `${post.title} | Wintima Foundation`,
+  return buildBlogPostMetadata({
+    title: post.title,
     description: post.excerpt,
-    alternates: {
-      canonical,
-    },
-    openGraph: {
-      title: `${post.title} | Wintima Foundation`,
-      description: post.excerpt,
-      type: 'article',
-      url: canonical,
-      publishedTime: post.datetime,
-      images: [
-        {
-          url: post.image,
-          alt: post.imageAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${post.title} | Wintima Foundation`,
-      description: post.excerpt,
-      images: [post.image],
-    },
-  };
+    path: canonical,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    publishedTime: post.datetime,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -101,6 +85,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

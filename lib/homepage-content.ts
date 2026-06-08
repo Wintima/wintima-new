@@ -16,7 +16,7 @@ export const homepageHero = {
     'Wintima Foundation volunteers and students gathered during an education outreach in rural Ghana',
   ctas: [
     { text: 'Support Us', href: '/donate', variant: 'primary' as const },
-    { text: 'Learn More', href: '/about', variant: 'secondary' as const },
+    { text: 'Learn about Wintima', href: '/about', variant: 'secondary' as const },
   ],
 };
 

@@ -37,7 +37,10 @@ test.describe('wintima rebrand @rebrand', () => {
       'href',
       '/donate'
     );
-    await expect(main.getByRole('link', { name: /Learn More/i })).toHaveAttribute('href', '/about');
+    await expect(main.getByRole('link', { name: /Learn about Wintima/i })).toHaveAttribute(
+      'href',
+      '/about'
+    );
     await expect(main.getByRole('link', { name: /Support this project/i })).toHaveAttribute(
       'href',
       '/donate'
@@ -111,7 +114,7 @@ test.describe('wintima rebrand @rebrand', () => {
       });
       expect(hasHorizontalOverflow).toBe(false);
 
-      for (const name of ['Support Us', 'Learn More']) {
+      for (const name of ['Support Us', 'Learn about Wintima']) {
         const cta = page.getByRole('link', { name, exact: true });
         const box = await cta.boundingBox();
         expect(box?.height).toBeGreaterThanOrEqual(44);

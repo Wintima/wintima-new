@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -11,15 +10,17 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
-import { HeroSection } from '@/components/sections/hero-section';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
-  title: 'About Us | Wintima Foundation',
-  description:
-    "Learn about Wintima Foundation's mission to provide quality education for children in rural Ghana through school supplies, mentorship, and community support.",
-};
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.about.title,
+  description: PAGE_SEO.about.description,
+  path: '/about',
+});
 
 const imageBlurDataUrl =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==';
@@ -110,17 +111,38 @@ const progressSteps = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <HeroSection
-        title="Education in the Heart of Ghana"
-        subtitle="About Wintima Foundation"
-        description="Wintima Foundation is an education-focused non-profit organisation supporting children in rural and deprived communities in Ghana."
-        height="large"
-        textAlign="center"
-        backgroundImage="/images/wintima-14.jpg"
-        backgroundImageAlt="Wintima Foundation outreach visit with students in Ghana"
-        priorityImage
-        imageSizes="100vw"
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'About Us', path: '/about' },
+        ]}
       />
+
+      <section className="bg-wintima-charcoal relative flex min-h-[520px] items-end overflow-hidden pt-28 text-white">
+        <Image
+          src="/images/wintima-14.jpg"
+          alt="Wintima Foundation outreach visit with students in Ghana"
+          fill
+          priority
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL={imageBlurDataUrl}
+          className="object-cover"
+        />
+        <div className="from-wintima-charcoal via-wintima-charcoal/70 to-wintima-charcoal/25 absolute inset-0 bg-gradient-to-t" />
+        <div className="relative container mx-auto px-4 pb-16 text-center sm:px-6 lg:px-8 lg:pb-20">
+          <p className="text-wintima-gold mb-4 text-sm font-bold tracking-wide uppercase">
+            About Wintima Foundation
+          </p>
+          <h1 className="mb-5 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+            Education in the Heart of Ghana
+          </h1>
+          <p className="mx-auto max-w-3xl text-lg leading-8 text-white/90 md:text-xl">
+            Wintima Foundation is an education-focused non-profit organisation supporting children
+            in rural and deprived communities in Ghana.
+          </p>
+        </div>
+      </section>
 
       <section className="py-16 lg:py-24" aria-labelledby="who-we-are-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

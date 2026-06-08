@@ -1,12 +1,29 @@
-import type { Metadata } from 'next';
-import { GalleryClient } from './gallery-client';
+import dynamic from 'next/dynamic';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
+import { GallerySkeleton } from './gallery-skeleton';
 
-export const metadata: Metadata = {
-  title: 'Gallery | Wintima Foundation',
-  description:
-    "View photos from Wintima Foundation's educational projects across schools in Ghana's Upper East Region.",
-};
+const GalleryClient = dynamic(() => import('./gallery-client').then((mod) => mod.GalleryClient), {
+  loading: () => <GallerySkeleton />,
+});
+
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.gallery.title,
+  description: PAGE_SEO.gallery.description,
+  path: '/gallery',
+});
 
 export default function GalleryPage() {
-  return <GalleryClient />;
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Gallery', path: '/gallery' },
+        ]}
+      />
+      <GalleryClient />
+    </>
+  );
 }

@@ -1,15 +1,18 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, MapPin } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getAllBlogPosts } from '@/lib/blog-data';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
-  title: 'Blog | Wintima Foundation',
-  description: "Read stories from Wintima Foundation volunteers working in Ghana's rural schools.",
-};
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.blog.title,
+  description: PAGE_SEO.blog.description,
+  path: '/blog',
+});
 
 const imageBlurDataUrl =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==';
@@ -21,6 +24,13 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+        ]}
+      />
+
       <section className="bg-wintima-maroon py-16 text-white lg:py-24" aria-labelledby="blog-title">
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
           <p className="text-wintima-gold mb-3 text-sm font-bold tracking-wide uppercase">
