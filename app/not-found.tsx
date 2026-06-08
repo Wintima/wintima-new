@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, Home } from 'lucide-react';
+import { HeartHandshake, Home, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
@@ -7,10 +7,12 @@ export default function NotFound() {
     <div className="bg-wintima-light flex min-h-screen items-center justify-center">
       <div className="mx-auto max-w-md px-4 text-center">
         <div className="mb-8">
-          <h1 className="text-wintima-maroon mb-4 text-9xl font-bold">404</h1>
-          <h2 className="text-wintima-charcoal mb-4 text-3xl font-bold">Page Not Found</h2>
+          <p className="text-wintima-maroon mb-4 text-8xl font-bold" aria-hidden="true">
+            404
+          </p>
+          <h1 className="text-wintima-charcoal mb-4 text-3xl font-bold">Page not found</h1>
           <p className="text-medium-gray mb-8 text-lg">
-            The page you&apos;re looking for doesn&apos;t exist or has been moved.
+            This page doesn&apos;t exist, but our work does.
           </p>
         </div>
 
@@ -18,7 +20,7 @@ export default function NotFound() {
           <Button asChild className="bg-wintima-maroon hover:bg-wintima-maroon/90 w-full">
             <Link href="/" className="flex items-center justify-center space-x-2">
               <Home className="h-5 w-5" />
-              <span>Go Home</span>
+              <span>Home</span>
             </Link>
           </Button>
 
@@ -28,8 +30,19 @@ export default function NotFound() {
             className="border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon w-full hover:text-white"
           >
             <Link href="/projects" className="flex items-center justify-center space-x-2">
-              <ArrowLeft className="h-5 w-5" />
-              <span>View Projects</span>
+              <MapPin className="h-5 w-5" />
+              <span>Projects</span>
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon w-full hover:text-white"
+          >
+            <Link href="/donate" className="flex items-center justify-center space-x-2">
+              <HeartHandshake className="h-5 w-5" />
+              <span>Donate</span>
             </Link>
           </Button>
         </div>

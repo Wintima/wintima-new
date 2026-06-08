@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, HeartHandshake } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
-  title: 'Our Team | Wintima Foundation',
-  description:
-    'Meet the dedicated volunteers behind Wintima Foundation who work to improve education for children in rural Ghana.',
-};
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.team.title,
+  description: PAGE_SEO.team.description,
+  path: '/team',
+});
 
 const blurDataURL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
@@ -56,6 +58,13 @@ function getAvatarColor(name: string) {
 export default function TeamPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Our Team', path: '/team' },
+        ]}
+      />
+
       <section className="bg-wintima-warm py-16 lg:py-24" aria-labelledby="team-hero-heading">
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
           <p className="text-wintima-maroon mb-4 text-sm font-bold tracking-wide uppercase">

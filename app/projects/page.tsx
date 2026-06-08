@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, HeartHandshake, MapPin } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { Button } from '@/components/ui/button';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
-  title: 'Our Projects | Wintima Foundation',
-  description:
-    "Explore Wintima Foundation's decade of educational projects across Ghana's Upper East Region, from school supplies to infrastructure.",
-};
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.projects.title,
+  description: PAGE_SEO.projects.description,
+  path: '/projects',
+});
 
 const blurDataURL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
@@ -158,6 +160,13 @@ const formatGhs = (amount: number) =>
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Our Projects', path: '/projects' },
+        ]}
+      />
+
       <section className="bg-wintima-charcoal relative flex min-h-[520px] items-end overflow-hidden pt-28 text-white">
         <Image
           src="/images/wintima-15.jpg"

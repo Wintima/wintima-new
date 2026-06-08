@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -9,8 +10,6 @@ import {
   Mail,
   MapPin,
 } from 'lucide-react';
-import { HeroSection } from '@/components/sections/hero-section';
-import { ImpactTimeline } from '@/components/sections/impact-timeline';
 import { Button } from '@/components/ui/button';
 import {
   connectLinks,
@@ -21,6 +20,16 @@ import {
   homepageHero,
   homepageSectionLinks,
 } from '@/lib/homepage-content';
+
+const ImpactTimeline = dynamic(
+  () => import('@/components/sections/impact-timeline').then((mod) => mod.ImpactTimeline),
+  {
+    loading: () => <div className="min-h-[28rem]" aria-hidden="true" />,
+  }
+);
+
+const imageBlurDataUrl =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==';
 
 const formatGhs = (amount: number) =>
   new Intl.NumberFormat('en-GH', {
@@ -45,17 +54,49 @@ export default function HomePage() {
         Skip to content
       </Link>
 
-      <HeroSection
-        title={homepageHero.title}
-        description={homepageHero.description}
-        backgroundImage={homepageHero.image}
-        backgroundImageAlt={homepageHero.imageAlt}
-        ctaButtons={homepageHero.ctas}
-        height="full"
-        overlay
-        priorityImage
-        imageSizes="100vw"
-      />
+      <section className="bg-wintima-charcoal relative flex min-h-[calc(100svh-3.5rem)] items-center justify-center overflow-hidden pt-16 text-white lg:min-h-[calc(100svh-4rem)]">
+        <Image
+          src={homepageHero.image}
+          alt={homepageHero.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          placeholder="blur"
+          blurDataURL={imageBlurDataUrl}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-6 text-4xl leading-tight font-bold text-balance text-white md:text-5xl lg:text-6xl xl:text-7xl">
+              {homepageHero.title}
+            </h1>
+            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-balance text-gray-200 md:text-xl">
+              {homepageHero.description}
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              {homepageHero.ctas.map((button) => (
+                <Button
+                  key={button.href}
+                  asChild
+                  size="lg"
+                  className={`min-h-12 rounded-full px-8 py-3 text-base font-medium ${
+                    button.variant === 'primary'
+                      ? 'bg-wintima-maroon hover:bg-wintima-maroon/90 text-white shadow-lg'
+                      : 'hover:text-wintima-charcoal border-2 border-white bg-transparent text-white hover:bg-white'
+                  }`}
+                >
+                  <Link href={button.href} className="flex min-h-12 items-center gap-2">
+                    <span>{button.text}</span>
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="current-initiative" className="bg-wintima-warm py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
