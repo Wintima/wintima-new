@@ -18,9 +18,11 @@ export function CopyNumberButton({ number }: CopyNumberButtonProps) {
     return () => window.clearTimeout(timeout);
   }, [copied]);
 
-  const copyNumber = async () => {
-    await navigator.clipboard.writeText(number);
+  const copyNumber = () => {
     setCopied(true);
+    void navigator.clipboard.writeText(number).catch(() => {
+      // Clipboard may be unavailable in some browsers or test environments.
+    });
   };
 
   return (

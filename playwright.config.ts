@@ -8,12 +8,12 @@ const chromiumProject = {
   use: { ...devices['Desktop Chrome'] },
 };
 
-const nightlyProjects = [
+const fullMatrixProjects = [
   chromiumProject,
   { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
   { name: 'webkit', use: { ...devices['Desktop Safari'] } },
-  { name: 'Mobile Chrome', use: { ...devices['Pixel 5'] } },
-  { name: 'Mobile Safari', use: { ...devices['iPhone 12'] } },
+  { name: 'mobile-chrome', use: { ...devices['Pixel 7'] } },
+  { name: 'mobile-safari', use: { ...devices['iPhone 14'] } },
 ];
 
 export default defineConfig({
@@ -22,7 +22,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   ...(process.env.CI ? { workers: 1 } : {}),
-  reporter: process.env.CI ? [['github'], ['list']] : 'list',
+  reporter: process.env.CI ? [['github'], ['list']] : [['html'], ['list']],
   timeout: 30_000,
   expect: { timeout: 10_000 },
   use: {
@@ -30,9 +30,9 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
-  projects: process.env.PLAYWRIGHT_FULL_MATRIX === '1' ? nightlyProjects : [chromiumProject],
+  projects: process.env.PLAYWRIGHT_FULL_MATRIX === '1' ? fullMatrixProjects : [chromiumProject],
   webServer: {
-    command: 'npm run start',
+    command: process.env.CI ? 'npm run start' : 'npm run dev',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
