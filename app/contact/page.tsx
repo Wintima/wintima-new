@@ -119,7 +119,7 @@ function ContactPageContent() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', path: '/' },
@@ -191,8 +191,8 @@ function ContactPageContent() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ x: -30 }}
+              whileInView={{ x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
@@ -217,7 +217,7 @@ function ContactPageContent() {
                   <h3 className="text-wintima-charcoal mb-2 font-semibold">
                     Program-Specific Inquiries
                   </h3>
-                  <p className="text-medium-gray text-sm">
+                  <p className="text-wintima-charcoal/80 text-sm">
                     For faster responses about specific programs, please select the relevant inquiry
                     type in the form.
                   </p>
@@ -226,8 +226,8 @@ function ContactPageContent() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ x: 30 }}
+              whileInView={{ x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >

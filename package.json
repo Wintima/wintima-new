@@ -12,14 +12,19 @@
     "test:unit": "vitest run",
     "validate": "npm run lint && npm run format:check && npm run typecheck && npm run test:unit",
     "test:e2e": "playwright test",
-    "test:e2e:legacy": "playwright test --grep @legacy",
-    "test:e2e:rebrand": "playwright test --grep @rebrand",
     "security:audit": "npm audit --audit-level=high",
     "ci:check": "npm run validate && npm run build && npm run security:audit",
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "audit:lighthouse": "node scripts/lighthouse-audit.mjs"
+    "audit:lighthouse": "node scripts/lighthouse-audit.mjs",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:e2e:smoke": "playwright test e2e/pages e2e/navigation.spec.ts e2e/404.spec.ts",
+    "test:e2e:seo": "playwright test e2e/seo.spec.ts",
+    "test:e2e:a11y": "playwright test e2e/accessibility.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -43,6 +48,7 @@
     "zod": "^3.25.53"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/eslintrc": "^3",
