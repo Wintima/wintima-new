@@ -5,13 +5,14 @@ import {
   assertNoHorizontalOverflow,
   attachConsoleErrorCollector,
   goto,
+  waitForContactForm,
 } from '../fixtures/helpers';
 import { VIEWPORTS } from '../fixtures/routes';
 
 test.describe('contact page @smoke', () => {
   test.beforeEach(async ({ page }) => {
     await goto(page, '/contact');
-    await expect(page.locator('#name')).toBeVisible({ timeout: 15_000 });
+    await waitForContactForm(page);
   });
 
   test('renders contact form and info', async ({ page }) => {
@@ -20,8 +21,6 @@ test.describe('contact page @smoke', () => {
     await expect(page.getByRole('heading', { level: 1, name: /Get in Touch/i })).toBeVisible();
     await expect(page.locator('#name')).toBeVisible();
     await expect(page.locator('#email')).toBeVisible();
-    await expect(page.locator('#phone')).toBeVisible();
-    await expect(page.locator('#type')).toBeVisible();
     await expect(page.locator('#subject')).toBeVisible();
     await expect(page.locator('#message')).toBeVisible();
     await expect(page.getByText('wintimafoundation@gmail.com').first()).toBeVisible();
@@ -60,12 +59,15 @@ test.describe('contact page @smoke', () => {
     await page.locator('#message').fill('This is a test message with enough characters.');
     await page.getByRole('button', { name: 'Send Message' }).click();
 
-    await expect(page.getByText('Message sent successfully!')).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByText("Thank you! We'll get back to you soon.")).toBeVisible({
+      timeout: 15_000,
+    });
   });
 
-  test('volunteer query param preselects inquiry type', async ({ page }) => {
+  test('volunteer query param loads contact page', async ({ page }) => {
     await goto(page, '/contact?type=volunteer');
-    await expect(page.locator('#type')).toHaveValue('volunteer');
+    await waitForContactForm(page);
+    await expect(page).toHaveURL(/\/contact\?type=volunteer$/);
   });
 
   for (const [name, viewport] of Object.entries(VIEWPORTS)) {
@@ -78,7 +80,7 @@ test.describe('contact page @smoke', () => {
   }
 
   test('passes accessibility scan on main content', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Send Us a Message' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Tell Us How We Can Help' })).toBeVisible();
     await checkAccessibility(page, { scope: 'main' });
     await expect(page.locator('main h1')).toHaveCount(1);
   });

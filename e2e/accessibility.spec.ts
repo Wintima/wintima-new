@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { checkAccessibility } from './fixtures/accessibility';
-import { goto } from './fixtures/helpers';
+import { goto, waitForContactForm } from './fixtures/helpers';
 import { PRIMARY_ROUTES } from './fixtures/routes';
 
 test.describe('accessibility @a11y', () => {
@@ -20,7 +20,8 @@ test.describe('accessibility @a11y', () => {
 
   test('contact form fields have labels', async ({ page }) => {
     await goto(page, '/contact');
-    for (const id of ['name', 'email', 'phone', 'type', 'subject', 'message']) {
+    await waitForContactForm(page);
+    for (const id of ['name', 'email', 'subject', 'message']) {
       const field = page.locator(`#${id}`);
       const labelledBy = await field.getAttribute('aria-labelledby');
       const ariaLabel = await field.getAttribute('aria-label');

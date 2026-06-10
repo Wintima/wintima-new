@@ -41,6 +41,6 @@ export const PAGE_SEO = {
   contact: {
     title: 'Contact Us',
     description:
-      'Get in touch with Wintima Foundation about donations, volunteering, partnerships, or our education projects in rural Ghana.',
+      'Get in touch with Wintima Foundation. Reach us via email or social media to learn about volunteering or supporting education in rural Ghana.',
   },
 } as const;
