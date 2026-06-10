@@ -1,427 +1,195 @@
-"use client";
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight, CalendarDays, MapPin } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { getAllBlogPosts } from '@/lib/blog-data';
+import { buildPageMetadata } from '@/lib/seo/metadata';
+import { PAGE_SEO } from '@/lib/seo/site';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { 
-  Calendar, 
-  Clock, 
-  User, 
-  Search,
-  ArrowRight,
-  Heart,
-  BookOpen,
-  Users
-} from "lucide-react";
+export const metadata = buildPageMetadata({
+  title: PAGE_SEO.blog.title,
+  description: PAGE_SEO.blog.description,
+  path: '/blog',
+});
 
-// Sample blog data
-const blogPosts = [
-  {
-    id: 1,
-    slug: "transforming-lives-through-mentorship",
-    title: "Transforming Lives Through Mentorship: The Northern Stars Success Story",
-    excerpt: "Discover how our flagship mentorship program is creating lasting change in the lives of students across Northern Ghana, connecting them with global mentors who believe in their potential.",
-    author: "Dr. Amina Hassan",
-    authorRole: "Programs Director",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    category: "Mentorship",
-    tags: ["Northern Stars", "Education", "Mentorship", "Success Stories"],
-    image: "/api/placeholder/800/400",
-    featured: true,
-    views: 1420,
-    likes: 89
-  },
-  {
-    id: 2,
-    slug: "diabetes-awareness-rural-communities",
-    title: "Breaking Barriers: Diabetes Awareness in Rural Communities",
-    excerpt: "How the J&C Diabetes Outreach program is revolutionizing health education and screening in underserved areas, honoring the memory of Charles and Juliet while saving lives.",
-    author: "Samuel Osei",
-    authorRole: "Community Liaison",
-    date: "2024-01-10",
-    readTime: "4 min read",
-    category: "Health",
-    tags: ["Diabetes", "Health Screening", "Community Outreach", "Prevention"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 892,
-    likes: 67
-  },
-  {
-    id: 3,
-    slug: "power-of-community-giving",
-    title: "The Power of Community Giving: Building Stronger Bonds",
-    excerpt: "Explore how our annual community giving initiatives strengthen relationships, provide essential support, and create lasting positive change in Northern Ghana.",
-    author: "Sarah Williams",
-    authorRole: "International Relations",
-    date: "2024-01-05",
-    readTime: "6 min read",
-    category: "Community",
-    tags: ["Community Giving", "Sustainability", "Partnerships", "Impact"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 756,
-    likes: 45
-  },
-  {
-    id: 4,
-    slug: "cultural-bridge-building-through-education",
-    title: "Cultural Bridge Building Through Education",
-    excerpt: "How our programs create meaningful connections between cultures, fostering understanding and collaboration across continents while preserving local traditions.",
-    author: "John Doe",
-    authorRole: "Chairman",
-    date: "2023-12-28",
-    readTime: "7 min read",
-    category: "Culture",
-    tags: ["Cultural Exchange", "Global Citizenship", "Traditions", "Understanding"],
-    image: "/api/placeholder/800/400",
-    featured: true,
-    views: 1156,
-    likes: 78
-  },
-  {
-    id: 5,
-    slug: "volunteer-spotlight-making-difference",
-    title: "Volunteer Spotlight: Making a Difference from Afar",
-    excerpt: "Meet our incredible volunteers who are making a real impact in Northern Ghana from around the world, and learn how you can join this amazing community of changemakers.",
-    author: "Jane Smith",
-    authorRole: "Secretary",
-    date: "2023-12-20",
-    readTime: "5 min read",
-    category: "Volunteering",
-    tags: ["Volunteers", "Remote Work", "Community", "Skills"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 634,
-    likes: 52
-  },
-  {
-    id: 6,
-    slug: "sustainable-development-goals-alignment",
-    title: "Aligning with Sustainable Development Goals",
-    excerpt: "Discover how our programs directly contribute to the UN Sustainable Development Goals and our commitment to creating measurable, sustainable impact in Northern Ghana.",
-    author: "Michael Johnson",
-    authorRole: "Treasurer",
-    date: "2023-12-15",
-    readTime: "8 min read",
-    category: "Impact",
-    tags: ["SDGs", "Sustainability", "Impact Measurement", "Global Goals"],
-    image: "/api/placeholder/800/400",
-    featured: false,
-    views: 445,
-    likes: 34
-  }
-];
-
-const categories = ["All", "Mentorship", "Health", "Community", "Culture", "Volunteering", "Impact"];
+const imageBlurDataUrl =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==';
 
 export default function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const featuredPosts = blogPosts.filter(post => post.featured);
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
-  });
+  const posts = getAllBlogPosts();
+  const hasPosts = posts.length > 0;
+  const usesSparseLayout = posts.length > 0 && posts.length < 4;
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-earthy-green to-earthy-green/80 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Stories of Impact
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
-              Discover the stories behind our mission, the people we serve, and the communities we&apos;re building together.
-            </p>
-            <div className="flex items-center justify-center space-x-6 text-white/80">
-              <div className="flex items-center space-x-2">
-                <BookOpen className="h-5 w-5" />
-                <span>{blogPosts.length} Articles</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Users className="h-5 w-5" />
-                <span>6 Contributors</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Heart className="h-5 w-5" />
-                <span>{blogPosts.reduce((sum, post) => sum + post.likes, 0)} Likes</span>
-              </div>
-            </div>
-          </motion.div>
+    <div className="min-h-screen bg-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+        ]}
+      />
+
+      <section className="bg-wintima-maroon py-16 text-white lg:py-24" aria-labelledby="blog-title">
+        <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-wintima-gold mb-3 text-sm font-bold tracking-wide uppercase">
+            Wintima Blog
+          </p>
+          <h1 id="blog-title" className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+            Stories from the Field
+          </h1>
+          <p className="mx-auto max-w-3xl text-lg leading-8 text-white/90 md:text-xl">
+            First-hand accounts from our volunteers on the ground in Ghana&apos;s Upper East Region.
+          </p>
         </div>
       </section>
 
-      {/* Featured Posts */}
-      <section className="py-16 lg:py-24 bg-light-gray">
+      <section className="py-16 lg:py-24" aria-labelledby="stories-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
-              Featured Stories
-            </h2>
-            <p className="text-lg text-medium-gray max-w-2xl mx-auto">
-              Highlighting our most impactful stories and recent updates from the field.
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-wintima-maroon mb-3 text-sm font-bold tracking-wide uppercase">
+              Latest Story
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {featuredPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group">
-                  <div className="relative h-64 overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${post.image})` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-sunset-orange text-white">
-                        Featured
-                      </Badge>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <Badge variant="outline" className="bg-white/90 text-deep-charcoal border-0 mb-2">
-                        {post.category}
-                      </Badge>
-                      <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <div className="flex items-center text-white/80 text-sm space-x-4">
-                        <span className="flex items-center space-x-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{new Date(post.date).toLocaleDateString()}</span>
-                        </span>
-                        <span className="flex items-center space-x-1">
-                          <Clock className="h-4 w-4" />
-                          <span>{post.readTime}</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <p className="text-medium-gray mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                          <User className="h-4 w-4 text-earthy-green" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-deep-charcoal">{post.author}</p>
-                          <p className="text-xs text-medium-gray">{post.authorRole}</p>
-                        </div>
-                      </div>
-                      <Button
-                        asChild
-                        variant="ghost"
-                        className="text-earthy-green hover:!text-white hover:!bg-earthy-green"
-                      >
-                        <Link href={`/blog/${post.slug}`} className="flex items-center space-x-1">
-                          <span>Read More</span>
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <h2
+              id="stories-heading"
+              className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl"
+            >
+              Field Notes From Our Work
+            </h2>
+            <p className="text-medium-gray text-base leading-7 md:text-lg">
+              Authentic updates from Wintima Foundation&apos;s school visits and volunteer work.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Search and Filter */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-deep-charcoal mb-4">
-              All Stories
-            </h2>
-            <p className="text-lg text-medium-gray max-w-2xl mx-auto mb-8">
-              Explore all our articles and stories from the field. Filter by category or search for specific topics.
-            </p>
-
-            {/* Search Bar */}
-            <div className="relative max-w-md mx-auto mb-8">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-medium-gray" />
-              <Input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-3 border-2 border-gray-200 focus:border-earthy-green"
-              />
+          {!hasPosts ? (
+            <div className="bg-wintima-light mx-auto max-w-2xl rounded-lg p-8 text-center">
+              <h3 className="text-wintima-charcoal mb-3 text-2xl font-bold">No stories yet.</h3>
+              <p className="text-medium-gray">Check back soon!</p>
             </div>
+          ) : null}
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`${
-                    selectedCategory === category
-                      ? "bg-earthy-green text-white"
-                      : "border-earthy-green text-earthy-green hover:!bg-earthy-green hover:!text-white"
-                  }`}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                  <div className="relative h-48 overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${post.image})` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <Badge variant="outline" className="bg-white/90 text-deep-charcoal border-0">
-                        {post.category}
-                      </Badge>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-deep-charcoal mb-3 line-clamp-2 group-hover:text-earthy-green transition-colors duration-300">
-                      {post.title}
-                    </h3>
-                    <p className="text-medium-gray mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between text-sm text-medium-gray mb-4">
-                      <span className="flex items-center space-x-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{new Date(post.date).toLocaleDateString()}</span>
-                      </span>
-                      <span className="flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
-                        <span>{post.readTime}</span>
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-6 h-6 bg-earthy-green/10 rounded-full flex items-center justify-center">
-                          <User className="h-3 w-3 text-earthy-green" />
-                        </div>
-                        <span className="text-sm font-medium text-deep-charcoal">{post.author}</span>
+          {usesSparseLayout
+            ? posts.map((post) => (
+                <article key={post.slug} className="mx-auto max-w-5xl">
+                  <Card className="border-wintima-maroon/10 overflow-hidden rounded-lg bg-white shadow-sm">
+                    <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+                      <div className="bg-wintima-light relative min-h-72">
+                        <Image
+                          src={post.image}
+                          alt={post.imageAlt}
+                          fill
+                          sizes="(min-width: 1024px) 48vw, 100vw"
+                          className="object-cover"
+                          placeholder="blur"
+                          blurDataURL={imageBlurDataUrl}
+                          priority
+                        />
                       </div>
-                      <div className="flex items-center space-x-3 text-sm text-medium-gray">
-                        <span className="flex items-center space-x-1">
-                          <Heart className="h-4 w-4" />
-                          <span>{post.likes}</span>
-                        </span>
+                      <CardContent className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                        <div className="text-medium-gray mb-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                          <span className="flex items-center gap-2">
+                            <CalendarDays className="text-wintima-maroon h-4 w-4" />
+                            <time dateTime={post.datetime}>{post.dateLabel}</time>
+                          </span>
+                          <span className="flex items-center gap-2">
+                            <MapPin className="text-wintima-maroon h-4 w-4" />
+                            {post.location}
+                          </span>
+                        </div>
+                        <h3 className="text-wintima-charcoal mb-4 text-3xl leading-tight font-bold">
+                          {post.title}
+                        </h3>
+                        <p className="text-medium-gray mb-7 text-base leading-7">{post.excerpt}</p>
                         <Button
                           asChild
-                          variant="ghost"
-                          size="sm"
-                          className="text-earthy-green hover:!text-white hover:!bg-earthy-green p-2"
+                          className="bg-wintima-maroon hover:!bg-wintima-maroon/90 w-fit rounded-full px-6 text-white"
                         >
-                          <Link href={`/blog/${post.slug}`}>
+                          <Link href={`/blog/${post.slug}`} className="flex items-center gap-2">
+                            Read the Story
                             <ArrowRight className="h-4 w-4" />
                           </Link>
                         </Button>
-                      </div>
+                      </CardContent>
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                  </Card>
+                </article>
+              ))
+            : null}
 
-          {filteredPosts.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
-              <p className="text-lg text-medium-gray">
-                No articles found matching your search criteria.
+          {posts.length >= 4 ? (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <article key={post.slug}>
+                  <Card className="border-wintima-maroon/10 h-full overflow-hidden rounded-lg shadow-sm">
+                    <div className="relative aspect-[4/3]">
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 31vw, (min-width: 768px) 47vw, 100vw"
+                        className="object-cover"
+                        placeholder="blur"
+                        blurDataURL={imageBlurDataUrl}
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <time className="text-medium-gray text-sm" dateTime={post.datetime}>
+                        {post.dateLabel}
+                      </time>
+                      <h3 className="text-wintima-charcoal mt-2 mb-3 text-xl font-bold">
+                        {post.title}
+                      </h3>
+                      <p className="text-medium-gray mb-5 line-clamp-3 text-sm leading-6">
+                        {post.excerpt}
+                      </p>
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="text-wintima-maroon inline-flex items-center gap-2 text-sm font-bold"
+                      >
+                        Read More
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </article>
+              ))}
+            </div>
+          ) : null}
+
+          {hasPosts ? (
+            <div className="bg-wintima-light mx-auto mt-10 max-w-3xl rounded-lg p-6 text-center">
+              <p className="text-medium-gray text-base leading-7">
+                More stories coming soon. Follow us on{' '}
+                <a
+                  href="https://www.instagram.com/wintima.foundation/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-wintima-maroon font-bold hover:underline"
+                >
+                  Instagram
+                </a>{' '}
+                for updates.
               </p>
-            </motion.div>
-          )}
+            </div>
+          ) : null}
         </div>
       </section>
 
-      {/* Newsletter Signup */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+      <section className="bg-wintima-maroon py-16 text-white lg:py-24">
+        <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="mb-5 text-3xl font-bold md:text-4xl">
+            Want to share your experience volunteering with us?
+          </h2>
+          <Button
+            asChild
+            size="lg"
+            className="text-wintima-maroon rounded-full bg-white px-7 hover:bg-white/90"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Stay Updated
-            </h2>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
-              Subscribe to our newsletter to receive the latest stories, updates, and insights from our work in Northern Ghana.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-white"
-              />
-              <Button
-                className="bg-sunset-orange hover:!bg-sunset-orange/90 text-white px-8"
-              >
-                Subscribe
-              </Button>
-            </div>
-          </motion.div>
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
         </div>
       </section>
     </div>
   );
-} 
+}

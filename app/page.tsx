@@ -1,404 +1,342 @@
-"use client";
-
-import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { HeroSection } from "@/components/sections/hero-section";
-import { AnimatedCounter } from "@/components/sections/animated-counter";
-import { ProgramCard } from "@/components/sections/program-card";
-import { Testimonial } from "@/components/sections/testimonial";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  GraduationCap, 
-  HeartPulse, 
-  HandHeart, 
-  Users, 
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
   ArrowRight,
-  Mail 
-} from "lucide-react";
-import Image from "next/image";
+  CheckCircle2,
+  HandCoins,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  connectLinks,
+  featuredProject,
+  featuredProjectTotal,
+  focusAreas,
+  homepageCta,
+  homepageHero,
+  homepageSectionLinks,
+} from '@/lib/homepage-content';
 
-const impactStats = [
+const ImpactTimeline = dynamic(
+  () => import('@/components/sections/impact-timeline').then((mod) => mod.ImpactTimeline),
   {
-    end: 150,
-    suffix: "+",
-    label: "Students Mentored",
-    description: "Young minds guided towards brighter futures"
-  },
-  {
-    end: 8,
-    label: "Communities Served",
-    description: "Rural communities in Northern Ghana"
-  },
-  {
-    end: 300,
-    suffix: "+",
-    label: "Health Screenings",
-    description: "Lives touched through diabetes awareness"
-  },
-  {
-    end: 24,
-    suffix: "+",
-    label: "Mentorship Sessions",
-    description: "Monthly guidance and support"
+    loading: () => <div className="min-h-[28rem]" aria-hidden="true" />,
   }
-];
+);
 
-const programs = [
-  {
-    title: "Northern Stars Mentorship",
-    description: "Empowering the next generation through one-on-one mentorship, connecting rural students with global mentors to unlock their potential and pursue higher education.",
-    icon: <GraduationCap className="h-6 w-6" />,
-    href: "/programmes/northern-stars",
-    stats: [
-      { label: "Active Mentees", value: "75" },
-      { label: "Success Rate", value: "92%" }
-    ]
-  },
-  {
-    title: "J&C Diabetes Outreach",
-    description: "Honoring the memory of Charles and Juliet through diabetes education, screening, and support services for communities across Northern Ghana.",
-    icon: <HeartPulse className="h-6 w-6" />,
-    href: "/programmes/diabetes-outreach",
-    stats: [
-      { label: "Screenings", value: "300+" },
-      { label: "Lives Saved", value: "15" }
-    ]
-  },
-  {
-    title: "Community Giving",
-    description: "Annual distribution of essential items and support to families in need, strengthening community bonds and providing immediate relief.",
-    icon: <HandHeart className="h-6 w-6" />,
-    href: "/programmes/community-giving",
-    stats: [
-      { label: "Families Helped", value: "120" },
-      { label: "Items Distributed", value: "500+" }
-    ]
-  }
-];
+const imageBlurDataUrl =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxNiAxMicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMTYnIGhlaWdodD0nMTInIGZpbGw9JyNmYWZhZmEnLz48cmVjdCB5PSc4JyB3aWR0aD0nMTYnIGhlaWdodD0nNCcgZmlsbD0nI2ZkZjhmMCcvPjwvc3ZnPg==';
 
-const testimonials = [
-  {
-    quote: "The Northern Stars program opened my eyes to possibilities I never knew existed. My mentor helped me see that my dreams were not too big.",
-    author: "Fatima A.",
-    role: "Senior High School Student",
-    program: "Northern Stars Mentorship"
-  },
-  {
-    quote: "The diabetes education session saved my father's life. We learned the warning signs just in time.",
-    author: "Mohammed K.",
-    role: "Community Member",
-    program: "J&C Diabetes Outreach"
-  },
-  {
-    quote: "Being a mentor for Yeremallu Foundation has been one of the most rewarding experiences. These young people inspire me every day.",
-    author: "Dr. Sarah Wilson",
-    role: "International Mentor",
-    program: "Northern Stars Mentorship"
-  }
-];
+const formatGhs = (amount: number) =>
+  new Intl.NumberFormat('en-GH', {
+    maximumFractionDigits: 0,
+    style: 'currency',
+    currency: 'GHS',
+  }).format(amount);
+
+const socialIcons = {
+  LinkedIn: Linkedin,
+  Instagram: Instagram,
+  Email: Mail,
+};
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <HeroSection
-        title="Empowering Northern Ghana Through Compassion & Action"
-        description="Creating lasting change through education, health awareness, and community service. Together, we build brighter futures for rural communities across Northern Ghana."
-        ctaButtons={[
-          {
-            text: "Support Our Cause",
-            href: "/get-involved",
-            variant: "primary"
-          },
-          {
-            text: "Learn Our Story",
-            href: "/about",
-            variant: "secondary"
-          }
-        ]}
-        height="full"
-        //backgroundVideo="/backgroundVideo.mp4"
-        backgroundImage="/hero-background.jpg"
-      />
+    <div id="homepage-content" className="min-h-screen bg-white">
+      <Link
+        href="#current-initiative"
+        className="focus:text-wintima-maroon focus:ring-wintima-maroon sr-only focus:not-sr-only focus:fixed focus:top-24 focus:left-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:shadow-lg focus:ring-2"
+      >
+        Skip to content
+      </Link>
 
-      {/* Impact Statistics Section */}
-      <section className="py-16 lg:py-24 bg-light-gray">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
-              Our Impact in Numbers
-            </h2>
-            <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Every number tells a story of transformation, hope, and lasting change in Northern Ghana&apos;s communities.
+      <section className="bg-wintima-charcoal relative flex min-h-[calc(100svh-3.5rem)] items-center justify-center overflow-hidden pt-16 text-white lg:min-h-[calc(100svh-4rem)]">
+        <Image
+          src={homepageHero.image}
+          alt={homepageHero.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          placeholder="blur"
+          blurDataURL={imageBlurDataUrl}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-6 text-4xl leading-tight font-bold text-balance text-white md:text-5xl lg:text-6xl xl:text-7xl">
+              {homepageHero.title}
+            </h1>
+            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-balance text-gray-200 md:text-xl">
+              {homepageHero.description}
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {impactStats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <AnimatedCounter
-                  end={stat.end}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                  description={stat.description}
-                />
-              </motion.div>
-            ))}
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              {homepageHero.ctas.map((button) => (
+                <Button
+                  key={button.href}
+                  asChild
+                  size="lg"
+                  className={`min-h-12 rounded-full px-8 py-3 text-base font-medium ${
+                    button.variant === 'primary'
+                      ? 'bg-wintima-maroon hover:bg-wintima-maroon/90 text-white shadow-lg'
+                      : 'hover:text-wintima-charcoal border-2 border-white bg-transparent text-white hover:bg-white'
+                  }`}
+                >
+                  <Link href={button.href} className="flex min-h-12 items-center gap-2">
+                    <span>{button.text}</span>
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Programs Overview Section */}
-      <section className="py-16 lg:py-24">
+      <section id="current-initiative" className="bg-wintima-warm py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
-              Our Programs
-            </h2>
-            <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Three pillars of transformation: education, health, and community support working together to create lasting change.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <ProgramCard {...program} />
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mt-12"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3 rounded-full font-medium"
-            >
-              <Link href="/programmes" className="flex items-center space-x-2">
-                <span>Explore All Programs</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Founder's Story Teaser */}
-      <section className="py-16 lg:py-24 bg-warm-sand">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/images/yeremallu-34.JPG" 
-                  alt="Yeremallu Foundation Founder" 
-                  className="w-full h-full object-cover"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
-                A Vision Born from Love
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p className="text-wintima-maroon mb-3 text-sm font-bold tracking-wide uppercase">
+                {featuredProject.eyebrow}
+              </p>
+              <h2 className="text-wintima-charcoal mb-4 text-3xl leading-tight font-bold md:text-4xl lg:text-5xl">
+                {featuredProject.title}
               </h2>
-              <p className="text-lg text-medium-gray mb-6 leading-relaxed">
-                The Yeremallu Foundation was born from a deep love for community and a vision to create lasting change. 
-                Our founder&apos;s journey from Northern Ghana to international success sparked a mission to give back and 
-                empower the next generation.
+              <p className="text-wintima-charcoal mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-sm">
+                <MapPin className="text-wintima-maroon h-4 w-4" aria-hidden="true" />
+                {featuredProject.location}
               </p>
-              <p className="text-lg text-medium-gray mb-8 leading-relaxed">
-                Inspired by the values of compassion, service, and the belief that every young person deserves 
-                the opportunity to reach their full potential, we work tirelessly to bridge gaps in education, 
-                health awareness, and community support.
+              <p className="text-medium-gray mb-8 max-w-2xl text-lg leading-8">
+                {featuredProject.description}
               </p>
+
+              <div className="mb-8 grid gap-3 sm:grid-cols-2">
+                {featuredProject.deliverables.map((deliverable) => (
+                  <div
+                    key={deliverable}
+                    className="border-wintima-maroon/10 text-wintima-charcoal flex min-h-11 items-center gap-3 rounded-md border bg-white px-4 py-3 text-sm font-semibold shadow-sm"
+                  >
+                    <CheckCircle2
+                      className="text-wintima-maroon h-5 w-5 shrink-0"
+                      aria-hidden="true"
+                    />
+                    {deliverable}
+                  </div>
+                ))}
+              </div>
+
+              <details className="border-wintima-maroon/15 mb-8 rounded-lg border bg-white p-5 shadow-sm">
+                <summary className="text-wintima-charcoal marker:text-wintima-maroon cursor-pointer text-base font-bold">
+                  Project budget: {formatGhs(featuredProjectTotal)}
+                </summary>
+                <dl className="text-medium-gray mt-5 space-y-3 text-sm">
+                  {featuredProject.costs.map((cost) => (
+                    <div
+                      key={cost.label}
+                      className="border-wintima-maroon/10 flex items-center justify-between gap-4 border-b pb-3 last:border-b-0 last:pb-0"
+                    >
+                      <dt>{cost.label}</dt>
+                      <dd className="text-wintima-charcoal font-semibold">
+                        {formatGhs(cost.amount)}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </details>
+
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-2 border-deep-charcoal text-deep-charcoal hover:!bg-deep-charcoal hover:!text-white"
+                className="bg-wintima-maroon hover:bg-wintima-maroon/90 min-h-11 rounded-full px-7 text-white"
               >
-                <Link href="/about" className="flex items-center space-x-2">
-                  <span>Read Full Story</span>
-                  <ArrowRight className="h-5 w-5" />
+                <Link href={featuredProject.cta.href} className="inline-flex items-center gap-2">
+                  {featuredProject.cta.text}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </Link>
               </Button>
-            </motion.div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-lg bg-white shadow-xl">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={featuredProject.image}
+                  alt={featuredProject.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 44vw, 100vw"
+                  className="pointer-events-none object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-wintima-light absolute inset-0 -z-10 animate-pulse" />
+              </div>
+              <div className="border-wintima-maroon/10 border-t p-5">
+                <p className="text-wintima-maroon text-sm font-semibold tracking-wide uppercase">
+                  Refurbishment goal
+                </p>
+                <p className="text-medium-gray mt-2 text-base leading-7">
+                  Safer classrooms, usable desks, repaired doors and windows, and a roof that keeps
+                  lessons going through the rainy season.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24" aria-labelledby="mission-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-charcoal mb-6">
-              Voices of Change
+          <div className="mb-12 max-w-3xl">
+            <h2
+              id="mission-heading"
+              className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl lg:text-5xl"
+            >
+              Education in the Heart of Ghana
             </h2>
-            <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto">
-              Hear from the students, families, and mentors whose lives have been transformed through our programs.
+            <p className="text-medium-gray text-lg leading-8">
+              Wintima focuses on practical barriers that keep rural children from learning, from the
+              supplies in a school bag to the condition of the classroom itself.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {focusAreas.map((area) => {
+              const Icon = area.icon;
+              return (
+                <article
+                  key={area.title}
+                  className="border-wintima-maroon/10 rounded-lg border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <div className="bg-wintima-maroon/10 text-wintima-maroon mb-5 flex h-12 w-12 items-center justify-center rounded-md">
+                    <Icon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-wintima-charcoal mb-3 text-xl font-bold">{area.title}</h3>
+                  <p className="text-medium-gray text-sm leading-6">{area.description}</p>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-10">
+            <Button
+              asChild
+              variant="outline"
+              className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon min-h-11 rounded-full border-2 px-6 hover:!text-white"
+            >
+              <Link
+                href={homepageSectionLinks.about.href}
+                className="inline-flex items-center gap-2"
               >
-                <Testimonial {...testimonial} />
-              </motion.div>
-            ))}
+                {homepageSectionLinks.about.text}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Call-to-Action Section */}
-      <section className="py-16 lg:py-24 bg-earthy-green text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-48 translate-y-48"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Join Our Mission
+      <section className="bg-wintima-warm py-16 lg:py-24" aria-labelledby="timeline-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2
+              id="timeline-heading"
+              className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl lg:text-5xl"
+            >
+              2015-2025 Milestones
             </h2>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-              Together, we can create lasting change. Whether through volunteering, mentoring, or supporting our programs, 
-              your involvement makes a difference.
+            <p className="text-medium-gray text-lg leading-8">
+              From a first school donation in 2015 to the current Yizidug refurbishment work, each
+              milestone reflects a practical step toward keeping children in school.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {/* Newsletter Signup */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Mail className="h-6 w-6 text-soft-gold" />
-                    <h3 className="text-xl font-semibold">Stay Connected</h3>
-                  </div>
-                  <p className="text-white/80 mb-6">
-                    Subscribe to our newsletter for updates on our programs and impact stories.
-                  </p>
-                  <form className="space-y-4">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="bg-white/20 border-white/30 text-white placeholder-white/60 focus:border-white focus:ring-white/50"
-                    />
-                    <Button
-                      type="submit"
-                      className="w-full bg-sunset-orange hover:bg-sunset-orange/90 text-white"
-                    >
-                      Subscribe
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
+          <ImpactTimeline />
 
-            {/* Get Involved CTA */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+          <div className="mt-16 text-center">
+            <Button
+              asChild
+              variant="outline"
+              className="border-wintima-maroon text-wintima-maroon hover:!bg-wintima-maroon min-h-11 rounded-full border-2 px-6 hover:!text-white"
             >
-              <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Users className="h-6 w-6 text-soft-gold" />
-                    <h3 className="text-xl font-semibold">Get Involved</h3>
-                  </div>
-                  <p className="text-white/80 mb-6">
-                    Ready to make a difference? Explore volunteer opportunities and ways to support our mission.
-                  </p>
-                  <div className="space-y-3">
-                    <Button
-                      asChild
-                      className="w-full bg-white text-earthy-green hover:bg-white/90"
-                    >
-                      <Link href="/get-involved">Volunteer With Us</Link>
-                    </Button>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full border-white bg-earthy-green text-white hover:!bg-white hover:!text-earthy-green"
-                    >
-                      <Link href="/programmes/northern-stars">Become a Mentor</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+              <Link
+                href={homepageSectionLinks.projects.href}
+                className="inline-flex items-center gap-2"
+              >
+                {homepageSectionLinks.projects.text}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-wintima-maroon py-16 text-white lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/10">
+              <HandCoins className="text-wintima-gold h-7 w-7" aria-hidden="true" />
+            </div>
+            <h2 className="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">{homepageCta.title}</h2>
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-white/90">
+              {homepageCta.description}
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              {homepageCta.ctas.map((cta, index) => (
+                <Button
+                  key={cta.href}
+                  asChild
+                  size="lg"
+                  variant={index === 0 ? 'default' : 'outline'}
+                  className={
+                    index === 0
+                      ? 'text-wintima-maroon min-h-11 rounded-full bg-white px-7 hover:bg-white/90'
+                      : 'hover:!text-wintima-maroon min-h-11 rounded-full border-2 border-white bg-transparent px-7 text-white hover:!bg-white'
+                  }
+                >
+                  <Link href={cta.href}>{cta.text}</Link>
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-24" aria-labelledby="connect-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <h2
+                id="connect-heading"
+                className="text-wintima-charcoal mb-4 text-3xl font-bold md:text-4xl"
+              >
+                Connect With Wintima
+              </h2>
+              <p className="text-medium-gray max-w-xl text-lg leading-8">
+                Follow the foundation, share the current initiative, or reach out directly to learn
+                how you can support children in rural communities.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {connectLinks.map((link) => {
+                const Icon = socialIcons[link.name as keyof typeof socialIcons];
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="border-wintima-maroon/10 text-wintima-charcoal hover:border-wintima-maroon/30 focus-visible:outline-wintima-maroon flex min-h-24 items-center justify-between rounded-lg border bg-white p-5 shadow-sm transition hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  >
+                    <span className="font-bold">{link.name}</span>
+                    <Icon className="text-wintima-maroon h-6 w-6" aria-hidden="true" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

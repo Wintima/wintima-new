@@ -1,41 +1,55 @@
-import React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
+import Link from 'next/link';
+import { HeartHandshake, Home, MapPin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-light-gray">
-      <div className="text-center max-w-md mx-auto px-4">
+    <div className="bg-wintima-light flex min-h-screen items-center justify-center">
+      <div className="mx-auto max-w-md px-4 text-center">
         <div className="mb-8">
-          <h1 className="text-9xl font-bold text-earthy-green mb-4">404</h1>
-          <h2 className="text-3xl font-bold text-deep-charcoal mb-4">
-            Page Not Found
-          </h2>
-          <p className="text-medium-gray text-lg mb-8">
-            The page you&apos;re looking for doesn&apos;t exist or has been moved.
+          <p className="text-wintima-maroon mb-4 text-8xl font-bold" aria-hidden="true">
+            404
+          </p>
+          <h1 className="text-wintima-charcoal mb-4 text-3xl font-bold">Page not found</h1>
+          <p className="text-medium-gray mb-8 text-lg">
+            This page doesn&apos;t exist, but our work does.
           </p>
         </div>
-        
+
         <div className="space-y-4">
-          <Button asChild className="w-full bg-earthy-green hover:bg-earthy-green/90">
+          <Button asChild className="bg-wintima-maroon hover:bg-wintima-maroon/90 w-full">
             <Link href="/" className="flex items-center justify-center space-x-2">
               <Home className="h-5 w-5" />
-              <span>Go Home</span>
+              <span>Home</span>
             </Link>
           </Button>
-          
-          <Button asChild variant="outline" className="w-full border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white">
-            <Link href="/blog" className="flex items-center justify-center space-x-2">
-              <ArrowLeft className="h-5 w-5" />
-              <span>Back to Blog</span>
+
+          <Button
+            asChild
+            variant="outline"
+            className="border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon w-full hover:text-white"
+          >
+            <Link href="/projects" className="flex items-center justify-center space-x-2">
+              <MapPin className="h-5 w-5" />
+              <span>Projects</span>
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="border-wintima-maroon text-wintima-maroon hover:bg-wintima-maroon w-full hover:text-white"
+          >
+            <Link href="/donate" className="flex items-center justify-center space-x-2">
+              <HeartHandshake className="h-5 w-5" />
+              <span>Donate</span>
             </Link>
           </Button>
         </div>
-        
-        <div className="mt-12 text-sm text-medium-gray">
+
+        <div className="text-medium-gray mt-12 text-sm">
           <p>If you believe this is an error, please</p>
-          <Link href="/contact" className="text-earthy-green hover:underline">
+          <Link href="/contact" className="text-wintima-maroon hover:underline">
             contact us
           </Link>
         </div>
