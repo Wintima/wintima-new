@@ -4,6 +4,13 @@ export async function goto(page: Page, path: string) {
   await page.goto(path, { waitUntil: 'domcontentloaded' });
 }
 
+export async function waitForContactForm(page: Page) {
+  await expect(page.locator('#name')).toBeVisible({ timeout: 15_000 });
+  await expect(page.locator('#email')).toBeVisible();
+  await expect(page.locator('#subject')).toBeVisible();
+  await expect(page.locator('#message')).toBeVisible();
+}
+
 export function attachConsoleErrorCollector(page: Page) {
   const errors: string[] = [];
   page.on('console', (message) => {
